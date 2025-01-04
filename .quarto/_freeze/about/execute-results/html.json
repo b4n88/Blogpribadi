@@ -1,0 +1,15 @@
+{
+  "hash": "6b10b13107148f2a804799edb8803e9d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"About\"\nimage: aboutttt.jpeg\nabout:\n  template: marquee\n  links:\n    - icon: twitter\n      text: Twitter\n      href: https://x.com/b4n_88\n    - icon: linkedin\n      text: LinkedIn\n      href: https://www.linkedin.com/\n    - icon: Instagram\n      text: Instagram\n      href: https://www.instagram.com/pointcore_id/\ncss: ratakanan.css\n---\n\nAbout this site\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

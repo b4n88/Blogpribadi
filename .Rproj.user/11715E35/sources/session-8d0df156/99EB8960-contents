@@ -1,0 +1,43 @@
+project:
+  type: website
+
+website:
+  title: "Virtual Business KRI"
+  navbar:
+    left: 
+      - text: "Blog"
+        href: 1index.qmd
+      - text: "Materi Virtual"
+        menu:
+          - text: "Ipulsa & PLN"
+            href: 4PulsaPln.qmd
+          - text: "Payment point"
+            href: 4Paypoint.qmd
+          - text: "Bank"
+            href: 4Bank.qmd
+          - text: "EDC"
+            href: 4EDC.qmd
+          - text: "Ewallet"
+            href: 4Ewallet.qmd
+          - text: "Isaku"
+            href: 4isaku.qmd
+          - text: "KPI"
+            href: 4kpi.qmd
+      - text: "Event Virtual"
+        href: 2Event.qmd
+      - text: "Profile"
+        href: 3profile.qmd
+      - text: "About"
+        href: about.qmd
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/al-bani-532b06294/
+      - icon: twitter
+        href: https://x.com/b4n_88
+format:
+  html:
+    theme: Yeti
+    css: styles.css
+
+editor: visual
+

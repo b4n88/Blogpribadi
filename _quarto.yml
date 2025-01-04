@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "STATISTICIAN & MARKET RESEARCH"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/al-bani-532b06294/
+      - icon: twitter
+        href: https://x.com/b4n_88
+
+format:
+  html:
+    theme: Yeti
+    css: styles.css
+    toc: true
+    include-after-body: footer.html
+
+editor: visual
+

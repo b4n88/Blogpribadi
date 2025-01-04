@@ -1,0 +1,31 @@
+---
+title: "About"
+image: aboutttt.jpeg
+about:
+  template: marquee
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://x.com/b4n_88
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/
+    - icon: Instagram
+      text: Instagram
+      href: https://www.instagram.com/pointcore_id/
+css: ratakanan.css
+page-layout: full
+title-block-banner: true
+---
+
+Assalamu’alaikum…
+
+Hola, perkenalkan nama saya Albani
+
+Statistika adalah hobi saya yang baru saat ini, saya ingin menjelajahi bidang `Market Research` dan `Data Science`.
+
+# Kontak yang bisa anda hubungi
+- Albani | 082345674363
+- Email Pribadi | albani.idm88@gmail.com
+
+Selamat Membaca..
