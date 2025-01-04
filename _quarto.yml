@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "STATISTICIAN & MARKET RESEARCH"
@@ -16,7 +17,7 @@ website:
 
 format:
   html:
-    theme: Yeti
+    theme: yeti
     css: styles.css
     toc: true
     include-after-body: footer.html
