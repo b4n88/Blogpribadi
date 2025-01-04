@@ -4,6 +4,7 @@ image: 03 p.png
 author: "Albani"
 date: "2025-01-04"
 categories: [Coding]
+css: ratakanan.css
 ---
 *Bagaimana `Git` dan `Github` bekerja untuk dunia yang fana ini..*
 

@@ -1,0 +1,83 @@
+---
+title: "METRIK ANALISA DATA"
+image: 04 fp.jpg
+author: "Albani"
+date: "2025-01-05"
+categories: [Data Analyst]
+css: ratakanan.css
+---
+*Metrik dan Inovasi sebagai data analyst*
+
+-------
+
+Sebagai data analyst sepertinya ini adalah hal yang paling crusial dan harus diketahui. Ketika saya membaca buku yang baru dibuat oleh mentor saya Pak [Aep](https://github.com/aephidayatuloh), saya tidak sengaja membaca ini dan sepertinya harus saya pahami dan tuliskan. Saya ijin mengutip tulisan yang ada dalam buku itu. Oh iya jika anda ingin membaca bukunya lebih jelas bisa klik [di sini](https://github.com/aephidayatuloh/data-analyst).
+
+# Metrik dan Inovasi
+
+![Sumber : google](04 inv.webp)
+
+Untuk mengerti apa itu metrik silakan membaca tulisan dari Uda `Ivan Lanin` tentang [Metrik dan Inovasi](https://ivanlanin.medium.com/metrik-dan-inovasi-fbed46e1215e). Jadi Metrik adalah sesuatu yang dijadikan tolak ukuran keberhasilan kerjaan. Dalam data analyst kita perlu paham apa saja metrik metrik yang dibutuhkan dalam melakukan anlisa. Contohnya adalah menganalisa perusahaan dalam mengukur performa bisnis melalui data yang dihasilkan. Untuk mencapai tujuan ini, data analyst menggunakan metrik bisnis yang relevan dengan industri dan kebutuhan perusahaan. Metrik bisnis adalah alat penting yang memahami apakah suatu perusahaan sedang berjalan di arah yang benar atau melakukan perbaikan. Setiap industri memiliki spesifikasi, namun konsepnya tetap sama ; Mengukur dan mengevaluasi kinerja untuk mengambil keputusan yang lebih baik
+
+Inovasi adalah sesuatu yang dapat dikembangkan untuk meningkatkan kinerja. Lebih jelasnya ini adalah eksekusi yang dilakukan jika metrik sudah diketahui.
+
+**Contoh** : Perusahaan Ritel memliki metrik `CLV` (Customer Lifetime Value) dan `CAC` (Customer Accuisition Cost). CLV menghitung nilai total yang bisa dihasilakn dari pelanggan selama hidup. Sebaliknya, CAC menghitung biaya yang dikeluarkan untuk mendapatkan pelanggan baru. Dengan menggabungkan metrik ini kita bisa memberikan strategi marketing yang paling evektif. Strategi marketing ini disebut dengan Inovasi.
+
+# Kumpulan Metrik diberbagai industri
+
+Ini sebagai catatan yang bagian besar saja, bisa jadi client kita memiliki atau meminta metrik sesuai keinginan mereka.
+
+## Metrik Retail & E-Comerce
+
+1. **_Customer Lifetime Value_** (CLV) - Nilai total yang dihasilkan pelanggan selama masa hidupnya.
+2. **_Customer Acquisition Cost_** (CAC) - Biaya yang dikeluarkan untuk memperoleh 1 pelanggan baru.
+3. **_Conversion Rate_** - Persentase pengunjung yang berubah menjadi pelanggan.
+4. **_Average Order Value_** (AOV) - Rata-rata nilai transaksi perpesanan.
+5. **_Cart Abandonment Rate_** - Persentase pelanggan yang meninggalkan kerangjang belanjaan sebelum menyelesaikan pembelian.
+6. **_Repeat Phurcase Rate_** - Peresentase pelanggan yang melakukan transaksi berulang.
+7. **_Gross Margin_** - Selisih antara biaya pendapatan dan biaya produksi.
+
+## Sektor Kesehatan
+1. **_Patient Saisfaction Score_** - Tingkat kepuasan pasien dengan pelayanan yang diterima.
+2. **_Average Treatment Cost_** - Rata-rata biaya perawatan atau pengobatan.
+3. **_Hospital Readmission Rate_** - Persentase Pasien yang kembali dirawat dalam waktu tertentu setelah keluar dari rumah sakit.
+4. **_Patient Retention Rate_** - Persentase pasien yang masih menggunakan layanan setelah periode tertentu.
+5. **_Operational Efficiency_** - Ukuran efisiensi operasional dalam hal biaya dan waktu.
+
+## Teknologi & Aplikasi Digital  
+1. **_Monthly Active Users_** (MAU) – Jumlah pengguna yang aktif menggunakan aplikasi/platform setiap bulan.  
+2. **_Daily Active Users_** (DAU) – Jumlah pengguna yang aktif setiap hari.  
+3. **_Churn Rate_** – Persentase pengguna atau pelanggan yang berhenti menggunakan layanan dalam periode waktu tertentu.  
+4. **_Retention Rate_** – Persentase pengguna yang tetap menggunakan layanan setelah periode tertentu.  
+5. **_Average Revenue Per User_** (ARPU) – Pendapatan rata-rata yang dihasilkan dari setiap pengguna dalam periode tertentu.  
+
+## Keuangan  
+1. **_Return on Investment (ROI)_** – Ukuran pengembalian investasi relatif terhadap biaya yang dikeluarkan.  
+2. **_Net Profit Margin_** – Persentase laba bersih terhadap total pendapatan.  
+3. **_Operating Cash Flow_** – Jumlah uang tunai yang dihasilkan oleh operasi perusahaan.  
+4. **_Debt-to-Equity Ratio_** – Rasio antara total utang dan ekuitas pemegang saham.  
+5. **_Current Ratio_** – Rasio likuiditas yang mengukur kemampuan perusahaan untuk membayar kewajiban jangka pendek.  
+
+## Manufaktur  
+1. **_Overall Equipment Effectiveness_** (OEE) – Ukuran efektivitas peralatan produksi, menggabungkan ketersediaan, kinerja, dan kualitas.  
+2. **_Production Downtime_** – Waktu yang hilang akibat mesin tidak berfungsi atau gangguan produksi lainnya.  
+3. **_Cost per Unit_** – Biaya untuk memproduksi satu unit produk.  
+4. **_Inventory Turnover_** – Frekuensi rata-rata persediaan diperbarui dalam satu periode waktu.  
+5. **_Defect Rate_** – Persentase produk cacat dalam produksi.  
+
+## Media & Periklanan  
+1. **_Cost per Click_** (CPC) – Biaya yang dibayar untuk setiap klik iklan.  
+2. **_Cost per Acquisition_** (CPA) – Biaya yang dibayar untuk setiap tindakan atau konversi yang diinginkan.  
+3. **_Click-Through Rate_** (CTR) – Persentase orang yang mengeklik iklan setelah melihatnya.  
+4. **_Impressions_** – Jumlah total tampilan iklan.  
+5. **_Engagement Rate_** – Persentase interaksi dengan konten atau iklan, seperti like, share, dan komentar.  
+
+## SaaS (Software as a Service)  
+1. **_Annual Recurring Revenue_** (ARR) – Pendapatan tahunan yang dapat diprediksi dari pelanggan berlangganan.  
+2. **_Customer Retention Rate_** – Persentase pelanggan yang tetap berlangganan setelah periode tertentu.  
+3. **_Customer Churn Rate_** – Persentase pelanggan yang berhenti berlangganan dalam periode tertentu.  
+4. **_Lifetime Value to Customer Acquisition Cost_** (LTV) Ratio – Perbandingan antara CLV dan CAC.  
+5. **_Net Promoter Score_** (NPS) – Ukuran kesetiaan pelanggan berdasarkan rekomendasi.
+
+------
+
+Ini bisa dijadikan contoh metrik apa yang bisa kita buat dan melakukan analisa lebih mendalam sedalam `SILET`. Okeee see you on the next Story
