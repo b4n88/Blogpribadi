@@ -1,0 +1,563 @@
+---
+title: "PRAKTIK MEMBUAT KUESIONER"
+image: 10 fp.jpg
+author: "Albani"
+date: "2025-01-08"
+categories: [Market Research, Survey]
+---
+> *Sudah paham tentang quesioner dasar? Ayo mulai membuat survey*
+
+-------
+
+# Kuesioner Evaluasi Produk Roti untuk Perbaikan Layanan
+
+**Tujuan:** Kuesioner ini bertujuan untuk memahami pengalaman pelanggan dalam mengonsumsi produk roti serta mengidentifikasi area yang dapat diperbaiki. Semua jawaban akan bersifat rahasia dan hanya digunakan untuk tujuan analisis.
+
+**Estimasi Waktu Pengisian:** Sekitar **5-10 menit**
+
+**Petunjuk:** Harap isi kuesioner dengan jujur. Tidak ada jawaban yang benar atau salah.
+
+---
+
+## Bagian 1: Data Demografis (Identitas Responden)
+
+1. **Jenis Kelamin:**  
+   - [ ] Laki-laki  
+   - [ ] Perempuan  
+   - [ ] Lainnya  
+
+2. **Usia Anda:**  
+   - [ ] < 18 Tahun  
+   - [ ] 18-25 Tahun  
+   - [ ] 26-35 Tahun  
+   - [ ] 36-50 Tahun  
+   - [ ] > 50 Tahun  
+
+3. **Seberapa sering Anda membeli roti?**  
+   - [ ] Setiap hari  
+   - [ ] 2-3 kali seminggu  
+   - [ ] Seminggu sekali  
+   - [ ] Jarang sekali  
+
+4. **Tempat Anda biasanya membeli roti:**  
+   - [ ] Supermarket  
+   - [ ] Toko roti khusus  
+   - [ ] Minimarket  
+   - [ ] Lainnya: ____________
+
+---
+
+## Bagian 2: Pengalaman Konsumsi Produk Roti
+
+5. **Apa alasan utama Anda membeli roti? (Pilih lebih dari satu jika perlu)**  
+   - [ ] Sarapan  
+   - [ ] Camilan  
+   - [ ] Bekal  
+   - [ ] Lainnya: ____________
+
+6. **Seberapa puas Anda dengan kualitas roti yang Anda beli?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+7. **Bagaimana pendapat Anda tentang rasa roti yang Anda beli?**  
+   - [ ] Sangat Enak  
+   - [ ] Enak  
+   - [ ] Biasa Saja  
+   - [ ] Kurang Enak  
+   - [ ] Tidak Enak Sama Sekali  
+
+8. **Apakah Anda pernah mengalami masalah dengan roti yang dibeli (misalnya basi, tekstur keras, atau aroma aneh)?**  
+   - [ ] Ya (Lanjut ke Pertanyaan 9)  
+   - [ ] Tidak (Lanjut ke Pertanyaan 10)
+
+9. **Jelaskan masalah yang Anda alami dengan roti yang dibeli:**  
+   - ________________________________________
+
+10. **Apa yang paling penting bagi Anda saat memilih roti? (Pilih maksimal 3)**  
+   - [ ] Harga  
+   - [ ] Rasa  
+   - [ ] Tekstur  
+   - [ ] Kemasan  
+   - [ ] Tanggal Kedaluwarsa  
+   - [ ] Merek  
+
+---
+
+## Bagian 3: Kepuasan dan Loyalitas Konsumen
+
+11. **Apakah Anda akan membeli roti dari merek yang sama di masa mendatang?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+   - [ ] Mungkin  
+
+12. **Seberapa besar kemungkinan Anda merekomendasikan produk roti ini kepada teman atau keluarga? (Skala 1-5)**  
+   - 1 (Sangat Tidak Mungkin) - 5 (Sangat Mungkin)
+
+13. **Apakah ada faktor yang membuat Anda ragu untuk membeli produk roti ini kembali?**  
+   - [ ] Tidak Ada  
+   - [ ] Harga  
+   - [ ] Kualitas  
+   - [ ] Kemasan  
+   - [ ] Lainnya: ____________
+
+14. **Apa saran Anda untuk meningkatkan produk roti kami?**  
+   - ________________________________________
+
+---
+
+## Bagian 4: Pertanyaan Sensitif dan Penutupan
+
+15. **Apakah Anda memiliki alergi terhadap bahan tertentu dalam roti?**  
+   - [ ] Ya (Sebutkan: ____________)  
+   - [ ] Tidak  
+
+16. **Apakah Anda merasa roti yang Anda beli aman untuk dikonsumsi?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+17. **Seberapa nyaman Anda dengan kebersihan tempat Anda membeli roti?**  
+   - [ ] Sangat Nyaman  
+   - [ ] Nyaman  
+   - [ ] Netral  
+   - [ ] Tidak Nyaman  
+   - [ ] Sangat Tidak Nyaman  
+
+---
+
+## Bagian 5: Verifikasi dan Penyelesaian Survei
+
+18. **Apakah Anda pernah mengisi survei serupa sebelumnya?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+19. **Apakah ada hal lain yang ingin Anda sampaikan terkait produk roti kami?**  
+   - ________________________________________
+
+## Terima kasih atas partisipasi Anda!
+
+Jawaban Anda sangat berharga bagi kami untuk meningkatkan kualitas produk dan layanan. Jika Anda memiliki pertanyaan lebih lanjut, silakan hubungi tim kami di [email@example.com].
+
+---
+
+# Kuesioner Kepuasan Pelayanan Rumah Sakit
+
+**Tujuan:** Kuesioner ini bertujuan untuk memahami tingkat kepuasan pasien terhadap pelayanan rumah sakit serta mengidentifikasi area yang memerlukan perbaikan. Semua jawaban akan bersifat rahasia dan hanya digunakan untuk tujuan analisis.
+
+**Estimasi Waktu Pengisian:** Sekitar **5-10 menit**
+
+**Petunjuk:** Harap isi kuesioner dengan jujur. Tidak ada jawaban yang benar atau salah.
+
+---
+
+## Bagian 1: Data Demografis (Identitas Responden)
+
+1. **Jenis Kelamin:**  
+   - [ ] Laki-laki  
+   - [ ] Perempuan  
+   - [ ] Lainnya  
+
+2. **Usia Anda:**  
+   - [ ] < 18 Tahun  
+   - [ ] 18-25 Tahun  
+   - [ ] 26-35 Tahun  
+   - [ ] 36-50 Tahun  
+   - [ ] > 50 Tahun  
+
+3. **Seberapa sering Anda berkunjung ke rumah sakit ini?**  
+   - [ ] Pertama kali  
+   - [ ] Beberapa kali dalam setahun  
+   - [ ] Setiap bulan  
+   - [ ] Lebih dari sekali dalam sebulan  
+
+4. **Jenis Layanan yang Anda gunakan:**  
+   - [ ] Rawat Inap  
+   - [ ] Rawat Jalan  
+   - [ ] Instalasi Gawat Darurat (IGD)  
+   - [ ] Lainnya: ____________
+
+---
+
+## Bagian 2: Pengalaman Pelayanan di Rumah Sakit
+
+5. **Seberapa mudah Anda mendapatkan informasi mengenai layanan di rumah sakit ini?**  
+   - [ ] Sangat Mudah  
+   - [ ] Mudah  
+   - [ ] Cukup Mudah  
+   - [ ] Sulit  
+   - [ ] Sangat Sulit  
+
+6. **Bagaimana pendapat Anda tentang keramahan staf di bagian pendaftaran?**  
+   - [ ] Sangat Ramah  
+   - [ ] Ramah  
+   - [ ] Biasa Saja  
+   - [ ] Tidak Ramah  
+   - [ ] Sangat Tidak Ramah  
+
+7. **Apakah waktu tunggu untuk mendapatkan pelayanan sesuai dengan ekspektasi Anda?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+8. **Apakah Anda merasa nyaman dengan kebersihan fasilitas rumah sakit ini?**  
+   - [ ] Sangat Nyaman  
+   - [ ] Nyaman  
+   - [ ] Netral  
+   - [ ] Tidak Nyaman  
+   - [ ] Sangat Tidak Nyaman  
+
+9. **Apakah Anda pernah mengalami masalah dengan layanan rumah sakit ini (misalnya keterlambatan pelayanan, kesalahan administrasi, atau fasilitas yang tidak memadai)?**  
+   - [ ] Ya (Lanjut ke Pertanyaan 10)  
+   - [ ] Tidak (Lanjut ke Pertanyaan 11)
+
+10. **Jelaskan masalah yang Anda alami dengan layanan rumah sakit ini:**  
+   - ________________________________________
+
+---
+
+## Bagian 3: Kepuasan Terhadap Tenaga Medis
+
+11. **Seberapa puas Anda dengan penjelasan dokter mengenai kondisi dan pengobatan Anda?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+12. **Seberapa puas Anda dengan perhatian perawat selama perawatan?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+13. **Apakah Anda merasa tenaga medis mendengarkan dan memahami kekhawatiran Anda?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+14. **Seberapa jelas instruksi yang diberikan oleh tenaga medis terkait pengobatan dan perawatan di rumah?**  
+   - [ ] Sangat Jelas  
+   - [ ] Jelas  
+   - [ ] Cukup Jelas  
+   - [ ] Tidak Jelas  
+   - [ ] Sangat Tidak Jelas  
+
+---
+
+## Bagian 4: Kepuasan dan Loyalitas Pasien
+
+15. **Apakah Anda akan menggunakan layanan rumah sakit ini di masa depan?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+   - [ ] Mungkin  
+
+16. **Seberapa besar kemungkinan Anda merekomendasikan rumah sakit ini kepada keluarga atau teman? (Skala 1-5)**  
+   - 1 (Sangat Tidak Mungkin) - 5 (Sangat Mungkin)
+
+17. **Apakah ada faktor yang membuat Anda ragu untuk kembali ke rumah sakit ini?**  
+   - [ ] Tidak Ada  
+   - [ ] Biaya  
+   - [ ] Waktu Tunggu  
+   - [ ] Kualitas Layanan  
+   - [ ] Lainnya: ____________
+
+18. **Apa saran Anda untuk meningkatkan pelayanan rumah sakit ini?**  
+   - ________________________________________
+
+---
+
+## Bagian 5: Verifikasi dan Penyelesaian Survei
+
+19. **Apakah Anda pernah mengisi survei serupa sebelumnya?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+20. **Apakah ada hal lain yang ingin Anda sampaikan terkait pelayanan rumah sakit ini?**  
+   - ________________________________________
+
+## Terima kasih atas partisipasi Anda!
+
+Jawaban Anda sangat berharga bagi kami untuk meningkatkan kualitas layanan kesehatan. Jika Anda memiliki pertanyaan lebih lanjut, silakan hubungi tim kami di [email@example.com].
+
+---
+
+# Kuesioner Kepuasan Mahasiswa terhadap Layanan Akademik dan Fasilitas
+
+**Tujuan:** Kuesioner ini bertujuan untuk memahami tingkat kepuasan mahasiswa terhadap layanan akademik, fasilitas kampus, dan dukungan yang diberikan oleh institusi pendidikan serta mengidentifikasi area yang memerlukan perbaikan. Semua jawaban akan bersifat rahasia dan hanya digunakan untuk tujuan analisis.
+
+**Estimasi Waktu Pengisian:** Sekitar **5-10 menit**
+
+**Petunjuk:** Harap isi kuesioner dengan jujur. Tidak ada jawaban yang benar atau salah.
+
+---
+
+## Bagian 1: Data Demografis (Identitas Responden)
+
+1. **Jenis Kelamin:**  
+   - [ ] Laki-laki  
+   - [ ] Perempuan  
+   - [ ] Lainnya  
+
+2. **Usia Anda:**  
+   - [ ] < 18 Tahun  
+   - [ ] 18-22 Tahun  
+   - [ ] 23-26 Tahun  
+   - [ ] > 26 Tahun  
+
+3. **Tingkat pendidikan Anda saat ini:**  
+   - [ ] Sarjana (S1)  
+   - [ ] Magister (S2)  
+   - [ ] Doktor (S3)  
+   - [ ] Diploma  
+
+4. **Fakultas Anda:**  
+   - [ ] Teknik  
+   - [ ] Ekonomi  
+   - [ ] Hukum  
+   - [ ] Kedokteran  
+   - [ ] Lainnya: ____________
+
+---
+
+## Bagian 2: Kepuasan Terhadap Layanan Akademik
+
+5. **Seberapa mudah Anda mendapatkan informasi terkait jadwal kuliah dan ujian?**  
+   - [ ] Sangat Mudah  
+   - [ ] Mudah  
+   - [ ] Cukup Mudah  
+   - [ ] Sulit  
+   - [ ] Sangat Sulit  
+
+6. **Bagaimana pendapat Anda tentang kesiapan dosen dalam menyampaikan materi perkuliahan?**  
+   - [ ] Sangat Siap  
+   - [ ] Siap  
+   - [ ] Cukup Siap  
+   - [ ] Tidak Siap  
+   - [ ] Sangat Tidak Siap  
+
+7. **Apakah Anda merasa bimbingan akademik yang diberikan sudah membantu Anda?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+8. **Seberapa puas Anda dengan transparansi penilaian dalam sistem akademik?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+9. **Apakah Anda pernah mengalami masalah terkait layanan akademik (misalnya keterlambatan pengumuman nilai, perubahan jadwal mendadak)?**  
+   - [ ] Ya (Lanjut ke Pertanyaan 10)  
+   - [ ] Tidak (Lanjut ke Pertanyaan 11)
+
+10. **Jelaskan masalah yang Anda alami dengan layanan akademik:**  
+   - ________________________________________
+
+---
+
+## Bagian 3: Kepuasan Terhadap Fasilitas Kampus
+
+11. **Seberapa puas Anda dengan kondisi fasilitas ruang kelas?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+12. **Bagaimana pendapat Anda tentang kebersihan lingkungan kampus?**  
+   - [ ] Sangat Bersih  
+   - [ ] Bersih  
+   - [ ] Cukup Bersih  
+   - [ ] Kotor  
+   - [ ] Sangat Kotor  
+
+13. **Apakah akses internet kampus memadai untuk kebutuhan studi Anda?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+14. **Seberapa puas Anda dengan fasilitas perpustakaan kampus?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+---
+
+## Bagian 4: Kepuasan dan Loyalitas Mahasiswa
+
+15. **Apakah Anda akan merekomendasikan kampus ini kepada calon mahasiswa lain?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+   - [ ] Mungkin  
+
+16. **Seberapa besar kemungkinan Anda untuk melanjutkan studi di kampus ini? (Skala 1-5)**  
+   - 1 (Sangat Tidak Mungkin) - 5 (Sangat Mungkin)
+
+17. **Apakah ada faktor yang membuat Anda ragu untuk melanjutkan studi di kampus ini?**  
+   - [ ] Tidak Ada  
+   - [ ] Biaya  
+   - [ ] Kualitas Layanan  
+   - [ ] Fasilitas  
+   - [ ] Lainnya: ____________
+
+18. **Apa saran Anda untuk meningkatkan pelayanan di kampus ini?**  
+   - ________________________________________
+
+---
+
+## Bagian 5: Verifikasi dan Penyelesaian Survei
+
+19. **Apakah Anda pernah mengisi survei serupa sebelumnya?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+20. **Apakah ada hal lain yang ingin Anda sampaikan terkait kepuasan di kampus ini?**  
+   - ________________________________________
+
+## Terima kasih atas partisipasi Anda!
+
+Jawaban Anda sangat berharga bagi kami untuk meningkatkan kualitas layanan pendidikan di kampus ini. Jika Anda memiliki pertanyaan lebih lanjut, silakan hubungi tim kami di [email@example.com].
+
+---
+
+# Kuesioner Kepuasan Pelayanan Toko
+
+**Tujuan:** Kuesioner ini bertujuan untuk memahami tingkat kepuasan pelanggan terhadap pelayanan toko, kualitas produk, dan fasilitas yang disediakan, serta mengidentifikasi area yang memerlukan perbaikan. Semua jawaban akan bersifat rahasia dan hanya digunakan untuk tujuan analisis.
+
+**Estimasi Waktu Pengisian:** Sekitar **5-10 menit**
+
+**Petunjuk:** Harap isi kuesioner dengan jujur. Tidak ada jawaban yang benar atau salah.
+
+---
+
+## Bagian 1: Data Demografis (Identitas Responden)
+
+1. **Jenis Kelamin:**  
+   - [ ] Laki-laki  
+   - [ ] Perempuan  
+   - [ ] Lainnya  
+
+2. **Usia Anda:**  
+   - [ ] < 18 Tahun  
+   - [ ] 18-25 Tahun  
+   - [ ] 26-35 Tahun  
+   - [ ] 36-50 Tahun  
+   - [ ] > 50 Tahun  
+
+3. **Seberapa sering Anda berbelanja di toko ini?**  
+   - [ ] Setiap hari  
+   - [ ] Beberapa kali seminggu  
+   - [ ] Beberapa kali sebulan  
+   - [ ] Jarang sekali  
+
+4. **Produk yang paling sering Anda beli di toko ini:**  
+   - [ ] Makanan dan Minuman  
+   - [ ] Pakaian  
+   - [ ] Elektronik  
+   - [ ] Kebutuhan Rumah Tangga  
+   - [ ] Lainnya: ____________
+
+---
+
+## Bagian 2: Pengalaman Pelayanan di Toko
+
+5. **Seberapa mudah Anda menemukan produk yang dicari di toko ini?**  
+   - [ ] Sangat Mudah  
+   - [ ] Mudah  
+   - [ ] Cukup Mudah  
+   - [ ] Sulit  
+   - [ ] Sangat Sulit  
+
+6. **Bagaimana pendapat Anda tentang keramahan staf toko?**  
+   - [ ] Sangat Ramah  
+   - [ ] Ramah  
+   - [ ] Biasa Saja  
+   - [ ] Tidak Ramah  
+   - [ ] Sangat Tidak Ramah  
+
+7. **Apakah waktu yang dibutuhkan untuk pembayaran di kasir sesuai dengan harapan Anda?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+8. **Seberapa nyaman Anda dengan kebersihan dan kenyamanan toko ini?**  
+   - [ ] Sangat Nyaman  
+   - [ ] Nyaman  
+   - [ ] Netral  
+   - [ ] Tidak Nyaman  
+   - [ ] Sangat Tidak Nyaman  
+
+9. **Apakah Anda pernah mengalami masalah dalam pelayanan di toko ini (misalnya kesalahan harga, produk tidak tersedia, atau antrean panjang)?**  
+   - [ ] Ya (Lanjut ke Pertanyaan 10)  
+   - [ ] Tidak (Lanjut ke Pertanyaan 11)
+
+10. **Jelaskan masalah yang Anda alami dengan pelayanan di toko ini:**  
+   - ________________________________________
+
+---
+
+## Bagian 3: Kepuasan Terhadap Kualitas Produk
+
+11. **Seberapa puas Anda dengan kualitas produk yang dijual di toko ini?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+12. **Apakah produk di toko ini sesuai dengan deskripsi dan label harga?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+13. **Seberapa puas Anda dengan variasi produk yang tersedia di toko ini?**  
+   - [ ] Sangat Puas  
+   - [ ] Puas  
+   - [ ] Netral  
+   - [ ] Tidak Puas  
+   - [ ] Sangat Tidak Puas  
+
+14. **Apakah produk yang Anda cari biasanya tersedia di toko ini?**  
+   - [ ] Selalu Tersedia  
+   - [ ] Sering Tersedia  
+   - [ ] Kadang-Kadang Tersedia  
+   - [ ] Jarang Tersedia  
+   - [ ] Tidak Pernah Tersedia  
+
+---
+
+## Bagian 4: Kepuasan dan Loyalitas Pelanggan
+
+15. **Apakah Anda akan kembali berbelanja di toko ini di masa mendatang?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+   - [ ] Mungkin  
+
+16. **Seberapa besar kemungkinan Anda merekomendasikan toko ini kepada keluarga atau teman? (Skala 1-5)**  
+   - 1 (Sangat Tidak Mungkin) - 5 (Sangat Mungkin)
+
+17. **Apakah ada faktor yang membuat Anda ragu untuk kembali berbelanja di toko ini?**  
+   - [ ] Tidak Ada  
+   - [ ] Harga  
+   - [ ] Kualitas Produk  
+   - [ ] Pelayanan  
+   - [ ] Lainnya: ____________
+
+18. **Apa saran Anda untuk meningkatkan pelayanan di toko ini?**  
+   - ________________________________________
+
+---
+
+## Bagian 5: Verifikasi dan Penyelesaian Survei
+
+19. **Apakah Anda pernah mengisi survei serupa sebelumnya?**  
+   - [ ] Ya  
+   - [ ] Tidak  
+
+20. **Apakah ada hal lain yang ingin Anda sampaikan terkait pelayanan toko ini?**  
+   - ________________________________________
+
+## Terima kasih atas partisipasi Anda!
+
+Jawaban Anda sangat berharga bagi kami untuk meningkatkan kualitas layanan toko ini. Jika Anda memiliki pertanyaan lebih lanjut, silakan hubungi tim kami di [email@example.com].
+

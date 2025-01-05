@@ -5,7 +5,7 @@ author: "Albani"
 date: "2024-10-20"
 categories: [Motivation]
 ---
-*Akibat menonton story teman yang tinggal di Jepang..*
+> *Akibat menonton story teman yang tinggal di Jepang..*
 
 <p align="justify">
 

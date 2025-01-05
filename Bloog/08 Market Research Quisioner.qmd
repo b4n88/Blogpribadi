@@ -1,0 +1,131 @@
+---
+title: "Kuesioner Survey"
+image: 08 fp.jpg
+author: "Albani, Ikang"
+date: "2025-01-07"
+categories: [Market Research, Survey]
+---
+> *Panduan singkat membuat kuesioner..*
+
+-------
+
+Sebagai penggemar Market Research, salah satu pekerjaannya adalah melakukan pengumpulan data. Pengumpulan data sendiri dibagi menjadi 2 bagian `Konvensional` dan `Inkonvensional`. **Konvensional** merujuk pada cara yang tradisional seperti tatap muka langsung dan kuisioner cetak. Sementara itu, **Inkonvensional** merujuk pada cara yang modern, yaitu dengan bantuan perangkat lunak modern.
+
+Pada zaman yang berubah ini melakukan Kuesioner merupakan keahlian khusus yang harus dimiliki seorang Market Research. Saya sebenarnya tidak tahu bagaimana melakukan kuesioner yang  baik dan benar. Dan saya menemukan harta karun dari Mentor saya (Self Claiming) Pak [Ikang](https://ikanx101.com/about/). Saya tertarik menjadi Market Resech karena tulisan tulisan beliau. Saya ijin mengambil materinya Pak..
+
+Ada istilah yang namanya `Garbage in, Garbage Out!` Maksudnya adalah jika inputan yang dimasukan buruk, maka output yang dihasilkan akan buruk. Maka kuesioner ini sangat penting untuk dipahami..
+
+[Tulisan Pak Ikang](https://ikanx101.com/blog/kuesioner-mr/) menjelaskan bahawa ada 2 hal yang menyebapkan data yang didapatkan kotor, yaitu :
+
+1. Kuesioner yang buruk.
+2. Pelaksanaan <u>fieldwork</u> yang buruk (Pengisian).
+
+# Kuesioner yang baik
+
+Adalah kuesioner yang sejalan dengan tujuan survey dan tidak menimbulkan bias pada saat pengisian. **_Bias_** (*kecenderungan atau penyimpangan dari standar objektivitas yang menyebabkan penilaian, keputusan, atau hasil menjadi tidak akurat, tidak adil, atau tidak netral. Bias bisa terjadi karena faktor pribadi, sistemik, atau teknis, baik secara sadar maupun tidak sadar.*). Berikut adalah panduan kuesioner yang baik dan benar :
+
+1. Identity Bias
+2. Tipe Pertanyaan dan Jawaban
+3. Sensitive Industry
+4. Hindari Pertanyaan Normatif
+5. Mulai Dari Pertanyaan Umum
+6. Question Route
+7. Pertanyaan Yang Sulit
+8. Lama survey
+9. Duplikasi responden
+
+Berikut adalah penjelasannya
+
+## Identity Bias
+
+Ketika kita ingin melakukan survey untuk kepentingan _sales marketing_ sehingga kita harus menayakan seputar brand tertentu. Kita harus memperkenalkan diri kita sebagai **Independen Research**. Kenapa? Untuk menghindari bias yang mungkin muncul.
+
+Misal kita melakukan survey Warung makan padang, jika kita memperkenalkan diri kita sebagai pemilik brand, maka orang bisa jadi memberikan jawaban yang tidak sesuai karena malu misalnya, sehingga jawaban yang harusnya buruk tapi kita mendapatkan jawaban yang bagus ini disebut dengan BIAS. Bisa menyebutkan kita sebagi dependen tapi kasih kepastian bahwa butuh jawaban untuk memajukan perusahaan.
+
+**Contoh** : 
+
+- Halo saya dari tim media komunikasi.. 
+- Halo saya dari tim survey..
+- Kami butuh review jujur dari kakak..
+
+## Tipe Pertanyaan dan Jawaban
+
+- Dalam kuesioner, ada berbagai tipe pertanyaan yang sering digunakan seperti:
+  - Single answer: responden hanya boleh memilih satu jawaban.
+  - Multiple answer: responden boleh memilih lebih dari satu jawaban.
+  - Open question: responden bisa menjawab dengan bebas (tanpa ada pilihan jawaban).
+  - Ranking atau order: responden disuruh untuk mengurutkan atau membuat ranking dari pilihan yang ada.
+- Masing-masing tipe pertanyaan memiliki tujuan dan cara analisa yang berbeda-beda. Saya sudah menuliskan contoh penggunaan dan analisa klik [di sini]()
+- Pastikan bahwa informasi yang kita butuhkan sudah sesuai dengan tipe pertanyaan yang ditanyakan.
+- Khusus survey yang dilakukan online, ada baiknya beberapa pertanyaan sudah dibuatkan pilihan jawabannya. 
+  - Untuk pengisian daerah gunakan _Single Answer_, banyak sekali kuesioner menggunakan Open question untuk pertanyaan ini.. akibatnya **inkonsistensi** penulisan jawaban yang bermuara pada rumitnya menganalisa karena dibutuhkan data preparation yang lebih lama.
+
+
+## Sensitive Industry
+
+- Biasanya, kita berharap agar responden yang kita survey adalah masyarakat umum (orang awam) bukan seorang expert. Oleh karena itu, kita perlu memastikan tidak ada expert yang diwawancarai.
+- Contoh paling mudah adalah saat saya hendak melakukan survey terkait media habit, saya perlu mem-filter beberapa profesi berikut ini:
+  - Orang yang bekerja di media massa (TV, radio, media online, koran, dll).
+  - Selebgram, Youtubers, TikTokers, dll.
+- Contoh lainnya adalah saat saya hendak melakukan survey terkait habit hidup sehat, saya perlu mem-filter beberapa profesi berikut ini:
+  - Ahli gizi.
+  - Tenaga kesehatan, seperti dokter, perawat, bidan, dll.
+  - Atlit, gym instructor, dll.
+
+
+## Hindari Pertanyaan Normatif
+
+Kita tentu ingin mendapatkan jawaban yang jujur dari responden sehingga bisa mendapatkan gambaran real yang ada di market. Oleh karena itu, kita peru menghindari pertanyaan yang bersifat normatif (baik-buruk, benar-salah).
+
+## Mulai Dari Pertanyaan Umum
+
+- Untuk menghindari bias akibat brand (sama seperti poin pertama), ada baiknya kita memulai kuesioner dengan pertanyaan yang bersifat umum atau kategori dari brand tersebut.
+**Sebagai contoh**:
+  - Saat saya hendak melakukan survey terkait brand Aqua, saya tidak langsung bertanya terkait brand tersebut.
+  - Saya akan mulai dengan pertanyaan seputar kategori air minum dalam kemasan atau air mineral bermerek.
+- Setelah itu baru kita masuk ke pertanyaan brand.
+
+
+## Question Route
+
+Ini seperti jika jawaban `ya` akan lanjut pada soal selanjutnya, jia `tidak` maka skip pertanyaan selanjutnya.    
+
+- Ini adalah bagian yang penting dalam menyusun pertanyaan di kuesioner. Kita harus pastikan bahwa responden mendapatkan pertanyaan yang tepat sesuai dengan jawaban yang ia berikan sebelumnya.
+- Sebagai contoh, saya sering mendapatkan kuesioner dimana semua responden mendapatkan pertanyaan yang serupa padahal jawaban yang diberikan berbeda-beda. Misalkan: 
+Ada pertanyaan sebagai berikut:
+  - Apakah Anda pernah mengkonsumsi produk X?
+      - Ya
+      - Tidak
+  - Bagaimana pendapat anda terhadap produk X?
+      - ______________________________________ (open question)
+- Seharusnya responden yang menjawab tidak pada pertanyaan pertama, tidak perlu ditanyakan pertanyaan kedua karena responden tidak pernah mengkonsumsi produk X tersebut.
+
+## Pertanyaan Yang Sulit
+
+- Perhatikan bahwa kita hanya menanyakan pertanyaan yang bisa dijawab oleh responden.
+- Kita harus hindari penggunaan istilah-istilah yang tidak dipahami oleh responden.
+- Sebisa mungkin, gunakan istilah dalam Bahasa Indonesia. Jika tidak memungkinkan, siapkan definisi yang bisa mudah dipahami oleh responden
+
+## Lama Survey
+
+- Siapa sih yang mau diwawancarai lama-lama?
+- Oleh karena itu, kita harus pastikan bahwa lamanya wawancara (atau panjangnya kuesioner) tidak terlalu lama.
+- Caranya adalah dengan menelaah kembali pertanyaan mana saja yang masuk ke dalam: 
+  - Must-know question: merupakan pertanyaan inti yang diharapkan bisa menjawab tujuan survey dan permasalahan real yang dihadapi.
+  - Nice-to-know question: merupakan pertanyaan pendukung yang bisa memperkaya analisa dari survey.
+- Kita harus pastikan bahwa semua pertanyaan must-know sudah ter-cover. Lalu silakan pilot wawancara terlebih dahulu.
+- Jika masih cukup waktu, silakan tambahkan pertanyaan nice-to-know.
+- Sebenarnya tidak ada limitasi durasi survey yang baku. Semua disesuaikan dengan kebiasaan dan pengalaman. Menurut pengalaman saya, durasi maksimal survey berbeda-beda tergantung cara wawancaranya. Misalkan: 
+  - Wawancara tatap muka, maksimal 30 - 45 menit.
+  - Wawancara by phone, maksimal 10 menit.
+  - Online survey, maksimal 5 menit.
+- Jika melewati durasi tersebut, saya sering menemukan responden jenuh dan cenderung menjawab ngasal agar cepat selesai.
+
+## Duplikasi Responden
+
+- Masalah ini sering muncul pada online survey. Bagaimana kita memastikan bahwa seorang responden hanya mengisi satu kuesioner saja (tidak mengisi berulang-ulang).
+- Beberapa online survey tools memiliki fitur yang bisa mendeteksi hal ini dengan cara mengaktifkan cookies to prevent duplicate responses. Namun cara ini hanya bisa mencegah responden mengisi berulang kali dengan gadget yang sama. Masih ada kemungkinan responden mengisi berulang kali dengan gadget yang berbeda-beda.
+
+# Tips
+
+> jika kita sudah menyusun draft kuesionernya, segera lakukan pilot wawancara kepada 2 - 3 orang responden. Perhatikan dengan seksama bagaimana reaksi responden terhadap pertanyaan yang ada dan durasi wawancara. Feedbacks yang mungkin muncul bisa untuk memperbaiki kuesioner final kita kelak.

@@ -5,7 +5,7 @@ author: "Albani"
 date: "2025-01-06"
 categories: [Data Analyst]
 ---
-*Masih banyak yang belum tau apa itu data analyst*
+> *Masih banyak yang belum tau apa itu data analyst*
 
 -------
 Membaca buku yang belum diterbitkan oleh Pak [Aep Hidayatulah0](https://github.com/aephidayatuloh) kembali, kali ini membaca tentang apa itu data analyst..
