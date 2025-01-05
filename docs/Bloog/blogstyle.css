@@ -1,0 +1,125 @@
+/* ==============================
+   1. GLOBAL STYLES
+================================= */
+body {
+  text-align: justify;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+a {
+  color: #0078D7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Container untuk Konten Utama */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ==============================
+   2. HEADER & FOOTER
+================================= */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: pink;
+  text-align: center;
+  color: #777;
+  font-size: 0.9em;
+}
+
+/* ==============================
+   3. HEADING STYLES
+================================= */
+h1, h2, h3, h4, h5, h6 {
+  color: #0078D7; /* Warna biru untuk judul */
+  text-decoration: underline; /* Garis bawah pada judul */
+}
+
+/* ==============================
+   4. TABLE OF CONTENTS (TOC)
+================================= */
+.toc {
+  background-color: #f1f5f9;
+  border-left: 4px solid #0078D7;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.toc a {
+  color: #333;
+}
+
+.toc a:hover {
+  color: #0078D7;
+  font-weight: bold;
+}
+
+/* ==============================
+   5. BUTTON STYLES
+================================= */
+button, .btn {
+  background-color: #0078D7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+button:hover, .btn:hover {
+  background-color: #0056b3;
+}
+
+/* ==============================
+   6. BLOCKQUOTE
+================================= */
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #0078D7;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #f1f5f9;
+  color: #555;
+}
+
+/* ==============================
+   7. RESPONSIVE DESIGN
+================================= */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.75em;
+  }
+}

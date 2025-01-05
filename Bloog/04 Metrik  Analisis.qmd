@@ -4,7 +4,6 @@ image: 04 fp.jpg
 author: "Albani"
 date: "2025-01-05"
 categories: [Data Analyst]
-css: ratakanan.css
 ---
 *Metrik dan Inovasi sebagai data analyst*
 
@@ -78,6 +77,13 @@ Ini sebagai catatan yang bagian besar saja, bisa jadi client kita memiliki atau 
 4. **_Lifetime Value to Customer Acquisition Cost_** (LTV) Ratio – Perbandingan antara CLV dan CAC.  
 5. **_Net Promoter Score_** (NPS) – Ukuran kesetiaan pelanggan berdasarkan rekomendasi.
 
+------
+Tips Penting dalam Membuat Metrik
+✅ Sederhana: Metrik harus mudah dipahami oleh semua pihak.
+✅ Relevan: Harus selaras dengan tujuan bisnis.
+✅ Terukur: Harus dapat diukur dengan data yang tersedia.
+✅ Bisa Ditindaklanjuti: Memberikan wawasan yang bisa diimplementasikan.
+✅ Konsisten: Definisi dan perhitungannya harus seragam di semua tim.
 ------
 
 Ini bisa dijadikan contoh metrik apa yang bisa kita buat dan melakukan analisa lebih mendalam sedalam `SILET`. Okeee see you on the next Story

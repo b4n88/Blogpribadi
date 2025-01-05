@@ -1,3 +1,40 @@
+/* Mengatur teks di seluruh body */
 body {
   text-align: justify;
+}
+
+/* Mengatur semua judul (h1-h6) secara umum */
+h1, h2, h3, h4, h5, h6 {
+  color: #0078D7 !important; 
+  text-decoration: underline !important; 
+  text-align: center !important;
+}
+
+/* Menargetkan judul di halaman indeks blog */
+.listing-title,
+h2.listing-title,
+h3.listing-title,
+h1.listing-title {
+  color: #0078D7 !important;
+  text-decoration: underline !important;
+  text-align: center !important;
+}
+
+/* Menargetkan judul dalam kartu (card) blog */
+.card-title,
+.post-title,
+.article-title {
+  color: #0078D7 !important;
+  text-decoration: underline !important;
+  text-align: center !important;
+}
+
+/* Menargetkan judul yang ada dalam daftar konten spesifik */
+.listing .title,
+.blog .title,
+.listing-entry h2,
+.listing-entry .title {
+  color: #0078D7 !important;
+  text-decoration: underline !important;
+  text-align: center !important;
 }

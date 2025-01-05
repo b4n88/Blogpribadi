@@ -17,8 +17,10 @@ website:
 
 format:
   html:
-    theme: yeti
-    css: styles.css
+    theme: Cerulean
+    css: 
+    - ratakanan.css
+    - Bloog/blogstyle.css
     toc: true
     include-after-body: footer.html
 

@@ -7,7 +7,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   color: #333;
-  background-color: #f9fafc;
+  background-color: white;
   margin: 0;
   padding: 0;
 }
@@ -40,7 +40,7 @@ header {
 footer {
   margin-top: 50px;
   padding: 20px;
-  background-color: #f1f5f9;
+  background-color: pink;
   text-align: center;
   color: #777;
   font-size: 0.9em;
@@ -49,26 +49,9 @@ footer {
 /* ==============================
    3. HEADING STYLES
 ================================= */
-h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 2em;
-  font-weight: 600;
-  color: #34495e;
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-h3 {
-  font-size: 1.5em;
-  font-weight: 500;
-  color: #7f8c8d;
+h1, h2, h3, h4, h5, h6 {
+  color: #0078D7; /* Warna biru untuk judul */
+  text-decoration: underline; /* Garis bawah pada judul */
 }
 
 /* ==============================
