@@ -1,0 +1,140 @@
+---
+title: "MEMAHAMI APA ITU DATA ANALYST"
+image: 05 fp.jpg
+author: "Albani"
+date: "2025-01-06"
+categories: [Data Analyst]
+---
+*Masih banyak yang belum tau apa itu data analyst*
+
+-------
+Membaca buku yang belum diterbitkan oleh Pak [Aep Hidayatulah0](https://github.com/aephidayatuloh) kembali, kali ini membaca tentang apa itu data analyst..
+
+Menganalisa data adalah proses memeriksa, membersihkan, mengubah dan menarik kesimpulan dari suatu data. Analisis data diperlukan oeh perusahaan atau organisasi untuk kemajuan bisnis mereka. Kemampuan dasar seorang data analyst adalah menganalisis data dan menyesuaikan dengan konteks bisnis. Kemampuan lain adalah memahami dan mengolah data menggunakan _tools_,  mencari _actionable_ _insight_, dan mampu menyampaikan hasil analisa dengan baik.
+
+Dalam prakteknya, data analytics mencakup berbagai jenis analisis, termasuk analisis deskriptif, diagnostik, prediktif, dan preskriptif.
+
+- Analisis deskriptif bertujuan untuk menjelaskan data yang ada dengan menggunakan statistik dasar, sedangkan
+
+- Analisis diagnostik mencari penyebab dari pola yang terlihat. 
+
+- Analisis prediktif menggunakan data historis untuk memprediksi tren di masa depan, dan 
+
+- Analisis preskriptif memberikan rekomendasi tentang tindakan yang sebaiknya diambil. 
+
+Semua jenis analisis ini bekerja bersama-sama dalam konteks data analytics untuk memberikan pandangan yang komprehensif dan strategis.
+
+Data analysis lebih fokus pada metode dan teknik tertentu yang digunakan untuk mengolah data. Ini bisa melibatkan penggunaan alat statistik untuk menghitung mean, median, dan modus atau menerapkan teknik lanjutan seperti regresi atau clustering untuk menemukan pola. Data analysis sering kali merupakan bagian dari proyek data analytics yang lebih besar, di mana analisis dilakukan sebagai langkah untuk mencapai hasil yang lebih luas dan untuk mendukung keputusan strategis.
+
+-----
+
+# Decriptive Analysist
+
+Dalam pengertianya adalah menjelaskan apa yang terjadi pada sesuatu, yang berdasarkan pada data historis. Fokusnya pada ringkasan data seperti ; Rata-rata, Median, Tren, dan Distribusi data.
+
+Tujuannya adalah Memahami pola dalam data, Menyediakan gambaran umum dari data set, membantu dalam mengambil keputusan awal. Atau bisa juga disebut `Seni taaruf dengan data`.
+
+Contoh :
+
+- Penjualan bulan lalu meningkat 10% dibandingkan bulan sebelumnya.
+- Sebagian besar pelanggan berasal dari kelompok usia 25-34 tahun.
+- Kebanyak antrian adalah di hari Rabu.
+- Kurset yang terjadi kebanyakan adalah kurset selisih input.
+
+## Blue print Decriptive Analysist
+1. **_Kumpulkan Data_**: Kumpulkan data historis dari berbagai sumber (misalnya database, file Excel).
+2. **_Bersihkan Data_**: Periksa data yang hilang (missing values), Data duplikat dan outlier.
+3. **_Analisis Statistik Dasar_**: Hitung rata-rata, median, dan distribusi data.
+4. **_Visualisasi Data_**: Buat grafik dan diagram untuk memudahkan pemahaman.
+5. **_Interpretasi Hasil_**: Jelaskan pola dan tren yang ditemukan.
+
+-----
+
+# Diagnostic Analysist
+
+Analysis ini merujuk pada pertanyaan mengapa sesuatu terjadi. atau lebih jelasnya melihat hubungan sebab akibat data. Tujuanya mengidentifikasi akar penyebab suatu masalah, ets,, bukan hanya masalah tapi keberhasilan juga. Singkatnya adalah lanjutan dari Analysis Descriptive.
+
+Tools yang digunakan adalah Drill-Down Analysis, Analisi korelasi, dan segmentasi data (Segmentasi data adalah proses membagi dataset menjadi kelompok-kelompok yang lebih kecil).
+
+Contohnya :
+
+- Penjualan turun karena promosi yang kurang efektif pada produk tertentu.
+- Pelanggan di lokasi tertentu mengalami tingkat kepuasan yang rendah.
+- Kurset terjadi karena EDC offline.
+- Listrik naik karena terlalu sering padam listrik.
+
+## Blue print Diagnostic Analysist
+1. **_Identifikasi Anomali atau Pola Aneh_**: Temukan data yang menyimpang dari tren umum.
+2. **_Drill-Down Data_**: Telusuri data lebih dalam untuk memahami peristiwa spesifik.
+3. **_Analisis Korelasi_**: Periksa hubungan antara variabel yang berbeda.
+4. **_Hipotesis Penyebab_**: Buat hipotesis tentang penyebab masalah.
+5. **_Validasi Hipotesis_**: Gunakan data untuk mengonfirmasi atau menolak hipotesis.
+6. **_Interpretasi Hasil_**: Jelaskan penyebab utama dari hasil analisis.
+
+-----
+
+# Predictive Analysist
+
+Dari namanya saja prediksi, artinya memprediksi apa yang mungkin terjadi di masa depan berdasarkan data historis dan algoritma machine learning. Atau menggunakan model untuk memproyeksikan hasil di masa depan. Tujuanya adalah Mengantisipasi tren dan pola masa depan dan membuat perencanaan lebih akurat.
+
+Tools yang digunakan adalah ; Regresi linear, Time series, dan Machine learning (Random forest & Decision tree).
+
+Contoh :
+
+- Prediksi penjualan akan meningkat sebesar 15% pada quartal berikutnya.
+- Pelanggan dengan pola pembeli tertentu memiliki resiko berhenti berlaangganan.
+- Jika hujan terus maka pendapatan akan berkurang 15%
+- Jika banyak fraud maka pencaharian pekerja oleh HRD akan semakin banyak.
+
+## Blue print Predictive Analysist
+
+1. **_Kumpulkan Data Historis_**: Data yang relevan dan lengkap.
+2. **_Persiapan Data_**: Bersihkan dan format data untuk analisis prediktif.
+3. **_Pilih Model Analisis_**: Gunakan regresi, time series, atau algoritma machine learning.
+4. **_Latih Model_**: Gunakan data historis untuk melatih model prediktif.
+5. **_Evaluasi Model_**: Validasi keakuratan model menggunakan metrik seperti RMSE atau R².
+6. **_Lakukan Prediksi_**: Terapkan model untuk memprediksi tren masa depan.
+7. **_Visualisasi Hasil_**: Sajikan hasil dalam grafik prediksi.
+
+-----
+
+# Perspective Analysist
+
+Merujuk pada perspektif atau pikiran kita, yaitu menyarankan tindakan yang harus diambil untuk mencapai hasil yang ingin dihasilkan. Ini adalah tahap akhir dalam analisis data dan melibatkan simulasi serta optimisasi. Tujuanya adalah memberikan rekomendasi yang dapat ditindaklanjuti dan mengoptimalkan keputusan.
+
+Tools yang digunakan biasanya ; Monte carlo, Algoritma Oprimasi dan Analisis What if.
+
+Contoh :
+
+- Jika kita meningkatkan anggaran iklan sebesar 20%, penjualan diperkirakan akan naik 25%.
+- Strategi terbaik untuk mengurangi churn pelanggan adalah dengan menawarkan diskon tahunan.
+
+## Blue print Perspective Analysist
+1. **_Analisis Prediktif_**: Gunakan hasil dari analisis prediktif sebagai dasar.
+2. **_Identifikasi Opsi Tindakan_**: Daftar kemungkinan tindakan berdasarkan data.
+3. **_Simulasi dan Optimasi_**: Uji berbagai skenario dengan model simulasi.
+4. **_Evaluasi Opsi_**: Bandingkan hasil dari setiap skenario.
+5. **_Berikan Rekomendasi_**: Sajikan opsi terbaik dengan proyeksi dampaknya.
+6. **_Monitoring Implementasi_**: Pantau dampak dari tindakan yang diambil.
+
+# Tahapan Proses Holistik Analisis Data
+
+- **_Pengumpulan Data_**: Data historis, transaksi, survei, dll.
+- **_Pembersihan Data_**: Menghilangkan data yang tidak valid atau outlier.
+- **_Descriptive Analysis_**: Memahami pola dan tren masa lalu.
+- **_Diagnostic Analysis_**: Mengidentifikasi penyebab pola tersebut.
+- **_Predictive Analysis_**: Memprediksi pola masa depan.
+- **_Prescriptive Analysis_**: Memberikan rekomendasi tindakan terbaik.
+- **_Visualisasi dan Komunikasi Hasil_**: Menyajikan hasil dalam dashboard atau laporan yang mudah dipahami.
+- **_Tindak Lanjut dan Pemantauan_**: Memantau implementasi keputusan.
+
+Kesimpulannya adalah :
+
+- Descriptive: Apa yang terjadi?
+- Diagnostic: Mengapa itu terjadi?
+- Predictive: Apa yang akan terjadi selanjutnya?
+- Prescriptive: Apa yang harus kita lakukan?
+
+Ini akan diguanakn kedepannya dalam pekerjaan saya sebagai profesional,, semoga bisa teringattt....
+
+See you on the next chapterrr....
