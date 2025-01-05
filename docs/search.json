@@ -4,7 +4,77 @@
     "href": "index.html",
     "title": "BLOG",
     "section": "",
-    "text": "Selamat datang dan selamat membaca\n\n\nIni adalah web private saya, Silakan memilih tema bacaan pada sub category di samping kanan 👉👉\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nINTRODUCTION\n\n\n\n\n\n\nCerita\n\n\n\n\n\n\n\n\n\nOct 20, 2030\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nMEMAHAMI APA ITU DATA ANALYST\n\n\n\n\n\n\nData Analyst\n\n\n\n\n\n\n\n\n\nJan 6, 2025\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nMETRIK ANALISA DATA\n\n\n\n\n\n\nData Analyst\n\n\n\n\n\n\n\n\n\nJan 5, 2025\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nGit dan Github\n\n\n\n\n\n\nCoding\n\n\n\n\n\n\n\n\n\nJan 4, 2025\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nCapek Itu Pilihan\n\n\n\n\n\n\nMotivation\n\n\n\n\n\n\n\n\n\nOct 20, 2024\n\n\nAlbani\n\n\n\n\n\n\nNo matching items"
+    "text": "Selamat datang dan selamat membaca\n\n\nIni adalah web private saya, Silakan memilih tema bacaan pada sub category di samping kanan 👉👉\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nINTRODUCTION\n\n\n\n\n\n\nCerita\n\n\n\n\n\n\n\n\n\nOct 20, 2030\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nMEMAHAMI APA ITU DATA ANALYST\n\n\n\n\n\n\nData Analyst\n\n\n\n\n\n\n\n\n\nJan 6, 2025\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nPONDASI SEORANG DATA ANALIS\n\n\n\n\n\n\nData Analyst\n\n\n\n\n\n\n\n\n\nJan 6, 2025\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nMETRIK ANALISA DATA\n\n\n\n\n\n\nData Analyst\n\n\n\n\n\n\n\n\n\nJan 5, 2025\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nGit dan Github\n\n\n\n\n\n\nCoding\n\n\n\n\n\n\n\n\n\nJan 4, 2025\n\n\nAlbani\n\n\n\n\n\n\n\n\n\n\n\n\nCapek Itu Pilihan\n\n\n\n\n\n\nMotivation\n\n\n\n\n\n\n\n\n\nOct 20, 2024\n\n\nAlbani\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "Bloog/05 Perngertian data analyst.html",
+    "href": "Bloog/05 Perngertian data analyst.html",
+    "title": "MEMAHAMI APA ITU DATA ANALYST",
+    "section": "",
+    "text": "Masih banyak yang belum tau apa itu data analyst"
+  },
+  {
+    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-decriptive-analysist",
+    "href": "Bloog/05 Perngertian data analyst.html#blue-print-decriptive-analysist",
+    "title": "MEMAHAMI APA ITU DATA ANALYST",
+    "section": "Blue print Decriptive Analysist",
+    "text": "Blue print Decriptive Analysist\n\nKumpulkan Data: Kumpulkan data historis dari berbagai sumber (misalnya database, file Excel).\nBersihkan Data: Periksa data yang hilang (missing values), Data duplikat dan outlier.\nAnalisis Statistik Dasar: Hitung rata-rata, median, dan distribusi data.\nVisualisasi Data: Buat grafik dan diagram untuk memudahkan pemahaman.\nInterpretasi Hasil: Jelaskan pola dan tren yang ditemukan."
+  },
+  {
+    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-diagnostic-analysist",
+    "href": "Bloog/05 Perngertian data analyst.html#blue-print-diagnostic-analysist",
+    "title": "MEMAHAMI APA ITU DATA ANALYST",
+    "section": "Blue print Diagnostic Analysist",
+    "text": "Blue print Diagnostic Analysist\n\nIdentifikasi Anomali atau Pola Aneh: Temukan data yang menyimpang dari tren umum.\nDrill-Down Data: Telusuri data lebih dalam untuk memahami peristiwa spesifik.\nAnalisis Korelasi: Periksa hubungan antara variabel yang berbeda.\nHipotesis Penyebab: Buat hipotesis tentang penyebab masalah.\nValidasi Hipotesis: Gunakan data untuk mengonfirmasi atau menolak hipotesis.\nInterpretasi Hasil: Jelaskan penyebab utama dari hasil analisis."
+  },
+  {
+    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-predictive-analysist",
+    "href": "Bloog/05 Perngertian data analyst.html#blue-print-predictive-analysist",
+    "title": "MEMAHAMI APA ITU DATA ANALYST",
+    "section": "Blue print Predictive Analysist",
+    "text": "Blue print Predictive Analysist\n\nKumpulkan Data Historis: Data yang relevan dan lengkap.\nPersiapan Data: Bersihkan dan format data untuk analisis prediktif.\nPilih Model Analisis: Gunakan regresi, time series, atau algoritma machine learning.\nLatih Model: Gunakan data historis untuk melatih model prediktif.\nEvaluasi Model: Validasi keakuratan model menggunakan metrik seperti RMSE atau R².\nLakukan Prediksi: Terapkan model untuk memprediksi tren masa depan.\nVisualisasi Hasil: Sajikan hasil dalam grafik prediksi."
+  },
+  {
+    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-perspective-analysist",
+    "href": "Bloog/05 Perngertian data analyst.html#blue-print-perspective-analysist",
+    "title": "MEMAHAMI APA ITU DATA ANALYST",
+    "section": "Blue print Perspective Analysist",
+    "text": "Blue print Perspective Analysist\n\nAnalisis Prediktif: Gunakan hasil dari analisis prediktif sebagai dasar.\nIdentifikasi Opsi Tindakan: Daftar kemungkinan tindakan berdasarkan data.\nSimulasi dan Optimasi: Uji berbagai skenario dengan model simulasi.\nEvaluasi Opsi: Bandingkan hasil dari setiap skenario.\nBerikan Rekomendasi: Sajikan opsi terbaik dengan proyeksi dampaknya.\nMonitoring Implementasi: Pantau dampak dari tindakan yang diambil."
+  },
+  {
+    "objectID": "Bloog/03 git.html",
+    "href": "Bloog/03 git.html",
+    "title": "Git dan Github",
+    "section": "",
+    "text": "Bagaimana Git dan Github bekerja untuk dunia yang fana ini..\n\n2024 lalu saya sangat stress dengan harga Hosting yang super duper mahal, lebih tepatnya saya yang miskin. Dengan melihat harga itu saya berfikir, “Apakah ada hostingan gratis agar web saya bisa online (diaksess orang)”? Github menjawab pertanyaan ini. Bukan hanya itu, tapi github bisa menampung file berupa portofoliio kita, baik codingan maupun data set.\n\n\n\nSumber : yt\n\n\nUntuk mengetahui lebih dalam bisa mengunjungi link berikut : https://www.youtube.com/watch?v=Uszj_k0DGsg\n\nVCS\nVCS atau Version Control system bukan Vidio Call S**, Otak lu astgfirulloh.. dari namanya ketahuan apa itu Version. Contoh dalam membuat laporan file diberi nama “Daftar makanan.doc”, tiba tiba kita memiliki revisi berubah dengan nama “Revisi1 daftar makanan.doc”, Revisi 3, 4 dan seterusnya. Nah pencatatan ini disebut degan VCS dalam codingan. VCS dengan kategori server distribusi salah satunya adalah GIT.\n\n\nGIT\nGit adalah sistem kontrol versi (version control system) yang digunakan untuk mengelola, menyimpan, dan berbagi kode sumber (source code). Git merupakan alat yang umum digunakan oleh programmer dan developer untuk mengembangkan perangkat lunak secara kolaboratif.\n\n\nGitHub\nAdalah sebuah website yang menyediakan jasa penyimpanan git repository. Dengan Github, kita bisa melakukan kolaborasi pada semua user yang ingin membangun suatu kode bersama kita.\n\n\n\nContoh\nBlog private saya ini akan saya tambahkan jika saya mendapatkan insight baru. Bagaimana jika saya menggunakan perangkat lain? Nah dengan Git ini saya bisa mengerjakan, menulis dan lain lain dimana pun dan kapan pun.\nPrintah-printah dasar di Git saya simpan disini.\n\n\nTutorial\nUntuk melakukan git pada projek kita, yang harus dilakukan adalah :\n\nInisialisasi token repositori\n\ngit init\n\nStuning menambahkan file ke data lokal repositori\n\ngit add &lt;namafile.type&gt;, git add . titik untuk semua file\n\nMemasukan ke lokal repo\n\ngit commit -m\"Isi pesan atau isi updatean\"\n\nMenambahkan update file\n\nSave file, maka nanti akan otomatis ada tambahan, namunperlu di commit lagi agar file terekam jejaknya apa saja dengan cara ; {git status} &gt; Untuk melihat status file\nulangi step 1-3 di atas.\n\nMenghubungkan Git dengan Github\n\n{git remote add origin &lt;git URL}\n\nUpload di Github\n\ngit push origin\nTUlisan selanjutnya saya akan butkan cara mengakses file dengan file lain.. segini dulu, besok kita lanjut.."
+  },
+  {
+    "objectID": "Bloog/01 fisrst.html",
+    "href": "Bloog/01 fisrst.html",
+    "title": "INTRODUCTION",
+    "section": "",
+    "text": "Sebuah pertemuan, baca ini dulu agar kita saling kenal\n\nSemoga tulisan saya bisa memberikan insight..\n\n\n\nTak kenal maka tak sayang.. itulah pepatah yang pernah saya dengar dari kakek cicit buyutku yang lahir zaman manusia menggunakan nama VAN (Bercanda)..\n\n\n\n“Perkenalkan Budiono Siregar, cita-cita,,, Kapallaud”\n\n\n\nTidak saya bukan Ono, saya bercita cita menjadi seorang Statistician dan bisa membantu manusia dengan bidang yang saya tekuni. Blog ini akan berisi ilmu yang saya dapatkan dan beberapa pengalaman penting mungkin. Saya ingin belajar menulis dan mendokumentasikan hal-hal yang berbau walang sangit, eh maksud saya berbau Positif. Tulisan ini mungkin akan saya bagi menjadi beberapa kategori yah,, setiap kategori mewakili perasaan rasa ingin mengadu kucing tetangga dengan kucing belang putih oren ku..\n\n\n\nIngin terlihat keren dan membuat tulisan saya menjadi catatan yang bisa saya baca baca kembali. Awalnya saya ingin membuatnya di Onenote, tapi bentukanya tidak keren. Saya ingin independen dan lahirlah Blog ini hahaha..\n\n\nJangan lupa jika butuh apa apa lihat hubungi saya melalui kontak saya pada laman About.\nSelamat membaca………"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Assalamu’alaikum…\nHola, perkenalkan nama saya Albani\nStatistika adalah hobi saya yang baru saat ini, saya ingin menjelajahi bidang Market Research dan Data Science.\n\nKontak yang bisa anda hubungi\n\nAlbani | 082345674363\nEmail Pribadi | albani.idm88@gmail.com\n\nSelamat Membaca.."
+  },
+  {
+    "objectID": "Bloog/02capek.html",
+    "href": "Bloog/02capek.html",
+    "title": "Capek Itu Pilihan",
+    "section": "",
+    "text": "Akibat menonton story teman yang tinggal di Jepang..\nSabtu siang yang sangat buruk. Bagaimana tidak, saya menghabiskan waktu 1 jam untuk menonton story dari teman teman kontak saya di WhatsApp. Tapi saya mendapatkan insight baru dari tontonan saya tersebut. Syawal adik kelas saya waktu SMK dulu, sekarang tinggal dan kerja di Jepan.\n“Capek itu pilihan, capek pergi ke GYM, tapi badan jelek juga capek”.\n“Belajar itu capek, tapi hidup dengan kebodohan juga capek”.\nKurang lebih seperti itu story tersebut berkata…\nSaya cukup tercengang ketika mendengar unggahan teman saya tersebut. Setelah dipikir memang seperti itu dunia bekerja. Tidak ada hal yang mudah untuk suatu tujuan. Contoh kalau mau beli makanan di minimarket maka yang harus dikorbankan adalah waktu dan tenaga untuk pergi ke minimarket tersebut, namun hal tersebut tidak akan terasa capek karena jaraknya dekat dan kita punya misi yang akan mendapatkan imbalan yaitu belanjaan yang kita cari.\nContoh lainnya adalah Kuliah. Apa tujuan kita kuliah? Benar untuk menambah ilmu dan wawasan, sehingga peluang kesuksessan akan menjadi lebih besar. Saya tidak mengatakan kuliah pasti dijamin akan suksess, namun peluangnya. Bukankah kuliah itu capek? Apalagi untuk kaum sandwich generation yang kerja sambil kuliah, ketahuilah itu sangat berat.\nTapi dengan memiliki tujuan dan harapan itu kita akan merasakan hasilnya. Tidak ada yang instan di dunia ini, bahkan Rafatar pun memliki tekanan sendiri yang belum tentu kita bisa melewatinya. Lihat saja orang yang mendapatkan kekayaan secara instan seperti orang ini Doni Salmanan dan Inda Kenz.\nDari kisah dua orang kaya itu kita bisa mengambil kesimpulan, kalau mau kaya secara instan, ya NIPU, kalo lurus-lurus saja mah lama kayanya. Awokaowk…"
+  },
+  {
+    "objectID": "Bloog/02capek.html#semangat",
+    "href": "Bloog/02capek.html#semangat",
+    "title": "Capek Itu Pilihan",
+    "section": "Semangat",
+    "text": "Semangat\n\nSemua hal yang ingin kita dapatkan memang butuh perjuangan, saya menulis ini bukan berarti bahwa saya sudah suksess, saya baru memulai mencari kecapean. Kuliah + Kerja, belajar coding, belajar menulis (seperti blog ini). Maka mari kita sama-sama menuju kecapean. ini adalah kalimat yang bisa ditanamkan agar kita bisa lebih semangat.\n\n\nOlahraga memang capek, tapi sakit sakitan juga capek\nBelajar memang capek, tapi hidup dalam kebodohan juga capek\nLatihan memang capek, tapi hidup dalam kekalahan juga capek\nKerja memang capek, tapi menjadi beban keluarga juga capek\nBernapas meamng capek, tapi tidak bernapas juga capek\n\n\nHidup itu memang capek, karna umumnya seperti demikian. Sisa kita yang harus memlih, mau capek yang seperti apa?. Tapi kan,,\n\n\nGak ada tapi tapi yang harus kita siapkan adalah Purpose dan Goal. Apa sih yang kita lakukan kenapa mau capek-capek, mendingan push rank sajakan kita.. tidak..\n\n\nAda kemiskinan yang harus kita selesaikan,\nAda keluarga yang harus kita banggakan,\nAda remehan yang harus kita buktikan,\nAda pasangan yang harus kita dapatkan,\nAda gunung yang harus kita daki,\nAda sesuatu di luar sana yang harus kita gapay,\nAda PS 5 yang harus kita beli dan,\nAda rumah yang harus kita punya.\n\n\nHal-hal diatas tidak akan terjadi kalau kita push rank sampai jam 2 pagi, kecuali sampean pesugihan. Ada tips lain selain pesugihan sebenarnya jadi topeng monyet. Itu sangat mustahil, jadi capek mana yang akan kita pilih ? Ayok sama-sama kita capek demi mendapatkan One Piece.\n\nSee you on the next storyyy…."
   },
   {
     "objectID": "Bloog/04 Metrik  Analisis.html",
@@ -63,73 +133,31 @@
     "text": "SaaS (Software as a Service)\n\nAnnual Recurring Revenue (ARR) – Pendapatan tahunan yang dapat diprediksi dari pelanggan berlangganan.\n\nCustomer Retention Rate – Persentase pelanggan yang tetap berlangganan setelah periode tertentu.\n\nCustomer Churn Rate – Persentase pelanggan yang berhenti berlangganan dalam periode tertentu.\n\nLifetime Value to Customer Acquisition Cost (LTV) Ratio – Perbandingan antara CLV dan CAC.\n\nNet Promoter Score (NPS) – Ukuran kesetiaan pelanggan berdasarkan rekomendasi.\n\n\n\n\nTips Penting dalam Membuat Metrik\n\n\n✅ Sederhana: Metrik harus mudah dipahami oleh semua pihak.\n\n\n✅ Relevan: Harus selaras dengan tujuan bisnis.\n\n\n✅ Terukur: Harus dapat diukur dengan data yang tersedia.\n\n\n✅ Bisa Ditindaklanjuti: Memberikan wawasan yang bisa diimplementasikan.\n\n\n✅ Konsisten: Definisi dan perhitungannya harus seragam di semua tim.\n\n\n\nIni bisa dijadikan contoh metrik apa yang bisa kita buat dan melakukan analisa lebih mendalam sedalam SILET. Okeee see you on the next Story"
   },
   {
-    "objectID": "Bloog/02capek.html",
-    "href": "Bloog/02capek.html",
-    "title": "Capek Itu Pilihan",
+    "objectID": "Bloog/06 Pondasi.html",
+    "href": "Bloog/06 Pondasi.html",
+    "title": "PONDASI SEORANG DATA ANALIS",
     "section": "",
-    "text": "Akibat menonton story teman yang tinggal di Jepang..\nSabtu siang yang sangat buruk. Bagaimana tidak, saya menghabiskan waktu 1 jam untuk menonton story dari teman teman kontak saya di WhatsApp. Tapi saya mendapatkan insight baru dari tontonan saya tersebut. Syawal adik kelas saya waktu SMK dulu, sekarang tinggal dan kerja di Jepan.\n“Capek itu pilihan, capek pergi ke GYM, tapi badan jelek juga capek”.\n“Belajar itu capek, tapi hidup dengan kebodohan juga capek”.\nKurang lebih seperti itu story tersebut berkata…\nSaya cukup tercengang ketika mendengar unggahan teman saya tersebut. Setelah dipikir memang seperti itu dunia bekerja. Tidak ada hal yang mudah untuk suatu tujuan. Contoh kalau mau beli makanan di minimarket maka yang harus dikorbankan adalah waktu dan tenaga untuk pergi ke minimarket tersebut, namun hal tersebut tidak akan terasa capek karena jaraknya dekat dan kita punya misi yang akan mendapatkan imbalan yaitu belanjaan yang kita cari.\nContoh lainnya adalah Kuliah. Apa tujuan kita kuliah? Benar untuk menambah ilmu dan wawasan, sehingga peluang kesuksessan akan menjadi lebih besar. Saya tidak mengatakan kuliah pasti dijamin akan suksess, namun peluangnya. Bukankah kuliah itu capek? Apalagi untuk kaum sandwich generation yang kerja sambil kuliah, ketahuilah itu sangat berat.\nTapi dengan memiliki tujuan dan harapan itu kita akan merasakan hasilnya. Tidak ada yang instan di dunia ini, bahkan Rafatar pun memliki tekanan sendiri yang belum tentu kita bisa melewatinya. Lihat saja orang yang mendapatkan kekayaan secara instan seperti orang ini Doni Salmanan dan Inda Kenz.\nDari kisah dua orang kaya itu kita bisa mengambil kesimpulan, kalau mau kaya secara instan, ya NIPU, kalo lurus-lurus saja mah lama kayanya. Awokaowk…"
+    "text": "Pondasi Iman seorang data anlyst yang harus ada dan kokoh..\nGambar hanya sebuh pemanis, lagi lagi saya harus mengambil tulisan dari Pak Aep. Ijin saya copas ya Pak,, 😣😥"
   },
   {
-    "objectID": "Bloog/02capek.html#semangat",
-    "href": "Bloog/02capek.html#semangat",
-    "title": "Capek Itu Pilihan",
-    "section": "Semangat",
-    "text": "Semangat\n\nSemua hal yang ingin kita dapatkan memang butuh perjuangan, saya menulis ini bukan berarti bahwa saya sudah suksess, saya baru memulai mencari kecapean. Kuliah + Kerja, belajar coding, belajar menulis (seperti blog ini). Maka mari kita sama-sama menuju kecapean. ini adalah kalimat yang bisa ditanamkan agar kita bisa lebih semangat.\n\n\nOlahraga memang capek, tapi sakit sakitan juga capek\nBelajar memang capek, tapi hidup dalam kebodohan juga capek\nLatihan memang capek, tapi hidup dalam kekalahan juga capek\nKerja memang capek, tapi menjadi beban keluarga juga capek\nBernapas meamng capek, tapi tidak bernapas juga capek\n\n\nHidup itu memang capek, karna umumnya seperti demikian. Sisa kita yang harus memlih, mau capek yang seperti apa?. Tapi kan,,\n\n\nGak ada tapi tapi yang harus kita siapkan adalah Purpose dan Goal. Apa sih yang kita lakukan kenapa mau capek-capek, mendingan push rank sajakan kita.. tidak..\n\n\nAda kemiskinan yang harus kita selesaikan,\nAda keluarga yang harus kita banggakan,\nAda remehan yang harus kita buktikan,\nAda pasangan yang harus kita dapatkan,\nAda gunung yang harus kita daki,\nAda sesuatu di luar sana yang harus kita gapay,\nAda PS 5 yang harus kita beli dan,\nAda rumah yang harus kita punya.\n\n\nHal-hal diatas tidak akan terjadi kalau kita push rank sampai jam 2 pagi, kecuali sampean pesugihan. Ada tips lain selain pesugihan sebenarnya jadi topeng monyet. Itu sangat mustahil, jadi capek mana yang akan kita pilih ? Ayok sama-sama kita capek demi mendapatkan One Piece.\n\nSee you on the next storyyy…."
+    "objectID": "Bloog/06 Pondasi.html#konsep-dasar-data-analytics",
+    "href": "Bloog/06 Pondasi.html#konsep-dasar-data-analytics",
+    "title": "PONDASI SEORANG DATA ANALIS",
+    "section": "Konsep Dasar Data Analytics",
+    "text": "Konsep Dasar Data Analytics\nUntuk memahami data analytics dengan lebih baik, penting untuk membedakan antara data dan informasi. Data adalah kumpulan fakta atau angka mentah yang belum diproses atau dianalisis. Data bisa berupa angka, teks, gambar, atau jenis informasi lain yang dikumpulkan dari berbagai sumber. Di sisi lain, informasi adalah hasil dari pengolahan dan analisis data. Informasi adalah data yang telah diproses sehingga menjadi sesuatu yang bermakna dan dapat digunakan untuk membuat keputusan.\nData dapat dikategorikan menjadi dua jenis utama: kuantitatif dan kualitatif. Data kuantitatif terdiri dari angka dan dapat diukur secara objektif, seperti hasil survei yang menunjukkan skor kepuasan pelanggan atau data penjualan bulanan. Data kualitatif, di sisi lain, bersifat deskriptif dan lebih sulit diukur, seperti ulasan pelanggan yang berisi komentar tentang pengalaman mereka dengan produk atau layanan.\nSelain itu, data juga dapat diklasifikasikan sebagai data terstruktur dan tidak terstruktur. Data terstruktur adalah data yang telah diorganisasi dengan cara tertentu, biasanya dalam format tabel atau database yang dapat dengan mudah diquery menggunakan alat analisis. Contoh data terstruktur termasuk data dalam spreadsheet Excel atau tabel database relasional. Sebaliknya, data tidak terstruktur tidak memiliki format yang teratur, seperti teks bebas dari email, posting media sosial, atau gambar. Meskipun data tidak terstruktur dapat menjadi sumber informasi yang kaya, analisisnya sering kali memerlukan teknik yang lebih kompleks."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Assalamu’alaikum…\nHola, perkenalkan nama saya Albani\nStatistika adalah hobi saya yang baru saat ini, saya ingin menjelajahi bidang Market Research dan Data Science.\n\nKontak yang bisa anda hubungi\n\nAlbani | 082345674363\nEmail Pribadi | albani.idm88@gmail.com\n\nSelamat Membaca.."
+    "objectID": "Bloog/06 Pondasi.html#proses-data-analytics",
+    "href": "Bloog/06 Pondasi.html#proses-data-analytics",
+    "title": "PONDASI SEORANG DATA ANALIS",
+    "section": "Proses Data Analytics",
+    "text": "Proses Data Analytics\nProses data analytics terdiri dari beberapa tahap yang saling terkait, dimulai dari pengumpulan data hingga interpretasi hasil analisis. Tahap pertama dalam proses ini adalah pengumpulan data. Data dapat dikumpulkan dari berbagai sumber, seperti survei, sistem transaksi, data sensor, atau sumber data eksternal seperti media sosial. Pengumpulan data yang efektif memerlukan pemilihan metode yang sesuai dengan tujuan analisis dan memastikan bahwa data yang dikumpulkan relevan dan berkualitas.\nSetelah data dikumpulkan, tahap berikutnya adalah pembersihan data. Pembersihan data adalah proses yang penting untuk memastikan bahwa data yang digunakan dalam analisis adalah akurat dan bebas dari kesalahan. Data yang tidak bersih atau tidak konsisten dapat mengarah pada hasil analisis yang salah atau menyesatkan. Proses pembersihan data melibatkan identifikasi dan perbaikan data yang hilang, duplikat, atau tidak konsisten. Teknik ini termasuk pengisian nilai yang hilang, menghapus duplikat, dan mengoreksi kesalahan format.\nEksplorasi data adalah langkah selanjutnya setelah pembersihan. Pada tahap ini, analisis awal dilakukan untuk memahami pola dan tren dalam data. Teknik eksplorasi data melibatkan statistik deskriptif seperti mean, median, dan modus, serta visualisasi awal seperti histogram dan diagram pencar. Tujuan eksplorasi data adalah untuk mendapatkan wawasan awal tentang data dan menentukan apakah ada pola atau anomali yang perlu diteliti lebih lanjut.\nTahap berikutnya adalah analisis data, di mana teknik analisis yang lebih canggih diterapkan untuk mengidentifikasi hubungan dan pola yang lebih kompleks dalam data. Metode analisis data dapat mencakup teknik statistik seperti regresi, clustering, atau analisis korelasi. Misalnya, regresi digunakan untuk memahami hubungan antara variabel dan memprediksi nilai variabel dependen berdasarkan variabel independen. Clustering, di sisi lain, digunakan untuk mengelompokkan data ke dalam grup yang memiliki kemiripan tertentu. Teknik ini dapat digunakan untuk segmentasi pelanggan atau analisis pola pembelian.\nInterpretasi hasil adalah tahap terakhir dalam proses data analytics. Setelah analisis data dilakukan, penting untuk menginterpretasikan hasilnya dengan benar dan mengkomunikasikan temuan kepada pemangku kepentingan. Interpretasi hasil melibatkan pemahaman tentang apa arti hasil analisis dalam konteks bisnis atau organisasi dan bagaimana hasil tersebut dapat digunakan untuk mengambil keputusan. Presentasi hasil analisis harus jelas dan mudah dipahami oleh audiens non-teknis, sering kali menggunakan visualisasi data seperti grafik dan diagram untuk menyampaikan temuan dengan lebih efektif."
   },
   {
-    "objectID": "Bloog/01 fisrst.html",
-    "href": "Bloog/01 fisrst.html",
-    "title": "INTRODUCTION",
-    "section": "",
-    "text": "Sebuah pertemuan, baca ini dulu agar kita saling kenal\n\nSemoga tulisan saya bisa memberikan insight..\n\n\n\nTak kenal maka tak sayang.. itulah pepatah yang pernah saya dengar dari kakek cicit buyutku yang lahir zaman manusia menggunakan nama VAN (Bercanda)..\n\n\n\n“Perkenalkan Budiono Siregar, cita-cita,,, Kapallaud”\n\n\n\nTidak saya bukan Ono, saya bercita cita menjadi seorang Statistician dan bisa membantu manusia dengan bidang yang saya tekuni. Blog ini akan berisi ilmu yang saya dapatkan dan beberapa pengalaman penting mungkin. Saya ingin belajar menulis dan mendokumentasikan hal-hal yang berbau walang sangit, eh maksud saya berbau Positif. Tulisan ini mungkin akan saya bagi menjadi beberapa kategori yah,, setiap kategori mewakili perasaan rasa ingin mengadu kucing tetangga dengan kucing belang putih oren ku..\n\n\n\nIngin terlihat keren dan membuat tulisan saya menjadi catatan yang bisa saya baca baca kembali. Awalnya saya ingin membuatnya di Onenote, tapi bentukanya tidak keren. Saya ingin independen dan lahirlah Blog ini hahaha..\n\n\nJangan lupa jika butuh apa apa lihat hubungi saya melalui kontak saya pada laman About.\nSelamat membaca………"
-  },
-  {
-    "objectID": "Bloog/03 git.html",
-    "href": "Bloog/03 git.html",
-    "title": "Git dan Github",
-    "section": "",
-    "text": "Bagaimana Git dan Github bekerja untuk dunia yang fana ini..\n\n2024 lalu saya sangat stress dengan harga Hosting yang super duper mahal, lebih tepatnya saya yang miskin. Dengan melihat harga itu saya berfikir, “Apakah ada hostingan gratis agar web saya bisa online (diaksess orang)”? Github menjawab pertanyaan ini. Bukan hanya itu, tapi github bisa menampung file berupa portofoliio kita, baik codingan maupun data set.\n\n\n\nSumber : yt\n\n\nUntuk mengetahui lebih dalam bisa mengunjungi link berikut : https://www.youtube.com/watch?v=Uszj_k0DGsg\n\nVCS\nVCS atau Version Control system bukan Vidio Call S**, Otak lu astgfirulloh.. dari namanya ketahuan apa itu Version. Contoh dalam membuat laporan file diberi nama “Daftar makanan.doc”, tiba tiba kita memiliki revisi berubah dengan nama “Revisi1 daftar makanan.doc”, Revisi 3, 4 dan seterusnya. Nah pencatatan ini disebut degan VCS dalam codingan. VCS dengan kategori server distribusi salah satunya adalah GIT.\n\n\nGIT\nGit adalah sistem kontrol versi (version control system) yang digunakan untuk mengelola, menyimpan, dan berbagi kode sumber (source code). Git merupakan alat yang umum digunakan oleh programmer dan developer untuk mengembangkan perangkat lunak secara kolaboratif.\n\n\nGitHub\nAdalah sebuah website yang menyediakan jasa penyimpanan git repository. Dengan Github, kita bisa melakukan kolaborasi pada semua user yang ingin membangun suatu kode bersama kita.\n\n\n\nContoh\nBlog private saya ini akan saya tambahkan jika saya mendapatkan insight baru. Bagaimana jika saya menggunakan perangkat lain? Nah dengan Git ini saya bisa mengerjakan, menulis dan lain lain dimana pun dan kapan pun.\nPrintah-printah dasar di Git saya simpan disini.\n\n\nTutorial\nUntuk melakukan git pada projek kita, yang harus dilakukan adalah :\n\nInisialisasi token repositori\n\ngit init\n\nStuning menambahkan file ke data lokal repositori\n\ngit add &lt;namafile.type&gt;, git add . titik untuk semua file\n\nMemasukan ke lokal repo\n\ngit commit -m\"Isi pesan atau isi updatean\"\n\nMenambahkan update file\n\nSave file, maka nanti akan otomatis ada tambahan, namunperlu di commit lagi agar file terekam jejaknya apa saja dengan cara ; {git status} &gt; Untuk melihat status file\nulangi step 1-3 di atas.\n\nMenghubungkan Git dengan Github\n\n{git remote add origin &lt;git URL}\n\nUpload di Github\n\ngit push origin\nTUlisan selanjutnya saya akan butkan cara mengakses file dengan file lain.. segini dulu, besok kita lanjut.."
-  },
-  {
-    "objectID": "Bloog/05 Perngertian data analyst.html",
-    "href": "Bloog/05 Perngertian data analyst.html",
-    "title": "MEMAHAMI APA ITU DATA ANALYST",
-    "section": "",
-    "text": "Masih banyak yang belum tau apa itu data analyst"
-  },
-  {
-    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-decriptive-analysist",
-    "href": "Bloog/05 Perngertian data analyst.html#blue-print-decriptive-analysist",
-    "title": "MEMAHAMI APA ITU DATA ANALYST",
-    "section": "Blue print Decriptive Analysist",
-    "text": "Blue print Decriptive Analysist\n\nKumpulkan Data: Kumpulkan data historis dari berbagai sumber (misalnya database, file Excel).\nBersihkan Data: Periksa data yang hilang (missing values), Data duplikat dan outlier.\nAnalisis Statistik Dasar: Hitung rata-rata, median, dan distribusi data.\nVisualisasi Data: Buat grafik dan diagram untuk memudahkan pemahaman.\nInterpretasi Hasil: Jelaskan pola dan tren yang ditemukan."
-  },
-  {
-    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-diagnostic-analysist",
-    "href": "Bloog/05 Perngertian data analyst.html#blue-print-diagnostic-analysist",
-    "title": "MEMAHAMI APA ITU DATA ANALYST",
-    "section": "Blue print Diagnostic Analysist",
-    "text": "Blue print Diagnostic Analysist\n\nIdentifikasi Anomali atau Pola Aneh: Temukan data yang menyimpang dari tren umum.\nDrill-Down Data: Telusuri data lebih dalam untuk memahami peristiwa spesifik.\nAnalisis Korelasi: Periksa hubungan antara variabel yang berbeda.\nHipotesis Penyebab: Buat hipotesis tentang penyebab masalah.\nValidasi Hipotesis: Gunakan data untuk mengonfirmasi atau menolak hipotesis.\nInterpretasi Hasil: Jelaskan penyebab utama dari hasil analisis."
-  },
-  {
-    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-predictive-analysist",
-    "href": "Bloog/05 Perngertian data analyst.html#blue-print-predictive-analysist",
-    "title": "MEMAHAMI APA ITU DATA ANALYST",
-    "section": "Blue print Predictive Analysist",
-    "text": "Blue print Predictive Analysist\n\nKumpulkan Data Historis: Data yang relevan dan lengkap.\nPersiapan Data: Bersihkan dan format data untuk analisis prediktif.\nPilih Model Analisis: Gunakan regresi, time series, atau algoritma machine learning.\nLatih Model: Gunakan data historis untuk melatih model prediktif.\nEvaluasi Model: Validasi keakuratan model menggunakan metrik seperti RMSE atau R².\nLakukan Prediksi: Terapkan model untuk memprediksi tren masa depan.\nVisualisasi Hasil: Sajikan hasil dalam grafik prediksi."
-  },
-  {
-    "objectID": "Bloog/05 Perngertian data analyst.html#blue-print-perspective-analysist",
-    "href": "Bloog/05 Perngertian data analyst.html#blue-print-perspective-analysist",
-    "title": "MEMAHAMI APA ITU DATA ANALYST",
-    "section": "Blue print Perspective Analysist",
-    "text": "Blue print Perspective Analysist\n\nAnalisis Prediktif: Gunakan hasil dari analisis prediktif sebagai dasar.\nIdentifikasi Opsi Tindakan: Daftar kemungkinan tindakan berdasarkan data.\nSimulasi dan Optimasi: Uji berbagai skenario dengan model simulasi.\nEvaluasi Opsi: Bandingkan hasil dari setiap skenario.\nBerikan Rekomendasi: Sajikan opsi terbaik dengan proyeksi dampaknya.\nMonitoring Implementasi: Pantau dampak dari tindakan yang diambil."
+    "objectID": "Bloog/06 Pondasi.html#alat-dan-teknologi-data-analytics",
+    "href": "Bloog/06 Pondasi.html#alat-dan-teknologi-data-analytics",
+    "title": "PONDASI SEORANG DATA ANALIS",
+    "section": "Alat dan Teknologi Data Analytics",
+    "text": "Alat dan Teknologi Data Analytics\nDalam dunia data analytics, berbagai alat dan teknologi tersedia untuk membantu dalam setiap tahap proses analisis. Salah satu alat yang paling umum digunakan adalah Microsoft Excel. Excel menawarkan berbagai fitur untuk analisis data, termasuk tabel pivot, grafik, dan formula statistik. Meskipun Excel adalah alat yang kuat untuk analisis data dasar, alat yang lebih canggih sering kali diperlukan untuk analisis data yang lebih kompleks.\nR dan Python adalah dua bahasa pemrograman yang sangat populer dalam data analytics. R adalah bahasa pemrograman yang dirancang khusus untuk analisis statistik dan visualisasi data. R menawarkan berbagai paket dan pustaka yang memudahkan analisis data dan pembuatan grafik. Python, di sisi lain, adalah bahasa pemrograman umum yang juga sangat populer dalam data analytics karena kemampuannya dalam pemrosesan data dan analisis. Python memiliki pustaka seperti Pandas, NumPy, dan SciPy yang sangat berguna untuk analisis data, serta pustaka visualisasi seperti Matplotlib dan Seaborn."
   }
 ]
