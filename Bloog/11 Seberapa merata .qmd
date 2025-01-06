@@ -1,0 +1,81 @@
+---
+title: "PEMERATAAN"
+image: 11 fp.jpg
+author: "Albani, Ikang"
+date: "2025-01-07"
+categories: [Data Analyst, Market Research]
+---
+> *Menentukan apakah pemerataan sudah terjadi ?? Contoh : Dokter gigi dari Pak Ikang*
+
+-------
+
+Salah satu resolusi saya di tahun 2025 adalah membuat 1 analisa perhari. Entah itu receh atau hard yg penting 1 harus ada saya upload di blog pribadi saya ini. Sekrang sudah pukul 23.14 waktu setempat saya, ngantuk dan mata lelah membuat saya melakukan inkonsistensi atas resolusi saya. Ditambah ketika saya pulang kerja saya kehujanan yang luamayan cukup deras. saya coba menguatkan diri..
+
+Membaca tulisan pak Ikang tentang pemerataan, beliau menuliskan tentang apakah [dokter di Indonesia cukup merata?](https://ikanx101.com/blog/dokter-merata/). Melihat penjelasannya saya berfikir apakah menggunakan teknik atau persamaan matematika yang saya tidak ketahui atau apa? ternyata ini membuat saya terheran heran. Bagimana tidak beliau menjelaskan tidak dengan komputasi yang sangat rumit atau mencoba menyelesaikan dengan persamaan kalkulus.
+
+**Perhatikan gambar berikut :**
+
+![Dari web Pak Ikang](11 a.png)
+
+Menarik bukan? hanya dengan menggunakan diagram bar horizontal kita bisa membaca bahwa dokter diindonesia tidak merata hahaha.. Setelah saya fikir fikir, kita harus bisa melihat apakah suatu pemerataan terhadi disuatu tempat? tidak perlu menghitung logaritma, namun dengan bar seperti demikian.
+
+Saya melakukan percobaanya menggunakan `python` tentu saja saya mendapatkan insight baru kembali, yaitu tentang pembuatan plot hahaha,,,
+
+```r
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+# Data Contoh (Gantilah dengan data Anda)
+data = {
+    'Kabupaten/Kota': ['Kota Jakarta Timur', 'Kota Jakarta Selatan', 'Kota Surabaya', 'Maybrat', 'Pegunungan Arfak'],
+    'Jumlah Dokter Umum': [1500, 1450, 1300, 10, 15]
+}
+
+df = pd.DataFrame(data)
+
+# Mengurutkan data berdasarkan jumlah dokter
+df = df.sort_values(by='Jumlah Dokter Umum', ascending=False)
+
+# Hitung Mean dan Median
+mean = df['Jumlah Dokter Umum'].mean()
+median = df['Jumlah Dokter Umum'].median()
+
+# Plotting
+plt.figure(figsize=(10, 15))
+sns.barplot(
+    y='Kabupaten/Kota',
+    x='Jumlah Dokter Umum',
+    data=df,
+    palette='Blues_d'
+)
+
+# Garis untuk Mean dan Median
+plt.axvline(mean, color='red', linestyle='-', label=f'Mean = {int(mean)}')
+plt.axvline(median, color='green', linestyle='-', label=f'Median = {int(median)}')
+
+# Tambahkan label teks untuk mean dan median
+plt.text(mean + 5, len(df) - 1, f'Mean = {int(mean)}', color='red', fontsize=10)
+plt.text(median + 5, len(df) - 1, f'Median = {int(median)}', color='green', fontsize=10)
+
+# Judul dan Label
+plt.title('Top vs Bottom Kabupaten/Kota - Jumlah Dokter Umum')
+plt.xlabel('Jumlah Dokter Umum')
+plt.ylabel('Kabupaten/Kota')
+
+# Legenda
+plt.legend()
+
+# Sumber
+plt.text(0, -1, 'Sumber: Kemenkes\nVisualized using Python', fontsize=8)
+
+# Tampilkan Grafik
+plt.tight_layout()
+plt.show()
+```
+
+Dengan mendapatkan sintaks membuat garis yaitu `plt.axvline(Mean, color='red', linestyle='-', label=f'Mean = {int(mean)}'))`
+
+> Analisa ini bukan hanya untuk dokter, tapi bisa untuk segala jenis aspek apakah ada pemerataan atau tidak hahaha...
