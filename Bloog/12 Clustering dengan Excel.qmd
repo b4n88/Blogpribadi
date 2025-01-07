@@ -1,0 +1,57 @@
+---
+title: "ANALISIS UNTUK MEMBANTU OFFICE"
+image: 12 fp.webp
+author: "Albani"
+date: "2025-01-09"
+categories: [Data Analyst, Market Research]
+---
+> *Melakukan analisis cluster dengan excel berdasarkan study kasus*
+
+-------
+
+Sumber klik [di sini](https://github.com/ikanx101/melek-data/tree/main/Problems/ATK/Alternatif%20Jawaban)
+
+# Study case 1
+
+### Pendahuluan
+
+Salah satu tugas dari tim office adalah supporting another department dalam hal kebutuhan sarana dan prasarana kerja, termasuk ke dalam pemenuhan kebutuhan alat tulis kantor. Setiap harinya, user di masing-masing departemen bisa melakukan request alat tulis kantor menggunakan sistem IT yang ada. Setiap request tersebut dicatat secara otomatis. Setelah itu, tim office wajib memenuhi request tersebut dan menuliskan rekap pemberian (serah terima) tersebut secara harian.
+
+### Problem Statement
+
+Masalah yang dihadapi oleh tim office adalah:
+
+  - Jika semua produk overstok, maka bisa jadi ada kemungkinan barang terlalu lama “parkir” di gudang dan tidak terpakai.
+  - Jika semua produk understok, maka user akan gelisah menunggu kapan request-nya bisa didapatkan.
+Oleh karena itu, menggunakan data-data yang ada:
+
+> Bantu tim office membuat strategi inbound - outbound (pemenuhan stok) yang optimal!
+
+### Discussion
+
+Apakah ada :
+ - Variabel dari data yang tidak digunakan dalam membuat strategi tersebut?
+ - Variabel yang belum ada pada data namun diperlukan dalam membuat strategi tersebut? Jika ada, sebutkan dan bahas dalam materi presentasi tim Anda!
+ - Asumsi yang tim Anda gunakan dalam membuat strategi tersebut?
+
+#### _Hint_
+
+Untuk membantu menyelesaikan masalah ini, kita bisa mempertimbangkan untuk melakukan beberapa hal berikut ini:
+
+- Membuat pre-analisa berupa analisa deskriptif dari kedua data tersebut.
+- Strategi yang bisa dipertimbangkan: cost efficiency atau service level.
+- Keep it simple! Seringkali masalah yang terlihat rumit dan kompleks sebenarnya bisa diselesaikan dengan pendekatan sederhana jika kita benar-benar bisa menyesuaikan tujuan dengan metode atau analisa yang digunakan.
+- Melakukan transformasi kepada data yang memiliki range yang sangat lebar.
+
+# Jawaban
+
+Dalam masalah ini banyak sekali jawaban yang bisa digunakan, tergantung kita menggunakan apa dan tidak ada yang salah dengan metode yang kita gunakan. Sisanya kita yang memikirkan, apakah itu logis atau tidak.
+
+Metode yang bisa kita lakukan adalah :
+1. Pareto analysis
+2. Clustering analysis
+3. Trend & time series analysis
+4. Safety Stock & Reorder Point Analysis
+5. Analisis ABC XYZ
+
+Mungkin saya akan tuliskan bagaimana penggunaan metode metode tersebut dilain kesempatan ya.. saya akan menjelaskan dahulu masing masing metode di atas akan kita bahas di tulisan selanjutnya...
