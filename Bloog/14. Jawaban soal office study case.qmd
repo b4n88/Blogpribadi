@@ -1,0 +1,41 @@
+---
+title: "Lanjutan dari analisis office ATK"
+image: 14 fp.jpg
+author: "Albani"
+date: "2025-01-11"
+categories: [Data Analyst, Market Research]
+---
+> *Jawaban adalah masukan dari Pak ikang, saya comot dan coba jelaskan dengan bahasa saya.. Terima kasih Pak insigtnya*
+
+-------
+
+Tulisan ini adalah tulisan dari soal pada [tulisan saya sebelumnya](https://b4n88.github.io/Blogpribadi/Bloog/12%20Clustering%20dengan%20Excel.html), Karena kemarin saya tidak menuliskan jawabannya. Seperti yang sudah saya tuliskan cara yang bisa kita lakukan untuk analisa ini adalah :
+
+1. Pareto Analysis
+2. Cluster Analysis
+3. Trend & Time Series Anlysis
+4. Safety Stock & Reorder Point Analysis
+5. Analisis ABC XYZ
+
+Data setnya sudah saya upload di github saya klik [di sini](https://github.com/b4n88/Market-Research/tree/main/Office%20study%20case). 
+
+Sesuai petunjuk dari Pak Ikang, maka saya akan coba menuliskan jawaban dengan metode :
+
+**Cluster Analysis**
+
+Menurut saya langkah yang harus dilakukan adalah :
+
+## Cleaning data
+
+awal yang harus dilakukan adalah cleaning data. Apa itu cleaning data? yaitu tahap pembersihan dan pengecekan data pengecekan ini apakah datanya sudah konsisten atau tidak dan lain-lain. Kenapa harus melakukan cleaning data meskipun sudah ada validasi dari pengirim bahwa data sudah bersih. Ini mengingatkan saya pada saat ikut [TSA by Cominfo](https://digitalent.komdigi.go.id/), Pak Rangga yang merupakan tim penguji kami mengatakan "Sebagai praktisi kita harus melakukan pengecekan data terlebih dahulu". Ini berkorelasi dengan [tulisan pak Aep](https://b4n88.github.io/Blogpribadi/Bloog/07%20Mindset.html) sebelumnya yang saya copas dalam Blog saya ini. Analisa itu tergantung data, sekecil apapun ketidak konsistenan data akan berpengaruh pada keputusan. Jangan anggap remeh hal yang 1 ini.
+
+Clening data bagaimana? saya hanya mau memastikan apakah nama item dan kodenya sudah sesuai? karena bisa jadi ada kesalahan typo yang bisa membahayakan. Sejauh ini datanya sudah lumayan bersih type datanya sudah aman juga. Sehingga hanya melakukan validasi saja apakah jumalh kode barang dan nama barang berjumlah sama?
+
+Benar sekali ternyata data antara `Nama Iten` & `Kode item` itu tidak sesuai, sehingga dalam analisa hanya butuh menggunakan Colom `Nama item` saja. Karena kita mengasumsikan ada 1 `Kode item` yang menggunakan `nama item` yang sama. Karena dari study case hanya membahas inbound dan outbound maka hanya perlu menganalisa data `pengeluaran product`.
+
+## Memilih Variable
+
+Setelah data sudah bersih..
+
+
+Tulisan ini akan saya lanjutkan besok.. saya mulai mengantuk
