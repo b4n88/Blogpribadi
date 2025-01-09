@@ -129,6 +129,18 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#cleaning-data" id="toc-cleaning-data" class="nav-link active" data-scroll-target="#cleaning-data">Cleaning data</a></li>
   <li><a href="#memilih-variable" id="toc-memilih-variable" class="nav-link" data-scroll-target="#memilih-variable">Memilih Variable</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#analisis-deskripsi" id="toc-analisis-deskripsi" class="nav-link" data-scroll-target="#analisis-deskripsi">1. Analisis Deskripsi</a></li>
+  <li><a href="#cluster-analysis" id="toc-cluster-analysis" class="nav-link" data-scroll-target="#cluster-analysis">2. Cluster Analysis</a></li>
+  </ul></li>
+  <li><a href="#strategi" id="toc-strategi" class="nav-link" data-scroll-target="#strategi">Strategi</a>
+  <ul class="collapse">
+  <li><a href="#strategi-kuadran-i" id="toc-strategi-kuadran-i" class="nav-link" data-scroll-target="#strategi-kuadran-i">Strategi Kuadran I</a></li>
+  <li><a href="#strategi-kuadran-ii" id="toc-strategi-kuadran-ii" class="nav-link" data-scroll-target="#strategi-kuadran-ii">Strategi Kuadran II</a></li>
+  <li><a href="#strategi-kuadran-iii" id="toc-strategi-kuadran-iii" class="nav-link" data-scroll-target="#strategi-kuadran-iii">Strategi Kuadran III</a></li>
+  <li><a href="#strategi-kuadran-iv" id="toc-strategi-kuadran-iv" class="nav-link" data-scroll-target="#strategi-kuadran-iv">Strategi Kuadran IV</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -194,10 +206,112 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="memilih-variable" class="level2">
 <h2 class="anchored" data-anchor-id="memilih-variable">Memilih Variable</h2>
-<p>Setelah data sudah bersih..</p>
-<p>Tulisan ini akan saya lanjutkan besok.. saya mulai mengantuk</p>
+<p>Setelah data sudah bersih, Variable yang saya butuhkan adalah hanya mengambil beberapa varible penting yaitu ; Tanggal dan di bagi menjadi 3 bagian (DD, MM &amp; YYYY), Nama Item, Jumlah QTY dan Harga.</p>
+<p>Harga diambil dari data Inbound sisanya dari outbound. Data bersihnya sudah saya simpan dalam <a href="https://github.com/b4n88/Market-Research/tree/main/Office%20study%20case">github saya</a>.</p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>Dalam eksekusi ini ada 2 hal yang harus kita analisa :</p>
+<ul>
+<li>Analisa dekriptif</li>
+<li>Analisa klaster (Clastering)</li>
+</ul>
+<section id="analisis-deskripsi" class="level3">
+<h3 class="anchored" data-anchor-id="analisis-deskripsi">1. Analisis Deskripsi</h3>
+<p>Membuat analisa deskriptif untuk membaca data lebih jelas. Dengan menggunakan fitur <code>pivot table</code> pada excel. Saya mendapatkan beberapa analisa penting dalam analisa saya yaitu :</p>
+<ul>
+<li>Ada item yang digunakan pada tahun 2023 namun <strong>tidak ada</strong> pada tahun sebelumnya</li>
+<li>Ada item yang digunakan pada tahun sebelumnya namun <strong>tidak ada</strong> pada tahun 2023.</li>
+</ul>
+<p>Asumsi saya adalah karena alat yang ada pada tahun sebelumnya sudah tidak berlaku lagi atau diganti dengan item baru sebagai contoh adalah Materai <code>3000</code> dan <code>6000</code>.</p>
+<p>Hasil analisa deskriptifnya bisa di lihat pada excelan saya.</p>
+</section>
+<section id="cluster-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="cluster-analysis">2. Cluster Analysis</h3>
+<p>Cluster ini saya akan klasifikasikan pada data QTY dan harga, sehingga akan menjadi klaster klaster yang saya bagi menjadi 4 :</p>
+<ol type="1">
+<li>Kuadran 1, memiliki high price dan high demand.</li>
+<li>Kuadran 2, memiliki high price dan low demand.</li>
+<li>Kuadran 3, memiliki low price dan low demand.</li>
+<li>Kuadran 4, memiliki low price dan high demand.</li>
+</ol>
+<p>Cara melakukan clastering dengan Excel :</p>
+<ol type="1">
+<li>Siapkan data yang sudah diolah dan bersih sebersih bersihnya.</li>
+<li>Buat Median masing masing variable (<code>=MEDIAN(B2)</code>) Ini berlaku untuk ke-2 variable.</li>
+<li>Buat tanda variable high atau low (<code>=IF(C2&gt;=[Median_Harga],"High","Low")</code>)</li>
+<li>Buat claster berdasarkan kategori kuadran (<code>=IF(AND(D2="HIGH",E2="HIGH"),"KUADRAN  1",IF(AND(D2="HIGH",E2="LOW"),"KUADRAN 2",IF(AND(D2="LOW",E2="LOW"),"KUADRAN  3","KUADRAN 4")))</code>)</li>
+</ol>
+<p>Jika sudah maka hasilnya akan seperti berikut.</p>
+<ol type="1">
+<li>Kuadran 1, memiliki high price dan high demand = <code>17</code></li>
+<li>Kuadran 2, memiliki high price dan low demand = <code>22</code></li>
+<li>Kuadran 3, memiliki low price dan low demand = <code>16</code></li>
+<li>Kuadran 4, memiliki low price dan high demand = <code>21</code>.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="strategi" class="level2">
+<h2 class="anchored" data-anchor-id="strategi">Strategi</h2>
+<section id="strategi-kuadran-i" class="level3">
+<h3 class="anchored" data-anchor-id="strategi-kuadran-i">Strategi Kuadran I</h3>
+<section id="high-price---high-demand" class="level4">
+<h4 class="anchored" data-anchor-id="high-price---high-demand"><em>High Price - High Demand</em></h4>
+<ul>
+<li>Melakukan pembelian ATK secara berkala (pada waktu tertentu - tidak di setiap bulan) tergantung dari siklus permintaan ATK dari <em>user</em>.
+<ul>
+<li>Perhitungan stok bisa dihitung dari total permintaan ATK untuk beberapa bulan sebelum pembelian.</li>
+<li>Overstok masih diperbolehkan.</li>
+</ul></li>
+<li>Oleh karena harga ATK mahal dan diperlukan banyak, kita bisa meminta diskon khusus kepada <em>supplier</em>.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="strategi-kuadran-ii" class="level3">
+<h3 class="anchored" data-anchor-id="strategi-kuadran-ii">Strategi Kuadran II</h3>
+<section id="high-price---low-demand" class="level4">
+<h4 class="anchored" data-anchor-id="high-price---low-demand"><em>High Price - Low Demand</em></h4>
+<ul>
+<li>Melakukan pembelian ATK secara hati-hati agar tidak overstok.
+<ul>
+<li>Kuantitas pembelian bisa dihitung dari total permintaan historikal pada tahun lalu dan pembelian dilakukan cukup sekali saja per tahun, <strong>ATAU</strong></li>
+<li>Pembelian dilakukan ketika ada permintaan namun <em>user</em> bisa diinformasikan mengenai <em>leadtime</em> pengadaan ATK.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="strategi-kuadran-iii" class="level3">
+<h3 class="anchored" data-anchor-id="strategi-kuadran-iii">Strategi Kuadran III</h3>
+<section id="low-price---low-demand" class="level4">
+<h4 class="anchored" data-anchor-id="low-price---low-demand"><em>Low Price - Low Demand</em></h4>
+<ul>
+<li>Melakukan pembelian ATK secara hati-hati agar tidak overstok.
+<ul>
+<li>Kuantitas pembelian bisa dihitung dari total permintaan historikal pada tahun lalu dan pembelian dilakukan cukup sekali saja per tahun, <strong>ATAU</strong></li>
+<li>Oleh karena ATK ini termasuk ke dalam kategori <em>low price</em>, bisa diasumsikan bahwa produk ATK ini memiliki <em>leadtime</em> yang juga cepat. Maka kita bisa lakukan pembelian secara mendadak saat ada permintaan. Tidak perlu ada stok yang disimpan.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="strategi-kuadran-iv" class="level3">
+<h3 class="anchored" data-anchor-id="strategi-kuadran-iv">Strategi Kuadran IV</h3>
+<section id="low-price---high-demand" class="level4">
+<h4 class="anchored" data-anchor-id="low-price---high-demand"><em>Low Price - High Demand</em></h4>
+<ul>
+<li>Melakukan pembelian ATK dengan mempertimbangkan stok aman masing-masing ATK pada waktu yang dibutuhkan.
+<ul>
+<li>Perhitungan <em>safety stok</em> bisa memanfaatkan prinsip perhitungan DOI ATK agar tidak terjadi overstok.</li>
+</ul></li>
+<li>Oleh karena ATK ini termasuk ke dalam kategori <em>low price</em>, bisa diasumsikan bahwa produk ATK ini memiliki <em>leadtime</em> yang juga cepat.</li>
+</ul>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

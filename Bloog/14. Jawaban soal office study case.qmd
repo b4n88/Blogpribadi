@@ -31,11 +31,95 @@ awal yang harus dilakukan adalah cleaning data. Apa itu cleaning data? yaitu tah
 
 Clening data bagaimana? saya hanya mau memastikan apakah nama item dan kodenya sudah sesuai? karena bisa jadi ada kesalahan typo yang bisa membahayakan. Sejauh ini datanya sudah lumayan bersih type datanya sudah aman juga. Sehingga hanya melakukan validasi saja apakah jumalh kode barang dan nama barang berjumlah sama?
 
-Benar sekali ternyata data antara `Nama Iten` & `Kode item` itu tidak sesuai, sehingga dalam analisa hanya butuh menggunakan Colom `Nama item` saja. Karena kita mengasumsikan ada 1 `Kode item` yang menggunakan `nama item` yang sama. Karena dari study case hanya membahas inbound dan outbound maka hanya perlu menganalisa data `pengeluaran product`.
+Benar sekali ternyata data antara `Nama Iten` & `Kode item` itu tidak sesuai, sehingga dalam analisa hanya butuh menggunakan Colom `Nama item` saja. Karena kita mengasumsikan ada 1 `Kode item` yang menggunakan `nama item` yang sama. Karena dari study case hanya membahas inbound dan outbound maka hanya perlu menganalisa data `pengeluaran product`. 
 
 ## Memilih Variable
 
-Setelah data sudah bersih..
+Setelah data sudah bersih, Variable yang saya butuhkan adalah hanya mengambil beberapa varible penting yaitu ; Tanggal dan di bagi menjadi 3 bagian (DD, MM & YYYY), Nama  Item, Jumlah QTY dan Harga.
 
+Harga diambil dari data Inbound sisanya dari outbound. Data bersihnya sudah saya simpan dalam [github saya](https://github.com/b4n88/Market-Research/tree/main/Office%20study%20case).
 
-Tulisan ini akan saya lanjutkan besok.. saya mulai mengantuk
+## Analysis
+
+Dalam eksekusi ini ada 2 hal yang harus kita analisa :
+
+- Analisa dekriptif
+- Analisa klaster (Clastering)
+
+### 1. Analisis Deskripsi
+
+Membuat analisa deskriptif untuk membaca data lebih jelas. Dengan menggunakan fitur `pivot table` pada excel. Saya mendapatkan beberapa analisa penting dalam analisa saya yaitu :
+
+- Ada item yang digunakan pada tahun 2023 namun **tidak ada** pada tahun sebelumnya
+- Ada item yang digunakan pada tahun sebelumnya namun **tidak ada** pada  tahun 2023. 
+
+Asumsi saya adalah karena alat yang ada pada tahun sebelumnya sudah tidak berlaku lagi atau diganti dengan item baru sebagai contoh adalah Materai `3000` dan `6000`.
+
+Hasil analisa deskriptifnya bisa di lihat pada excelan saya.
+
+### 2. Cluster Analysis
+
+Cluster ini saya akan klasifikasikan pada data QTY dan harga, sehingga akan menjadi klaster klaster yang saya bagi menjadi 4 :
+
+1. Kuadran 1, memiliki high price dan high demand.
+2. Kuadran 2, memiliki high price dan low demand.
+3. Kuadran 3, memiliki low price dan low demand.
+4. Kuadran 4, memiliki low price dan high demand.
+
+Cara melakukan clastering dengan Excel :
+
+1. Siapkan data yang sudah diolah dan bersih sebersih bersihnya.
+2. Buat Median masing masing variable (`=MEDIAN(B2)`) Ini berlaku untuk ke-2 variable.
+3. Buat tanda variable high atau low (`=IF(C2>=[Median_Harga],"High","Low")`)
+4. Buat claster berdasarkan kategori kuadran (`=IF(AND(D2="HIGH",E2="HIGH"),"KUADRAN  1",IF(AND(D2="HIGH",E2="LOW"),"KUADRAN 2",IF(AND(D2="LOW",E2="LOW"),"KUADRAN  3","KUADRAN 4")))`)
+
+Jika sudah maka hasilnya akan seperti berikut.
+
+1. Kuadran 1, memiliki high price dan high demand = `17`
+2. Kuadran 2, memiliki high price dan low demand = `22`
+3. Kuadran 3, memiliki low price dan low demand = `16`
+4. Kuadran 4, memiliki low price dan high demand = `21`.
+
+-----
+
+## Strategi 
+
+### Strategi Kuadran I
+
+#### *High Price - High Demand*
+
+-   Melakukan pembelian ATK secara berkala (pada waktu tertentu - tidak di setiap bulan) tergantung dari siklus permintaan ATK dari *user*.
+    -   Perhitungan stok bisa dihitung dari total permintaan ATK untuk beberapa bulan sebelum pembelian.
+    -   Overstok masih diperbolehkan.
+-   Oleh karena harga ATK mahal dan diperlukan banyak, kita bisa meminta diskon khusus kepada *supplier*.
+
+-----
+
+### Strategi Kuadran II
+
+#### *High Price - Low Demand*
+
+-   Melakukan pembelian ATK secara hati-hati agar tidak overstok.
+    -   Kuantitas pembelian bisa dihitung dari total permintaan historikal pada tahun lalu dan pembelian dilakukan cukup sekali saja per tahun, **ATAU**
+    -   Pembelian dilakukan ketika ada permintaan namun *user* bisa diinformasikan mengenai *leadtime* pengadaan ATK.
+    
+-----
+    
+### Strategi Kuadran III
+
+#### *Low Price - Low Demand*
+
+-   Melakukan pembelian ATK secara hati-hati agar tidak overstok.
+    -   Kuantitas pembelian bisa dihitung dari total permintaan historikal pada tahun lalu dan pembelian dilakukan cukup sekali saja per tahun, **ATAU**
+    -   Oleh karena ATK ini termasuk ke dalam kategori *low price*, bisa diasumsikan bahwa produk ATK ini memiliki *leadtime* yang juga cepat. Maka kita bisa lakukan pembelian secara mendadak saat ada permintaan. Tidak perlu ada stok yang disimpan.
+
+-----
+
+### Strategi Kuadran IV
+
+#### *Low Price - High Demand*
+
+-   Melakukan pembelian ATK dengan mempertimbangkan stok aman masing-masing ATK pada waktu yang dibutuhkan.
+    -   Perhitungan *safety stok* bisa memanfaatkan prinsip perhitungan DOI ATK agar tidak terjadi overstok.
+-   Oleh karena ATK ini termasuk ke dalam kategori *low price*, bisa diasumsikan bahwa produk ATK ini memiliki *leadtime* yang juga cepat.
+    
