@@ -1,0 +1,12 @@
+---
+title: "Pengenalan Monte Carlo"
+image: 15 fp.jpg
+author: "Albani"
+date: "2025-01-12"
+categories: [Data Analyst, Market Research, Monte Carlo]
+---
+> *Apaitu Monte carlo dan kegunaannya dalam kehiduap..*
+
+-------
+
+Rekan kantor saya Adar menanyakan kepada saya Metode,,,

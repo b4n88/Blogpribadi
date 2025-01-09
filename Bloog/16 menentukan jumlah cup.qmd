@@ -1,0 +1,12 @@
+---
+title: "Berapa banyak cup yang harus dibuat ?"
+image: 16 fp.jpg
+author: "Albani"
+date: "2025-01-13"
+categories: [Data Analyst, Market Research]
+---
+> *Sebuah study case melakukan estimasi..*
+
+-------
+
+Sebuah setudy case,tulisan segera di upload....
