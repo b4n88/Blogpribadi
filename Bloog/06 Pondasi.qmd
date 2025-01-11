@@ -1,6 +1,5 @@
 ---
 title: "PONDASI SEORANG DATA ANALIS"
-image: 06 fp.jpg
 author: "Aep Hidayatulloh"
 date: "2025-01-06"
 categories: [Data Analyst]

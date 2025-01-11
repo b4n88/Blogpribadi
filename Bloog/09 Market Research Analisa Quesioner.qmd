@@ -1,6 +1,5 @@
 ---
 title: "Kuesioner Review"
-image: 09 fp.webp
 author: "Albani"
 date: "2025-01-07"
 categories: [Market Research, Survey]

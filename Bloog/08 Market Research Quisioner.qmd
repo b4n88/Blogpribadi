@@ -1,6 +1,5 @@
 ---
 title: "Kuesioner Survey"
-image: 08 fp.jpg
 author: "Albani, Ikang"
 date: "2025-01-07"
 categories: [Market Research, Survey]

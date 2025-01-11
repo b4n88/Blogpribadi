@@ -1,6 +1,5 @@
 ---
 title: "PEMERATAAN"
-image: 11 fp.jpg
 author: "Albani, Ikang"
 date: "2025-01-07"
 categories: [Data Analyst, Market Research]

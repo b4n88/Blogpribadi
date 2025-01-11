@@ -1,6 +1,5 @@
 ---
 title: "DIO Days Inventory Outstanding"
-image: 17 fp.png
 author: "Albani"
 date: "2025-01-13"
 categories: [Data Analyst, Market Research, Inventory]

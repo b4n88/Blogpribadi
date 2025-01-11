@@ -1,6 +1,5 @@
 ---
 title: "Lanjutan dari analisis office ATK"
-image: 14 fp.jpg
 author: "Albani"
 date: "2025-01-11"
 categories: [Data Analyst, Market Research]

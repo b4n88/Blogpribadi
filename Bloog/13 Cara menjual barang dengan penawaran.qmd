@@ -1,6 +1,5 @@
 ---
 title: "CARA MENJUAL BARANG DENGAN PENAWANRAN"
-image: 13 fp.jpg
 author: "Albani"
 date: "2025-01-10"
 categories: [Marketing, Bisnis, Menjual]

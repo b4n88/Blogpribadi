@@ -1,0 +1,71 @@
+---
+title: "Konsep Distribusi Data"
+author: "Albani"
+date: "2024-06-15"
+categories: [Stats dasar, Konsep]
+---
+> *Mengerti distribusi data..*
+
+-------
+
+Berapa banyak anak-anak mahasiswa Statistik tidak paham tentang Distribusi data, Pengertian, contoh, dan konsep ini adalah hal yang paling krusial menurut saya..
+
+# Distribusi dalam Statistik
+
+## Pengertian Distribusi
+Distribusi dalam statistik merujuk pada cara nilai-nilai data tersebar atau terdistribusi dalam suatu rentang. Distribusi ini membantu dalam memahami pola dan karakteristik data, serta memprediksi probabilitas kejadian tertentu. Intinya adalah tentang sebaran data, bagaimana data itu menyebar.
+
+## Jenis-Jenis Distribusi
+
+### 1. Distribusi Uniform
+Semua nilai dalam rentang tertentu memiliki peluang yang sama.
+
+**Contoh**: 
+
+- Lemparan dadu Peluangnya sama 1/6
+- Jawaban pilihan ganda peluangnya sama 1/4
+
+### 2. Distribusi Normal (Gaussian)
+Nilai lebih terkonsentrasi di sekitar mean dengan distribusi simetris.
+
+**Contoh**: 
+
+- Tinggi badan manusia (Hampir sama).
+- Usia manusia.
+- Banyak tes dalam 10 nashkan soal ujian.
+
+### 3. Distribusi Eksponensial
+Digunakan untuk waktu antara kejadian dalam proses Poisson. Ingat ya menghitung waktuu..
+
+**Contoh**: Waktu antara kedatangan pelanggan.
+
+### 4. Distribusi Poisson
+Digunakan untuk menghitung probabilitas jumlah kejadian dalam interval waktu tetap. Kebalikan dari Eksponensial yang menghitung selang waktu, ini menghitung berapa kejadian di dalam interval waktu tertentu..
+
+**Contoh**: Jumlah panggilan telepon dalam sejam.
+
+### 5. Distribusi Binomial
+Digunakan untuk jumlah keberhasilan dalam serangkaian percobaan independen. Binomial ini beda dengann uniform, Binomial adalah distribusi yang hanya memiliki 2 pilihan : Ya / Tidak, Benar / Salah, Gambar / Ekor.
+
+**Contoh**: 
+
+- Jumlah sukses dalam serangkaian lemparan koin.
+- Benar atau salah suatu jawaban.
+- Jujur atau Bohon
+
+## Contoh Penggunaan
+- **Distribusi Uniform**: Digunakan saat mensimulasikan hasil lemparan dadu yang adil.
+- **Distribusi Normal**: Digunakan dalam analisis data yang menunjukkan pola alami seperti tinggi badan atau skor ujian.
+- **Distribusi Eksponensial**: Digunakan dalam modeling waktu kedatangan, misalnya dalam teori antrian.
+
+---
+
+## Wejangan
+
+Dalam konteks distribusi ini adalah hal yang sangat penting untuk dipahami. Jika kita melakukan penggunaan simulasi `Monte Carlo`, kita akan membuat model dengan menggunakakn beberapa metrik. Saya akan membuat tulisan tentang simulasi `Monte Carlo`. Metrik itu penggunaan distribusi datanya yang digunakan apa ? Nah artinya adalah kita tidak bisa mengambil acak Distribusinya, karena tergantng konteks.
+
+1. Jika ingin membuat simulasi peluang jawaban soal maka gunakan distribusi uniform.
+2. Jika ingin membuat simulasi orang bohong atau tidak maka gunakan Binomial.
+3. Jika ingin membuat simulasi populasi orang sunda gunakan distribusi normal.
+
+Jika kita ngasal ambil variable maka hasilnya akan bias.

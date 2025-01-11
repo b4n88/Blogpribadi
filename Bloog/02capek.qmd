@@ -1,6 +1,5 @@
 ---
 title: "Capek Itu Pilihan"
-image: 02logo.jpeg
 author: "Albani"
 date: "2024-10-20"
 categories: [Motivation]

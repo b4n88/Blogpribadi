@@ -1,6 +1,5 @@
 ---
 title: "ANALISIS UNTUK MEMBANTU OFFICE"
-image: 12 fp.webp
 author: "Albani"
 date: "2025-01-09"
 categories: [Data Analyst, Market Research]

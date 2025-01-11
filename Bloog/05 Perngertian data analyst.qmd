@@ -1,6 +1,5 @@
 ---
 title: "MEMAHAMI APA ITU DATA ANALYST"
-image: 05 fp.jpg
 author: "Albani"
 date: "2025-01-06"
 categories: [Data Analyst]

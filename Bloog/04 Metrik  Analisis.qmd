@@ -1,6 +1,5 @@
 ---
 title: "METRIK ANALISA DATA"
-image: 04 fp.jpg
 author: "Albani"
 date: "2025-01-05"
 categories: [Data Analyst]
