@@ -8,4 +8,52 @@ categories: [Data Analyst, Market Research, Inventory]
 
 -------
 
-waktu say amenjawab soal dari tulisan ke 14 saya
+waktu saya menjawab soal dari tulisan [ke 14 saya](https://b4n88.github.io/Blogpribadi/Bloog/14.%20Jawaban%20soal%20office%20study%20case.html), Di sana menjelaskan bahwa ada 4 kuadran dalam pemenuhan stok agar *tidak overstok* dan tidak terlalu sedikit. Berikut adalah rincianya..
+
+## Strategi 
+
+### Strategi Kuadran I
+
+#### *High Price - High Demand*
+
+-   Melakukan pembelian ATK secara berkala (pada waktu tertentu - tidak di setiap bulan) tergantung dari siklus permintaan ATK dari *user*.
+    -   Perhitungan stok bisa dihitung dari total permintaan ATK untuk beberapa bulan sebelum pembelian.
+    -   Overstok masih diperbolehkan.
+-   Oleh karena harga ATK mahal dan diperlukan banyak, kita bisa meminta diskon khusus kepada *supplier*.
+
+-----
+
+### Strategi Kuadran II
+
+#### *High Price - Low Demand*
+
+-   Melakukan pembelian ATK secara hati-hati agar tidak overstok.
+    -   Kuantitas pembelian bisa dihitung dari total permintaan historikal pada tahun lalu dan pembelian dilakukan cukup sekali saja per tahun, **ATAU**
+    -   Pembelian dilakukan ketika ada permintaan namun *user* bisa diinformasikan mengenai *leadtime* pengadaan ATK.
+    
+-----
+    
+### Strategi Kuadran III
+
+#### *Low Price - Low Demand*
+
+-   Melakukan pembelian ATK secara hati-hati agar tidak overstok.
+    -   Kuantitas pembelian bisa dihitung dari total permintaan historikal pada tahun lalu dan pembelian dilakukan cukup sekali saja per tahun, **ATAU**
+    -   Oleh karena ATK ini termasuk ke dalam kategori *low price*, bisa diasumsikan bahwa produk ATK ini memiliki *leadtime* yang juga cepat. Maka kita bisa lakukan pembelian secara mendadak saat ada permintaan. Tidak perlu ada stok yang disimpan.
+
+-----
+
+### Strategi Kuadran IV
+
+#### *Low Price - High Demand*
+
+-   Melakukan pembelian ATK dengan mempertimbangkan stok aman masing-masing ATK pada waktu yang dibutuhkan.
+    -   Perhitungan *safety stok* bisa memanfaatkan prinsip perhitungan DOI ATK agar tidak terjadi overstok.
+-   Oleh karena ATK ini termasuk ke dalam kategori *low price*, bisa diasumsikan bahwa produk ATK ini memiliki *leadtime* yang juga cepat.
+
+## DOI
+
+Pada Strategi ke-4 ada kalimat **"Perhitungan _safety stok_ bisa memanfaatkan prinsip perhitungan DOI ATK agar tidak terjadi overstok."**
+
+Apasih DOI itu ?
+

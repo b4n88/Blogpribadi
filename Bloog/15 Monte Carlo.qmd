@@ -4,8 +4,29 @@ author: "Albani"
 date: "2025-01-12"
 categories: [Data Analyst, Market Research, Monte Carlo, Konsep]
 ---
-> *Apaitu Monte carlo dan kegunaannya dalam kehiduap..*
+> *Apa itu Monte carlo dan kegunaannya dalam kehidupan..*
 
 -------
 
-Rekan kantor saya Adar menanyakan kepada saya Metode,,,
+Rekan kantor saya bernama Mas `Adar` menanyakan kepada saya Metode apa yang saya sukai dalam statstika dan saya gunakan sehari hari. Saya tanpa berfikir panjang dan langsung mengucapkan `Monte Carlo`. Seketika dia  mengatakan "Oke menarik..". Sebenarnya `Monte Carlo` ini adalah teknin dalam `Matematika` namun karena Metode ini menjalankan dengan konsep probabilitas maka saya mengasumsikan ini bagian dari metode statistik.
+
+Untuk antum yang kurang familiar dengan metode ini antum bisa mengeceknya klik [di sini](https://sixsigmadsi.com/monte-carlo-simulation/). Saya sengaja tidak mau menuliskan pengertianya karena saya belum terlalu paham betul sangat atas metode ini. Namun sepemahaman saya Simulasi `Monte Carlo` adalah metode yang menggunakan angka acak dan statistik untuk memodelkan hasil dalam kondisi ketidakpastian. Langkah-langkah utama melibatkan:
+
+1. Mendefinisikan masalah dan variabel input.
+2. Membuat model matematis yang memetakan hubungan input-output.
+3. Menggunakan angka acak sesuai distribusi relevan untuk simulasi.
+4. Menjalankan simulasi berkali-kali untuk menghasilkan distribusi hasil.
+
+Saya sangat tertarik dengan metode ini karena tulisan [Pak Ikang](https://ikanx101.com/) Banyak sekali puzle yang diberikan dan berkaitan dengan `Monte carlo`. Saya mengenalinya dari tulisan beliau. Namun karena saya masih masuk dalam kategori pemula dalam codingan maka saya menggunakan Chat GPT untuk melakukan simulasi. Beberapa Simulasi yang saya lakukan dengan metode ini bisa antum lihat [di sini](https://colab.research.google.com/drive/1Ifd9TOWqoNccfwt6LAv43JfPklWw6vfB?usp=sharing).
+
+![Alur kerja Monte carlo](15 b.webp)
+
+Gambar di atas merupakan serangkaian alur melakukan simulasi Monte Carlo. Hal yang bisa kita lakukan adalah melihat distribusi hasil simulasi yang menggambarkan grafik peluang tersebut. Misalnya kita mau melakukan perhitungan berapa peluang kita mendapatkan nilai 80 dengan menjawab acak ? Dengan simulasi `Monte Carlo` kita bisa melihat peluangnya loh..
+
+![Contoh case](15 a.png)
+
+Terlihat pada plot histogram di atas bahwa kita hanya bisa mendapatkan peluang `16%` untuk `7` jawaban benar dari `30` soal dengan pilihan ganda `[a, b, c dan d]`. Ini jika dikembangkan bisa menjadi senjata kita sebagai seorang market research. Hahaha ini akan saya coba buatkan template dalam [Google colab saya](https://colab.research.google.com/drive/1Ifd9TOWqoNccfwt6LAv43JfPklWw6vfB#scrollTo=rB3PvEfUJ6t5) sehingga akan saya gunakan jika pekerjaan saya membutuhkan simulasi dan menghitung peluang.
+
+Okke, sampai disini dulu..
+
+

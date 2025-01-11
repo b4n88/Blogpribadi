@@ -1,0 +1,99 @@
+---
+title: "Menghitung Safety stock agar cadangan ada dan sesuai kebutuhan"
+author: "Albani"
+date: "2025-01-14"
+categories: [Data Analyst, Market Research]
+---
+> *Bagaimana agar stock suatu barang dikantor kita cukup dan tidak overstock ? Menggunakan formula Safety stock*
+
+-------
+
+Tulisan ini nyambung dengan tulisan saya [sebelumnya](https://b4n88.github.io/Blogpribadi/Bloog/14.%20Jawaban%20soal%20office%20study%20case.html), Kita harus mengetahui fungsi Safety stock, karena dengan ini kita bisa melakukan prediksi kapan kita harus membeli barang dan berapa banyak yang harus kita simpan. saya akan Coba mengerjakannya mengguanakn Excel. Berikut adalah pembahasan mendalam tentang `Safety Stock`.
+
+**Panduan Menghitung Safety Stock dan Menghindari Overstock ATK Kantor**
+
+### Apa itu Safety Stock?
+
+**Safety Stock** adalah persediaan tambahan yang disiapkan untuk mengantisipasi ketidakpastian permintaan atau keterlambatan pasokan. Tujuannya adalah memastikan ketersediaan barang sehingga tidak terjadi kekurangan stok (_stockout_).
+
+### Apa itu Overstock?
+**Overstock** adalah kondisi ketika stok barang melebihi kebutuhan, yang menyebabkan inefisiensi seperti meningkatnya biaya penyimpanan dan pemborosan barang.
+
+Dengan menghitung _safety stock_ yang optimal, kita dapat menghindari kekurangan maupun kelebihan stok.
+
+---
+
+## 2. Rumus Safety Stock
+\[
+\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}
+\]
+
+### Keterangan:
+- **Z**: Faktor tingkat layanan (_z-score_), menentukan tingkat keyakinan. Contoh:
+  - 90% tingkat layanan = 1.28
+  - 95% tingkat layanan = 1.65
+  - 99% tingkat layanan = 2.33
+- **\(\sigma_{\text{demand}}\)**: Deviasi stAntumr permintaan harian (variabilitas).
+- **Lead Time**: Waktu tunggu dari pemesanan hingga barang tiba (hari).
+
+---
+
+## 3. Langkah Perhitungan Safety Stock
+
+### **Langkah 1: Kumpulkan Data**
+
+- **Rata-rata permintaan harian**: Contoh, 20 unit per hari.
+- **Deviasi stAntumr permintaan harian (\(\sigma_{\text{demand}}\))**: Contoh, 5 unit.
+- **Lead Time**: Contoh, 3 hari.
+- **Tingkat layanan (Z)**: Contoh, 95% (Z = 1.65).
+
+### **Langkah 2: Hitung Safety Stock**
+
+Gunakan rumus:
+\[
+\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}
+\]
+Contoh perhitungan:
+\[
+\text{Safety Stock} = 1.65 \times 5 \times \sqrt{3}
+\]
+\[
+\text{Safety Stock} = 1.65 \times 5 \times 1.732
+\]
+\[
+\text{Safety Stock} \approx 14.3 \, \text{unit}
+\]
+
+**Kesimpulan**: Antum perlu menyimpan **14 unit tambahan** sebagai _safety stock_.
+
+---
+
+## 4. Hitung Reorder Point (Titik Pemesanan Ulang)
+\[
+\text{Reorder Point} = (\text{Rata-rata Permintaan Harian} \times \text{Lead Time}) + \text{Safety Stock}
+\]
+
+Contoh perhitungan:
+\[
+\text{Reorder Point} = (20 \times 3) + 14
+\]
+\[
+\text{Reorder Point} = 60 + 14 = 74 \, \text{unit}
+\]
+
+**Kesimpulan**: Ketika stok ATK mencapai **74 unit**, Antum harus segera memesan ulang untuk mencegah kehabisan stok.
+
+---
+
+## 5. Strategi Menghindari Overstock
+1. **Analisis Data Historis**: Gunakan data permintaan yang relevan dan terkini.
+2. **Monitor Days of Inventory (DOI)**: Pastikan stok cukup untuk beberapa hari berdasarkan kecepatan konsumsi.
+3. **Gunakan Sistem Perencanaan**: Manfaatkan aplikasi atau perangkat lunak stok untuk memantau inventaris.
+4. **Evaluasi Secara Berkala**: Audit bulanan untuk menyesuaikan _safety stock_ sesuai perubahan pola permintaan.
+5. **Tetapkan Batas Maksimum Stok**: Jangan melebihi jumlah maksimum barang yang bisa digunakan dalam periode tertentu (misalnya satu bulan).
+
+---
+
+## 6. Kesimpulan
+Menghitung _safety stock_ dengan benar membantu menghindari kekurangan maupun kelebihan stok. Dengan data yang akurat dan perhitungan yang sistematis, pengelolaan ATK kantor dapat menjadi lebih efisien dan ekonomis.
+

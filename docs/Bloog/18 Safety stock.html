@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Albani">
-<meta name="dcterms.date" content="2025-01-12">
+<meta name="dcterms.date" content="2025-01-14">
 
-<title>STATISTICIAN &amp; MARKET RESEARCH - Pengenalan Monte Carlo</title>
+<title>STATISTICIAN &amp; MARKET RESEARCH - Menghitung Safety stock agar cadangan ada dan sesuai kebutuhan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,19 +123,36 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#apa-itu-safety-stock" id="toc-apa-itu-safety-stock" class="nav-link active" data-scroll-target="#apa-itu-safety-stock">Apa itu Safety Stock?</a></li>
+  <li><a href="#apa-itu-overstock" id="toc-apa-itu-overstock" class="nav-link" data-scroll-target="#apa-itu-overstock">Apa itu Overstock?</a></li>
+  <li><a href="#rumus-safety-stock" id="toc-rumus-safety-stock" class="nav-link" data-scroll-target="#rumus-safety-stock">2. Rumus Safety Stock</a>
+  <ul class="collapse">
+  <li><a href="#keterangan" id="toc-keterangan" class="nav-link" data-scroll-target="#keterangan">Keterangan:</a></li>
+  </ul></li>
+  <li><a href="#langkah-perhitungan-safety-stock" id="toc-langkah-perhitungan-safety-stock" class="nav-link" data-scroll-target="#langkah-perhitungan-safety-stock">3. Langkah Perhitungan Safety Stock</a>
+  <ul class="collapse">
+  <li><a href="#langkah-1-kumpulkan-data" id="toc-langkah-1-kumpulkan-data" class="nav-link" data-scroll-target="#langkah-1-kumpulkan-data"><strong>Langkah 1: Kumpulkan Data</strong></a></li>
+  <li><a href="#langkah-2-hitung-safety-stock" id="toc-langkah-2-hitung-safety-stock" class="nav-link" data-scroll-target="#langkah-2-hitung-safety-stock"><strong>Langkah 2: Hitung Safety Stock</strong></a></li>
+  </ul></li>
+  <li><a href="#hitung-reorder-point-titik-pemesanan-ulang" id="toc-hitung-reorder-point-titik-pemesanan-ulang" class="nav-link" data-scroll-target="#hitung-reorder-point-titik-pemesanan-ulang">4. Hitung Reorder Point (Titik Pemesanan Ulang)</a></li>
+  <li><a href="#strategi-menghindari-overstock" id="toc-strategi-menghindari-overstock" class="nav-link" data-scroll-target="#strategi-menghindari-overstock">5. Strategi Menghindari Overstock</a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">6. Kesimpulan</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pengenalan Monte Carlo</h1>
+<h1 class="title">Menghitung Safety stock agar cadangan ada dan sesuai kebutuhan</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Data Analyst</div>
     <div class="quarto-category">Market Research</div>
-    <div class="quarto-category">Monte Carlo</div>
-    <div class="quarto-category">Konsep</div>
   </div>
   </div>
 
@@ -153,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 12, 2025</p>
+      <p class="date">January 14, 2025</p>
     </div>
   </div>
   
@@ -166,35 +183,81 @@ ul.task-list li input[type="checkbox"] {
 
 
 <blockquote class="blockquote">
-<p><em>Apa itu Monte carlo dan kegunaannya dalam kehidupan..</em></p>
+<p><em>Bagaimana agar stock suatu barang dikantor kita cukup dan tidak overstock ? Menggunakan formula Safety stock</em></p>
 </blockquote>
 <hr>
-<p>Rekan kantor saya bernama Mas <code>Adar</code> menanyakan kepada saya Metode apa yang saya sukai dalam statstika dan saya gunakan sehari hari. Saya tanpa berfikir panjang dan langsung mengucapkan <code>Monte Carlo</code>. Seketika dia mengatakan “Oke menarik..”. Sebenarnya <code>Monte Carlo</code> ini adalah teknin dalam <code>Matematika</code> namun karena Metode ini menjalankan dengan konsep probabilitas maka saya mengasumsikan ini bagian dari metode statistik.</p>
-<p>Untuk antum yang kurang familiar dengan metode ini antum bisa mengeceknya klik <a href="https://sixsigmadsi.com/monte-carlo-simulation/">di sini</a>. Saya sengaja tidak mau menuliskan pengertianya karena saya belum terlalu paham betul sangat atas metode ini. Namun sepemahaman saya Simulasi <code>Monte Carlo</code> adalah metode yang menggunakan angka acak dan statistik untuk memodelkan hasil dalam kondisi ketidakpastian. Langkah-langkah utama melibatkan:</p>
+<p>Tulisan ini nyambung dengan tulisan saya <a href="https://b4n88.github.io/Blogpribadi/Bloog/14.%20Jawaban%20soal%20office%20study%20case.html">sebelumnya</a>, Kita harus mengetahui fungsi Safety stock, karena dengan ini kita bisa melakukan prediksi kapan kita harus membeli barang dan berapa banyak yang harus kita simpan. saya akan Coba mengerjakannya mengguanakn Excel. Berikut adalah pembahasan mendalam tentang <code>Safety Stock</code>.</p>
+<p><strong>Panduan Menghitung Safety Stock dan Menghindari Overstock ATK Kantor</strong></p>
+<section id="apa-itu-safety-stock" class="level3">
+<h3 class="anchored" data-anchor-id="apa-itu-safety-stock">Apa itu Safety Stock?</h3>
+<p><strong>Safety Stock</strong> adalah persediaan tambahan yang disiapkan untuk mengantisipasi ketidakpastian permintaan atau keterlambatan pasokan. Tujuannya adalah memastikan ketersediaan barang sehingga tidak terjadi kekurangan stok (<em>stockout</em>).</p>
+</section>
+<section id="apa-itu-overstock" class="level3">
+<h3 class="anchored" data-anchor-id="apa-itu-overstock">Apa itu Overstock?</h3>
+<p><strong>Overstock</strong> adalah kondisi ketika stok barang melebihi kebutuhan, yang menyebabkan inefisiensi seperti meningkatnya biaya penyimpanan dan pemborosan barang.</p>
+<p>Dengan menghitung <em>safety stock</em> yang optimal, kita dapat menghindari kekurangan maupun kelebihan stok.</p>
+<hr>
+</section>
+<section id="rumus-safety-stock" class="level2">
+<h2 class="anchored" data-anchor-id="rumus-safety-stock">2. Rumus Safety Stock</h2>
+<p>[ = Z _{} ]</p>
+<section id="keterangan" class="level3">
+<h3 class="anchored" data-anchor-id="keterangan">Keterangan:</h3>
+<ul>
+<li><strong>Z</strong>: Faktor tingkat layanan (<em>z-score</em>), menentukan tingkat keyakinan. Contoh:
+<ul>
+<li>90% tingkat layanan = 1.28</li>
+<li>95% tingkat layanan = 1.65</li>
+<li>99% tingkat layanan = 2.33</li>
+</ul></li>
+<li>**(_{})**: Deviasi stAntumr permintaan harian (variabilitas).</li>
+<li><strong>Lead Time</strong>: Waktu tunggu dari pemesanan hingga barang tiba (hari).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="langkah-perhitungan-safety-stock" class="level2">
+<h2 class="anchored" data-anchor-id="langkah-perhitungan-safety-stock">3. Langkah Perhitungan Safety Stock</h2>
+<section id="langkah-1-kumpulkan-data" class="level3">
+<h3 class="anchored" data-anchor-id="langkah-1-kumpulkan-data"><strong>Langkah 1: Kumpulkan Data</strong></h3>
+<ul>
+<li><strong>Rata-rata permintaan harian</strong>: Contoh, 20 unit per hari.</li>
+<li>**Deviasi stAntumr permintaan harian ((_{}))**: Contoh, 5 unit.</li>
+<li><strong>Lead Time</strong>: Contoh, 3 hari.</li>
+<li><strong>Tingkat layanan (Z)</strong>: Contoh, 95% (Z = 1.65).</li>
+</ul>
+</section>
+<section id="langkah-2-hitung-safety-stock" class="level3">
+<h3 class="anchored" data-anchor-id="langkah-2-hitung-safety-stock"><strong>Langkah 2: Hitung Safety Stock</strong></h3>
+<p>Gunakan rumus: [ = Z _{} ] Contoh perhitungan: [ = 1.65 ] [ = 1.65 ] [ , ]</p>
+<p><strong>Kesimpulan</strong>: Antum perlu menyimpan <strong>14 unit tambahan</strong> sebagai <em>safety stock</em>.</p>
+<hr>
+</section>
+</section>
+<section id="hitung-reorder-point-titik-pemesanan-ulang" class="level2">
+<h2 class="anchored" data-anchor-id="hitung-reorder-point-titik-pemesanan-ulang">4. Hitung Reorder Point (Titik Pemesanan Ulang)</h2>
+<p>[ = ( ) + ]</p>
+<p>Contoh perhitungan: [ = (20 ) + 14 ] [ = 60 + 14 = 74 , ]</p>
+<p><strong>Kesimpulan</strong>: Ketika stok ATK mencapai <strong>74 unit</strong>, Antum harus segera memesan ulang untuk mencegah kehabisan stok.</p>
+<hr>
+</section>
+<section id="strategi-menghindari-overstock" class="level2">
+<h2 class="anchored" data-anchor-id="strategi-menghindari-overstock">5. Strategi Menghindari Overstock</h2>
 <ol type="1">
-<li>Mendefinisikan masalah dan variabel input.</li>
-<li>Membuat model matematis yang memetakan hubungan input-output.</li>
-<li>Menggunakan angka acak sesuai distribusi relevan untuk simulasi.</li>
-<li>Menjalankan simulasi berkali-kali untuk menghasilkan distribusi hasil.</li>
+<li><strong>Analisis Data Historis</strong>: Gunakan data permintaan yang relevan dan terkini.</li>
+<li><strong>Monitor Days of Inventory (DOI)</strong>: Pastikan stok cukup untuk beberapa hari berdasarkan kecepatan konsumsi.</li>
+<li><strong>Gunakan Sistem Perencanaan</strong>: Manfaatkan aplikasi atau perangkat lunak stok untuk memantau inventaris.</li>
+<li><strong>Evaluasi Secara Berkala</strong>: Audit bulanan untuk menyesuaikan <em>safety stock</em> sesuai perubahan pola permintaan.</li>
+<li><strong>Tetapkan Batas Maksimum Stok</strong>: Jangan melebihi jumlah maksimum barang yang bisa digunakan dalam periode tertentu (misalnya satu bulan).</li>
 </ol>
-<p>Saya sangat tertarik dengan metode ini karena tulisan <a href="https://ikanx101.com/">Pak Ikang</a> Banyak sekali puzle yang diberikan dan berkaitan dengan <code>Monte carlo</code>. Saya mengenalinya dari tulisan beliau. Namun karena saya masih masuk dalam kategori pemula dalam codingan maka saya menggunakan Chat GPT untuk melakukan simulasi. Beberapa Simulasi yang saya lakukan dengan metode ini bisa antum lihat <a href="https://colab.research.google.com/drive/1Ifd9TOWqoNccfwt6LAv43JfPklWw6vfB?usp=sharing">di sini</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="15 b.webp" class="img-fluid figure-img"></p>
-<figcaption>Alur kerja Monte carlo</figcaption>
-</figure>
-</div>
-<p>Gambar di atas merupakan serangkaian alur melakukan simulasi Monte Carlo. Hal yang bisa kita lakukan adalah melihat distribusi hasil simulasi yang menggambarkan grafik peluang tersebut. Misalnya kita mau melakukan perhitungan berapa peluang kita mendapatkan nilai 80 dengan menjawab acak ? Dengan simulasi <code>Monte Carlo</code> kita bisa melihat peluangnya loh..</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="15 a.png" class="img-fluid figure-img"></p>
-<figcaption>Contoh case</figcaption>
-</figure>
-</div>
-<p>Terlihat pada plot histogram di atas bahwa kita hanya bisa mendapatkan peluang <code>16%</code> untuk <code>7</code> jawaban benar dari <code>30</code> soal dengan pilihan ganda <code>[a, b, c dan d]</code>. Ini jika dikembangkan bisa menjadi senjata kita sebagai seorang market research. Hahaha ini akan saya coba buatkan template dalam <a href="https://colab.research.google.com/drive/1Ifd9TOWqoNccfwt6LAv43JfPklWw6vfB#scrollTo=rB3PvEfUJ6t5">Google colab saya</a> sehingga akan saya gunakan jika pekerjaan saya membutuhkan simulasi dan menghitung peluang.</p>
-<p>Okke, sampai disini dulu..</p>
+<hr>
+</section>
+<section id="kesimpulan" class="level2">
+<h2 class="anchored" data-anchor-id="kesimpulan">6. Kesimpulan</h2>
+<p>Menghitung <em>safety stock</em> dengan benar membantu menghindari kekurangan maupun kelebihan stok. Dengan data yang akurat dan perhitungan yang sistematis, pengelolaan ATK kantor dapat menjadi lebih efisien dan ekonomis.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <footer style="text-align: center; margin-top: 20px; font-size: 14px; color: #777;">
