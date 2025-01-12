@@ -24,16 +24,16 @@ Dengan menghitung _safety stock_ yang optimal, kita dapat menghindari kekurangan
 ---
 
 ## 2. Rumus Safety Stock
-\[
-\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}
-\]
+
+$\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}$
+
 
 ### Keterangan:
 - **Z**: Faktor tingkat layanan (_z-score_), menentukan tingkat keyakinan. Contoh:
   - 90% tingkat layanan = 1.28
   - 95% tingkat layanan = 1.65
   - 99% tingkat layanan = 2.33
-- **\(\sigma_{\text{demand}}\)**: Deviasi stAntumr permintaan harian (variabilitas).
+- $(\sigma_{\text{demand}})$: Deviasi standar permintaan harian (variabilitas).
 - **Lead Time**: Waktu tunggu dari pemesanan hingga barang tiba (hari).
 
 ---
@@ -42,44 +42,38 @@ Dengan menghitung _safety stock_ yang optimal, kita dapat menghindari kekurangan
 
 ### **Langkah 1: Kumpulkan Data**
 
-- **Rata-rata permintaan harian**: Contoh, 20 unit per hari.
-- **Deviasi stAntumr permintaan harian (\(\sigma_{\text{demand}}\))**: Contoh, 5 unit.
+- Rata-rata permintaan harian: Contoh, 20 unit per hari.
+- Deviasi standar permintaan harian (($\sigma_{\text{demand}}\)$): Contoh, 5 unit.
 - **Lead Time**: Contoh, 3 hari.
 - **Tingkat layanan (Z)**: Contoh, 95% (Z = 1.65).
 
 ### **Langkah 2: Hitung Safety Stock**
 
 Gunakan rumus:
-\[
-\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}
-\]
+
+$\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}$
 Contoh perhitungan:
-\[
-\text{Safety Stock} = 1.65 \times 5 \times \sqrt{3}
-\]
-\[
-\text{Safety Stock} = 1.65 \times 5 \times 1.732
-\]
-\[
-\text{Safety Stock} \approx 14.3 \, \text{unit}
-\]
+
+$\text{Safety Stock} = 1.65 \times 5 \times \sqrt{3}$
+
+$\text{Safety Stock} = 1.65 \times 5 \times 1.732$
+
+$\text{Safety Stock} \approx 14.3 \, \text{unit}$
+
 
 **Kesimpulan**: Antum perlu menyimpan **14 unit tambahan** sebagai _safety stock_.
 
 ---
 
 ## 4. Hitung Reorder Point (Titik Pemesanan Ulang)
-\[
-\text{Reorder Point} = (\text{Rata-rata Permintaan Harian} \times \text{Lead Time}) + \text{Safety Stock}
-\]
+
+$\text{Reorder Point} = (\text{Rata-rata Permintaan Harian} \times \text{Lead Time}) + \text{Safety Stock}$
 
 Contoh perhitungan:
-\[
-\text{Reorder Point} = (20 \times 3) + 14
-\]
-\[
-\text{Reorder Point} = 60 + 14 = 74 \, \text{unit}
-\]
+
+$\text{Reorder Point} = (20 \times 3) + 14$
+
+$\text{Reorder Point} = 60 + 14 = 74 \, \text{unit}$
 
 **Kesimpulan**: Ketika stok ATK mencapai **74 unit**, Antum harus segera memesan ulang untuk mencegah kehabisan stok.
 

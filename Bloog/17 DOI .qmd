@@ -1,5 +1,5 @@
 ---
-title: "DIO Days Inventory Outstanding"
+title: "DIO [Days Inventory Outstanding]"
 author: "Albani"
 date: "2025-01-13"
 categories: [Data Analyst, Market Research, Inventory]
@@ -48,12 +48,82 @@ waktu saya menjawab soal dari tulisan [ke 14 saya](https://b4n88.github.io/Blogp
 #### *Low Price - High Demand*
 
 -   Melakukan pembelian ATK dengan mempertimbangkan stok aman masing-masing ATK pada waktu yang dibutuhkan.
-    -   Perhitungan *safety stok* bisa memanfaatkan prinsip perhitungan DOI ATK agar tidak terjadi overstok.
+    -   Perhitungan *safety stok* bisa memanfaatkan prinsip perhitungan DIO ATK agar tidak terjadi overstok.
 -   Oleh karena ATK ini termasuk ke dalam kategori *low price*, bisa diasumsikan bahwa produk ATK ini memiliki *leadtime* yang juga cepat.
 
-## DOI
+## DIO
 
-Pada Strategi ke-4 ada kalimat **"Perhitungan _safety stok_ bisa memanfaatkan prinsip perhitungan DOI ATK agar tidak terjadi overstok."**
+Pada Strategi ke-4 ada kalimat **"Perhitungan _safety stok_ bisa memanfaatkan prinsip perhitungan DIO ATK agar tidak terjadi overstok."**
 
-Apasih DOI itu ?
+Apasih DIO itu ? Ialah jumlah hari rata-rata perusahaan menyimpan persediaannya sebelum menjualnya. Perhitungan hari persediaan beredar menunjukkan seberapa cepat suatu perusahaan dapat mengubah persediaan menjadi uang tunai. Ini adalah metrik likuiditas dan juga indikator efisiensi operasional dan keuangan perusahaan. Jumlah hari persediaan yang beredar juga dikenal sebagai “hari persediaan” atau “periode persediaan”.
+
+> `DIO atau Days Inventory Outstanding` yaitu metrik yang digunakan untuk mengukur rata-rata jumlah hari yang dibutuhkan untuk mengubah persediaan menjadi penjualan.
+
+Nah dari pengertian di atas maka tulisan saya sebelumnya tentang strategi sangat berkorelasi, karena membahas barang (inventory) agar tidak terjadi Overstok. Jadi rata-rata pengeluaran barang dalam beberapa selang waktu ada seberapa banyak?
+
+Rumus `DIO` adalah sebagai berikut:
+
+$\text{Days Inventory Outstanding} = \left( \frac{\text{Rata" Persediaan}}{\text{Harga penjualan}} \right) \times \text{Jumlah hari dalam Periode})$
+
+
+**Contoh kasus**
+
+Perusahaan A menjual beberapa merek furnitur. Manajer ingin menentukan merek mana yang berkinerja baik dalam hal perputaran persediaan. Dia menugaskan Antum untuk menentukan jumlah hari persediaan yang beredar untuk beberapa merek berbeda.
+
+|X|Brand 1|Brand2|Brand 3|Brand 4|brand 5|
+|-|-|-|-|-|-|
+|Average Anual Inventory|`$3.000`|`$1.000`|`$5.000`|`$1.500`|`$2.000`|
+|Cost of sales|`$35.000`|`$40.000`|`$54.000`|`$20.000`|`$15.000`|
+|of Days in Period|`365`|`365`|`365`|`365`|`365`|
+|Days Inventory Outstandng|??|??|??|??|??|
+
+-----
+
+Penjelasan Metrik :
+
+- **Average Anual Inventory** : Rata-rata nilai inventaris (stok) tahunan.
+- **Cost Of Sales (COS)** : Total biaya barang yang terjual dalam suatu periode.
+- **Of days in Period** : Jumlah hari dalam periode.
+- **Days Inventory outstanding** : Waktu rata-rata (Dalam hari) yang dibutuhkan untuk menjual persediaan.
+
+Dengan data di atas maka kita bisa menghitung manual DIO tersebut :
+
+$\text{Days Inventory Outstanding} = \left( \frac{\text{Rata" Persediaan}}{\text{Harga penjualan}} \right) \times \text{Jumlah hari dalam Periode})$
+
+Brand 1 = $\text{Days Inventory Outstanding} = \left( \frac{\text{3.000}}{\text{35.000}} \right) \times \text{365}) = 31.29$
+
+- Brand 1 = **DIO** = 31.29 
+- Brand 2 = **DIO** = 9.13
+- Brand 3 = **DIO** = 33.80
+- Brand 4 = **DIO** = 27.38
+- Brand 5 = **DIO** = 48.67
+
+Dari menentukan DIO setiap merek, Antum dapat dengan mudah melihat merek mana yang berkinerja lebih baik dibandingkan merek lain. Dalam hal ini, Merek 2 mempunyai kinerja yang sangat baik, sedangkan Merek 1,3, dan 4 sama-sama tertinggal. Manajer kemudian dapat bertemu dengan tim penjualan dan pemasaran untuk mencoba mencari cara meningkatkan penjualan merek tersebut. Perusahaan mungkin mempertimbangkan untuk menghapuskan sepenuhnya Merek 5, yang kinerjanya paling buruk.
+
+Ini Contoh dalam penggunaan harga.. Kita kembali ke kasus sebelumnya tentang perhitungan stok QTY ATK.
+
+Dengan menggunakan metrik DIO ini, kita bisa menghitung berapa lama ATK mengendap di kantor. DIO ini berguna jika Antum ingin menganalisis jumlah unit barang (misalnya jumlah pulpen, kertas, atau barang lainnya) tanpa melibatkan nilai rupiah.
+
+- **Rata-rata stok unit ATK**: 150 unit
+- **Total penggunaan unit tahunan**: 1.800 unit
+- **Periode**: 365 hari
+
+$\text{Days Inventory Outstanding} = \left( \frac{\text{Rata" Persediaan}}{\text{Pengeluaran dalam 1 tahun}} \right) \times \text{Jumlah hari dalam Periode})$
+
+Brand 1 = $\text{Days Inventory Outstanding} = \left( \frac{\text{150}}{\text{1.800}} \right) \times \text{365}) = 30.4 hari$
+
+> Artinya, stok rata-rata sebanyak 150 unit cukup untuk 30 hari sebelum habis digunakan.
+
+Jadi DIO ini lumayan powerfull jika diaplikasikan dalam ke hidupan dunia yang fana ini..
+
+
+**Menggunakan Nilai (Harga)**: Jika fokus Antum adalah analisis keuangan, efisiensi pengeluaran, atau pengelolaan biaya.
+
+**Menggunakan Unit Fisik**: Jika fokus Antum adalah pada ketersediaan barang fisik atau logistik (contoh: memastikan barang tidak kehabisan stok).
+
+Saya akan membuatkan penggunannya tentu saja dalam spread sheet, Jangan sungkan untuk ke analisa saya [di sini](https://docs.google.com/spreadsheets/d/1oCyWROQXvSa3HPPuOM6Ynzf4-_aCRqqjkSqh9i3FKvw/edit?usp=sharing)
+
+......
+
+
 
