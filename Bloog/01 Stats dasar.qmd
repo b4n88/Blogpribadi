@@ -1,0 +1,132 @@
+---
+title: "Metrik dalam statistik yang harus diketahui manusia manusia penyandang Stats"
+author: "Albani"
+date: "2024-06-14"
+categories: [Stats dasar, Konsep]
+---
+> *Junior Stats harus paham iniiiiiii........*
+
+-------
+
+# Statistik Dasar
+
+## Mean (Rata-Rata)
+
+- **Pengertian**: Nilai rata-rata dari semua data.
+- **Rumus**: 
+  $\text{Mean} = \frac{\text{Total Semua Nilai}}{\text{Jumlah Data}}$
+- **Contoh**: Data \([10, 20, 30]\), Mean = \((10 + 20 + 30) / 3 = 20\).
+
+---
+
+## Median
+
+- **Pengertian**: Nilai tengah dari data yang sudah diurutkan.
+- **Catatan**: Tidak terpengaruh oleh outlier.
+- **Contoh**: Data \([10, 20, 30]\), Median = \(20\).
+
+---
+
+## Mode
+
+- **Pengertian**: Nilai yang paling sering muncul dalam data.
+- **Contoh**: Data \([10, 20, 20, 30]\), Mode = \(20\).
+
+---
+
+## Range
+- **Pengertian**: Selisih antara nilai maksimum dan minimum.
+- **Rumus**: 
+
+  $\text{Range} = \text{Nilai Maksimum} - \text{Nilai Minimum}$
+  
+- **Contoh**: Data \([10, 20, 30]\), Range = \(30 - 10 = 20\).
+
+---
+
+## Variance (Variansi)
+- **Pengertian**: Rata-rata kuadrat deviasi (penyimpangan) dari mean.
+- **Rumus**: 
+  
+  $\text{Variance} = \frac{\sum (X_i - \text{Mean})^2}{n}$
+  
+- **Contoh**: Data \([10, 20, 30]\), Variance = \(66.67\).
+
+---
+
+## Standard Deviation (Deviasi Standar)
+- **Pengertian**: Akar kuadrat dari variansi.
+- **Rumus**: 
+  
+  $\text{SD} = \sqrt{\text{Variance}}$
+  
+- **Contoh**: Data \([10, 20, 30]\), SD = \(8.16\).
+
+---
+
+## Interquartile Range (IQR)
+- **Pengertian**: Rentang antara kuartil ke-3 (\(Q3\)) dan kuartil ke-1 (\(Q1\)).
+- **Rumus**: 
+  
+  $\text{IQR} = Q3 - Q1$
+  
+- **Contoh**: Data \([10, 20, 30, 40, 50]\), \(Q1 = 20\), \(Q3 = 40\), IQR = \(40 - 20 = 20\).
+
+---
+
+## Skewness
+- **Pengertian**: Mengukur kemiringan distribusi data.
+  - Skewness \(> 0\): Distribusi condong ke kanan.
+  - Skewness \(< 0\): Distribusi condong ke kiri.
+- **Contoh**: Data \([1, 2, 2, 3, 10]\), Skewness positif.
+
+---
+
+## Kurtosis
+- **Pengertian**: Mengukur kepuncakan distribusi data.
+  - Kurtosis \(> 3\): Distribusi lebih runcing.
+  - Kurtosis \(< 3\): Distribusi lebih datar.
+
+---
+
+## Z-Score
+- **Pengertian**: Mengukur seberapa jauh nilai data dari mean dalam satuan standar deviasi.
+- **Rumus**: 
+  
+  $Z = \frac{X - \text{Mean}}{\text{SD}}$
+  
+- **Contoh**: Jika \(X = 25\), Mean = \(20\), SD = \(5\), Z = \(1\).
+
+---
+
+## Coefficient of Variation (CV)
+- **Pengertian**: Rasio standar deviasi terhadap mean.
+- **Rumus**: 
+  
+  $\text{CV} = \frac{\text{SD}}{\text{Mean}} \times 100\%$
+  
+- **Contoh**: Jika SD = \(10\), Mean = \(50\), CV = \(20\%\).
+
+---
+
+## Variabel Independen dan Dependen
+- **Variabel Independen (X)**: Variabel yang digunakan untuk memprediksi atau menjelaskan variabel lain. Disebut juga **variabel bebas**.
+  - **Contoh**: Dalam analisis penjualan, **iklan (X)** adalah variabel independen.
+
+- **Variabel Dependen (Y)**: Variabel yang dipengaruhi oleh variabel independen. Disebut juga **variabel terikat**.
+  - **Contoh**: Dalam analisis penjualan, **penjualan (Y)** adalah variabel dependen.
+
+- **Hubungan**: 
+  
+  $Y = f(X) \quad \text{(Y dipengaruhi oleh X)}$
+  
+  Contoh model regresi sederhana:
+  
+  $Y = \beta_0 + \beta_1 X + \epsilon$
+  
+- **Contoh di R**:
+  ```r
+  # Contoh hubungan variabel independen dan dependen
+  data <- data.frame(iklan = c(1, 2, 3, 4, 5), penjualan = c(10, 20, 30, 40, 50))
+  lm_model <- lm(penjualan ~ iklan, data = data)
+  summary(lm_model)

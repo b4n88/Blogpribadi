@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/Bloog/18 Safety stock.html",
+      "/Bloog/19 outlier.html",
       "/Bloog/16 menentukan jumlah cup.html",
       "/Bloog/17 DOI .html",
       "/Bloog/15 Monte Carlo.html",
@@ -19,7 +20,9 @@
       "/Bloog/04 Metrik  Analisis.html",
       "/Bloog/03 git.html",
       "/Bloog/02capek.html",
-      "/Bloog/01 Distribusi.html"
+      "/Bloog/01.2 Alur data cleaning.html",
+      "/Bloog/01.1 Distribusi.html",
+      "/Bloog/01 Stats dasar.html"
     ]
   }
 ]

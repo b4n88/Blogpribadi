@@ -91,3 +91,4 @@ $\text{Reorder Point} = 60 + 14 = 74 \, \text{unit}$
 ## 6. Kesimpulan
 Menghitung _safety stock_ dengan benar membantu menghindari kekurangan maupun kelebihan stok. Dengan data yang akurat dan perhitungan yang sistematis, pengelolaan ATK kantor dapat menjadi lebih efisien dan ekonomis.
 
+Saya juga sendag mengerjakan contoh kasus dalam excel atas safety stock ini. Semoga bisa segera saya selesaikan. Kerjaan di kantor buanyakkkk ahahhaha.. ada [di sini](https://docs.google.com/spreadsheets/d/1zKHRJm7v0WTaw2wJ6azI5jDn-toDIEXM8yVbxn4MwYQ/edit?usp=drive_link)

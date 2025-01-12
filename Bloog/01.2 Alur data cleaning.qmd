@@ -1,0 +1,15 @@
+---
+title: "Konsep Distribusi Data"
+author: "Albani"
+date: "2024-06-17"
+categories: [Stats dasar, Konsep, Workflow]
+---
+> *Data cleaning...*
+
+-------
+
+Sudah banyak bertebaran tentang data cleaning bla bla bla.. maka saya males menuliskan.. Berikut adalah yang harus dilakukan sebagai penggemar data di dunia ini.
+
+![Gambar dari Pak Ikang](01.2 cleaning.png)
+
+Semoga tercerahkannnnn....

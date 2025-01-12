@@ -9,7 +9,7 @@
 <meta name="author" content="Albani">
 <meta name="dcterms.date" content="2025-01-14">
 
-<title>STATISTICIAN &amp; MARKET RESEARCH - Menghitung Safety stock agar cadangan ada dan sesuai kebutuhan</title>
+<title>STATISTICIAN &amp; MARKET RESEARCH - Outlier sungguh menyebalkan, tapi berguna juga gak sih??</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../ratakanan.css">
 <link rel="stylesheet" href="../Bloog/blogstyle.css">
@@ -152,33 +123,14 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#apa-itu-safety-stock" id="toc-apa-itu-safety-stock" class="nav-link active" data-scroll-target="#apa-itu-safety-stock">Apa itu Safety Stock?</a></li>
-  <li><a href="#apa-itu-overstock" id="toc-apa-itu-overstock" class="nav-link" data-scroll-target="#apa-itu-overstock">Apa itu Overstock?</a></li>
-  <li><a href="#rumus-safety-stock" id="toc-rumus-safety-stock" class="nav-link" data-scroll-target="#rumus-safety-stock">2. Rumus Safety Stock</a>
-  <ul class="collapse">
-  <li><a href="#keterangan" id="toc-keterangan" class="nav-link" data-scroll-target="#keterangan">Keterangan:</a></li>
-  </ul></li>
-  <li><a href="#langkah-perhitungan-safety-stock" id="toc-langkah-perhitungan-safety-stock" class="nav-link" data-scroll-target="#langkah-perhitungan-safety-stock">3. Langkah Perhitungan Safety Stock</a>
-  <ul class="collapse">
-  <li><a href="#langkah-1-kumpulkan-data" id="toc-langkah-1-kumpulkan-data" class="nav-link" data-scroll-target="#langkah-1-kumpulkan-data"><strong>Langkah 1: Kumpulkan Data</strong></a></li>
-  <li><a href="#langkah-2-hitung-safety-stock" id="toc-langkah-2-hitung-safety-stock" class="nav-link" data-scroll-target="#langkah-2-hitung-safety-stock"><strong>Langkah 2: Hitung Safety Stock</strong></a></li>
-  </ul></li>
-  <li><a href="#hitung-reorder-point-titik-pemesanan-ulang" id="toc-hitung-reorder-point-titik-pemesanan-ulang" class="nav-link" data-scroll-target="#hitung-reorder-point-titik-pemesanan-ulang">4. Hitung Reorder Point (Titik Pemesanan Ulang)</a></li>
-  <li><a href="#strategi-menghindari-overstock" id="toc-strategi-menghindari-overstock" class="nav-link" data-scroll-target="#strategi-menghindari-overstock">5. Strategi Menghindari Overstock</a></li>
-  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">6. Kesimpulan</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Menghitung Safety stock agar cadangan ada dan sesuai kebutuhan</h1>
+<h1 class="title">Outlier sungguh menyebalkan, tapi berguna juga gak sih??</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Data Analyst</div>
     <div class="quarto-category">Market Research</div>
@@ -212,88 +164,12 @@ window.Quarto = {
 
 
 <blockquote class="blockquote">
-<p><em>Bagaimana agar stock suatu barang dikantor kita cukup dan tidak overstock ? Menggunakan formula Safety stock</em></p>
+<p><em>Bagaimana menghitung rata-rata pada data yang ada outliernya?</em></p>
 </blockquote>
 <hr>
-<p>Tulisan ini nyambung dengan tulisan saya <a href="https://b4n88.github.io/Blogpribadi/Bloog/14.%20Jawaban%20soal%20office%20study%20case.html">sebelumnya</a>, Kita harus mengetahui fungsi Safety stock, karena dengan ini kita bisa melakukan prediksi kapan kita harus membeli barang dan berapa banyak yang harus kita simpan. saya akan Coba mengerjakannya mengguanakn Excel. Berikut adalah pembahasan mendalam tentang <code>Safety Stock</code>.</p>
-<p><strong>Panduan Menghitung Safety Stock dan Menghindari Overstock ATK Kantor</strong></p>
-<section id="apa-itu-safety-stock" class="level3">
-<h3 class="anchored" data-anchor-id="apa-itu-safety-stock">Apa itu Safety Stock?</h3>
-<p><strong>Safety Stock</strong> adalah persediaan tambahan yang disiapkan untuk mengantisipasi ketidakpastian permintaan atau keterlambatan pasokan. Tujuannya adalah memastikan ketersediaan barang sehingga tidak terjadi kekurangan stok (<em>stockout</em>).</p>
-</section>
-<section id="apa-itu-overstock" class="level3">
-<h3 class="anchored" data-anchor-id="apa-itu-overstock">Apa itu Overstock?</h3>
-<p><strong>Overstock</strong> adalah kondisi ketika stok barang melebihi kebutuhan, yang menyebabkan inefisiensi seperti meningkatnya biaya penyimpanan dan pemborosan barang.</p>
-<p>Dengan menghitung <em>safety stock</em> yang optimal, kita dapat menghindari kekurangan maupun kelebihan stok.</p>
-<hr>
-</section>
-<section id="rumus-safety-stock" class="level2">
-<h2 class="anchored" data-anchor-id="rumus-safety-stock">2. Rumus Safety Stock</h2>
-<p><span class="math inline">\(\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}\)</span></p>
-<section id="keterangan" class="level3">
-<h3 class="anchored" data-anchor-id="keterangan">Keterangan:</h3>
-<ul>
-<li><strong>Z</strong>: Faktor tingkat layanan (<em>z-score</em>), menentukan tingkat keyakinan. Contoh:
-<ul>
-<li>90% tingkat layanan = 1.28</li>
-<li>95% tingkat layanan = 1.65</li>
-<li>99% tingkat layanan = 2.33</li>
-</ul></li>
-<li><span class="math inline">\((\sigma_{\text{demand}})\)</span>: Deviasi standar permintaan harian (variabilitas).</li>
-<li><strong>Lead Time</strong>: Waktu tunggu dari pemesanan hingga barang tiba (hari).</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="langkah-perhitungan-safety-stock" class="level2">
-<h2 class="anchored" data-anchor-id="langkah-perhitungan-safety-stock">3. Langkah Perhitungan Safety Stock</h2>
-<section id="langkah-1-kumpulkan-data" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-1-kumpulkan-data"><strong>Langkah 1: Kumpulkan Data</strong></h3>
-<ul>
-<li>Rata-rata permintaan harian: Contoh, 20 unit per hari.</li>
-<li>Deviasi standar permintaan harian ((<span class="math inline">\(\sigma_{\text{demand}}\)\)</span>): Contoh, 5 unit.</li>
-<li><strong>Lead Time</strong>: Contoh, 3 hari.</li>
-<li><strong>Tingkat layanan (Z)</strong>: Contoh, 95% (Z = 1.65).</li>
-</ul>
-</section>
-<section id="langkah-2-hitung-safety-stock" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-2-hitung-safety-stock"><strong>Langkah 2: Hitung Safety Stock</strong></h3>
-<p>Gunakan rumus:</p>
-<p><span class="math inline">\(\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}\)</span> Contoh perhitungan:</p>
-<p><span class="math inline">\(\text{Safety Stock} = 1.65 \times 5 \times \sqrt{3}\)</span></p>
-<p><span class="math inline">\(\text{Safety Stock} = 1.65 \times 5 \times 1.732\)</span></p>
-<p><span class="math inline">\(\text{Safety Stock} \approx 14.3 \, \text{unit}\)</span></p>
-<p><strong>Kesimpulan</strong>: Antum perlu menyimpan <strong>14 unit tambahan</strong> sebagai <em>safety stock</em>.</p>
-<hr>
-</section>
-</section>
-<section id="hitung-reorder-point-titik-pemesanan-ulang" class="level2">
-<h2 class="anchored" data-anchor-id="hitung-reorder-point-titik-pemesanan-ulang">4. Hitung Reorder Point (Titik Pemesanan Ulang)</h2>
-<p><span class="math inline">\(\text{Reorder Point} = (\text{Rata-rata Permintaan Harian} \times \text{Lead Time}) + \text{Safety Stock}\)</span></p>
-<p>Contoh perhitungan:</p>
-<p><span class="math inline">\(\text{Reorder Point} = (20 \times 3) + 14\)</span></p>
-<p><span class="math inline">\(\text{Reorder Point} = 60 + 14 = 74 \, \text{unit}\)</span></p>
-<p><strong>Kesimpulan</strong>: Ketika stok ATK mencapai <strong>74 unit</strong>, Antum harus segera memesan ulang untuk mencegah kehabisan stok.</p>
-<hr>
-</section>
-<section id="strategi-menghindari-overstock" class="level2">
-<h2 class="anchored" data-anchor-id="strategi-menghindari-overstock">5. Strategi Menghindari Overstock</h2>
-<ol type="1">
-<li><strong>Analisis Data Historis</strong>: Gunakan data permintaan yang relevan dan terkini.</li>
-<li><strong>Monitor Days of Inventory (DOI)</strong>: Pastikan stok cukup untuk beberapa hari berdasarkan kecepatan konsumsi.</li>
-<li><strong>Gunakan Sistem Perencanaan</strong>: Manfaatkan aplikasi atau perangkat lunak stok untuk memantau inventaris.</li>
-<li><strong>Evaluasi Secara Berkala</strong>: Audit bulanan untuk menyesuaikan <em>safety stock</em> sesuai perubahan pola permintaan.</li>
-<li><strong>Tetapkan Batas Maksimum Stok</strong>: Jangan melebihi jumlah maksimum barang yang bisa digunakan dalam periode tertentu (misalnya satu bulan).</li>
-</ol>
-<hr>
-</section>
-<section id="kesimpulan" class="level2">
-<h2 class="anchored" data-anchor-id="kesimpulan">6. Kesimpulan</h2>
-<p>Menghitung <em>safety stock</em> dengan benar membantu menghindari kekurangan maupun kelebihan stok. Dengan data yang akurat dan perhitungan yang sistematis, pengelolaan ATK kantor dapat menjadi lebih efisien dan ekonomis.</p>
-<p>Saya juga sendag mengerjakan contoh kasus dalam excel atas safety stock ini. Semoga bisa segera saya selesaikan. Kerjaan di kantor buanyakkkk ahahhaha.. ada <a href="https://docs.google.com/spreadsheets/d/1zKHRJm7v0WTaw2wJ6azI5jDn-toDIEXM8yVbxn4MwYQ/edit?usp=drive_link">di sini</a></p>
+<p>Masih ngantukkkkkkk beosk kita bahas</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <footer style="text-align: center; margin-top: 20px; font-size: 14px; color: #777;">

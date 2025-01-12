@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Albani">
-<meta name="dcterms.date" content="2025-01-14">
+<meta name="dcterms.date" content="2024-06-14">
 
-<title>STATISTICIAN &amp; MARKET RESEARCH - Menghitung Safety stock agar cadangan ada dan sesuai kebutuhan</title>
+<title>STATISTICIAN &amp; MARKET RESEARCH - Metrik dalam statistik yang harus diketahui manusia manusia penyandang Stats</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -156,20 +156,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#apa-itu-safety-stock" id="toc-apa-itu-safety-stock" class="nav-link active" data-scroll-target="#apa-itu-safety-stock">Apa itu Safety Stock?</a></li>
-  <li><a href="#apa-itu-overstock" id="toc-apa-itu-overstock" class="nav-link" data-scroll-target="#apa-itu-overstock">Apa itu Overstock?</a></li>
-  <li><a href="#rumus-safety-stock" id="toc-rumus-safety-stock" class="nav-link" data-scroll-target="#rumus-safety-stock">2. Rumus Safety Stock</a>
+  <li><a href="#statistik-dasar" id="toc-statistik-dasar" class="nav-link active" data-scroll-target="#statistik-dasar">Statistik Dasar</a>
   <ul class="collapse">
-  <li><a href="#keterangan" id="toc-keterangan" class="nav-link" data-scroll-target="#keterangan">Keterangan:</a></li>
+  <li><a href="#mean-rata-rata" id="toc-mean-rata-rata" class="nav-link" data-scroll-target="#mean-rata-rata">Mean (Rata-Rata)</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">Mode</a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range</a></li>
+  <li><a href="#variance-variansi" id="toc-variance-variansi" class="nav-link" data-scroll-target="#variance-variansi">Variance (Variansi)</a></li>
+  <li><a href="#standard-deviation-deviasi-standar" id="toc-standard-deviation-deviasi-standar" class="nav-link" data-scroll-target="#standard-deviation-deviasi-standar">Standard Deviation (Deviasi Standar)</a></li>
+  <li><a href="#interquartile-range-iqr" id="toc-interquartile-range-iqr" class="nav-link" data-scroll-target="#interquartile-range-iqr">Interquartile Range (IQR)</a></li>
+  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness">Skewness</a></li>
+  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis">Kurtosis</a></li>
+  <li><a href="#z-score" id="toc-z-score" class="nav-link" data-scroll-target="#z-score">Z-Score</a></li>
+  <li><a href="#coefficient-of-variation-cv" id="toc-coefficient-of-variation-cv" class="nav-link" data-scroll-target="#coefficient-of-variation-cv">Coefficient of Variation (CV)</a></li>
+  <li><a href="#variabel-independen-dan-dependen" id="toc-variabel-independen-dan-dependen" class="nav-link" data-scroll-target="#variabel-independen-dan-dependen">Variabel Independen dan Dependen</a></li>
   </ul></li>
-  <li><a href="#langkah-perhitungan-safety-stock" id="toc-langkah-perhitungan-safety-stock" class="nav-link" data-scroll-target="#langkah-perhitungan-safety-stock">3. Langkah Perhitungan Safety Stock</a>
-  <ul class="collapse">
-  <li><a href="#langkah-1-kumpulkan-data" id="toc-langkah-1-kumpulkan-data" class="nav-link" data-scroll-target="#langkah-1-kumpulkan-data"><strong>Langkah 1: Kumpulkan Data</strong></a></li>
-  <li><a href="#langkah-2-hitung-safety-stock" id="toc-langkah-2-hitung-safety-stock" class="nav-link" data-scroll-target="#langkah-2-hitung-safety-stock"><strong>Langkah 2: Hitung Safety Stock</strong></a></li>
-  </ul></li>
-  <li><a href="#hitung-reorder-point-titik-pemesanan-ulang" id="toc-hitung-reorder-point-titik-pemesanan-ulang" class="nav-link" data-scroll-target="#hitung-reorder-point-titik-pemesanan-ulang">4. Hitung Reorder Point (Titik Pemesanan Ulang)</a></li>
-  <li><a href="#strategi-menghindari-overstock" id="toc-strategi-menghindari-overstock" class="nav-link" data-scroll-target="#strategi-menghindari-overstock">5. Strategi Menghindari Overstock</a></li>
-  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">6. Kesimpulan</a></li>
   </ul>
 </nav>
     </div>
@@ -178,10 +179,10 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Menghitung Safety stock agar cadangan ada dan sesuai kebutuhan</h1>
+<h1 class="title">Metrik dalam statistik yang harus diketahui manusia manusia penyandang Stats</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Data Analyst</div>
-    <div class="quarto-category">Market Research</div>
+    <div class="quarto-category">Stats dasar</div>
+    <div class="quarto-category">Konsep</div>
   </div>
   </div>
 
@@ -199,7 +200,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 14, 2025</p>
+      <p class="date">June 14, 2024</p>
     </div>
   </div>
   
@@ -212,87 +213,140 @@ window.Quarto = {
 
 
 <blockquote class="blockquote">
-<p><em>Bagaimana agar stock suatu barang dikantor kita cukup dan tidak overstock ? Menggunakan formula Safety stock</em></p>
+<p><em>Junior Stats harus paham iniiiiiii……..</em></p>
 </blockquote>
 <hr>
-<p>Tulisan ini nyambung dengan tulisan saya <a href="https://b4n88.github.io/Blogpribadi/Bloog/14.%20Jawaban%20soal%20office%20study%20case.html">sebelumnya</a>, Kita harus mengetahui fungsi Safety stock, karena dengan ini kita bisa melakukan prediksi kapan kita harus membeli barang dan berapa banyak yang harus kita simpan. saya akan Coba mengerjakannya mengguanakn Excel. Berikut adalah pembahasan mendalam tentang <code>Safety Stock</code>.</p>
-<p><strong>Panduan Menghitung Safety Stock dan Menghindari Overstock ATK Kantor</strong></p>
-<section id="apa-itu-safety-stock" class="level3">
-<h3 class="anchored" data-anchor-id="apa-itu-safety-stock">Apa itu Safety Stock?</h3>
-<p><strong>Safety Stock</strong> adalah persediaan tambahan yang disiapkan untuk mengantisipasi ketidakpastian permintaan atau keterlambatan pasokan. Tujuannya adalah memastikan ketersediaan barang sehingga tidak terjadi kekurangan stok (<em>stockout</em>).</p>
-</section>
-<section id="apa-itu-overstock" class="level3">
-<h3 class="anchored" data-anchor-id="apa-itu-overstock">Apa itu Overstock?</h3>
-<p><strong>Overstock</strong> adalah kondisi ketika stok barang melebihi kebutuhan, yang menyebabkan inefisiensi seperti meningkatnya biaya penyimpanan dan pemborosan barang.</p>
-<p>Dengan menghitung <em>safety stock</em> yang optimal, kita dapat menghindari kekurangan maupun kelebihan stok.</p>
+<section id="statistik-dasar" class="level1">
+<h1>Statistik Dasar</h1>
+<section id="mean-rata-rata" class="level2">
+<h2 class="anchored" data-anchor-id="mean-rata-rata">Mean (Rata-Rata)</h2>
+<ul>
+<li><strong>Pengertian</strong>: Nilai rata-rata dari semua data.</li>
+<li><strong>Rumus</strong>: <span class="math inline">\(\text{Mean} = \frac{\text{Total Semua Nilai}}{\text{Jumlah Data}}\)</span></li>
+<li><strong>Contoh</strong>: Data ([10, 20, 30]), Mean = ((10 + 20 + 30) / 3 = 20).</li>
+</ul>
 <hr>
 </section>
-<section id="rumus-safety-stock" class="level2">
-<h2 class="anchored" data-anchor-id="rumus-safety-stock">2. Rumus Safety Stock</h2>
-<p><span class="math inline">\(\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}\)</span></p>
-<section id="keterangan" class="level3">
-<h3 class="anchored" data-anchor-id="keterangan">Keterangan:</h3>
+<section id="median" class="level2">
+<h2 class="anchored" data-anchor-id="median">Median</h2>
 <ul>
-<li><strong>Z</strong>: Faktor tingkat layanan (<em>z-score</em>), menentukan tingkat keyakinan. Contoh:
+<li><strong>Pengertian</strong>: Nilai tengah dari data yang sudah diurutkan.</li>
+<li><strong>Catatan</strong>: Tidak terpengaruh oleh outlier.</li>
+<li><strong>Contoh</strong>: Data ([10, 20, 30]), Median = (20).</li>
+</ul>
+<hr>
+</section>
+<section id="mode" class="level2">
+<h2 class="anchored" data-anchor-id="mode">Mode</h2>
 <ul>
-<li>90% tingkat layanan = 1.28</li>
-<li>95% tingkat layanan = 1.65</li>
-<li>99% tingkat layanan = 2.33</li>
+<li><strong>Pengertian</strong>: Nilai yang paling sering muncul dalam data.</li>
+<li><strong>Contoh</strong>: Data ([10, 20, 20, 30]), Mode = (20).</li>
+</ul>
+<hr>
+</section>
+<section id="range" class="level2">
+<h2 class="anchored" data-anchor-id="range">Range</h2>
+<ul>
+<li><p><strong>Pengertian</strong>: Selisih antara nilai maksimum dan minimum.</p></li>
+<li><p><strong>Rumus</strong>:</p>
+<p><span class="math inline">\(\text{Range} = \text{Nilai Maksimum} - \text{Nilai Minimum}\)</span></p></li>
+<li><p><strong>Contoh</strong>: Data ([10, 20, 30]), Range = (30 - 10 = 20).</p></li>
+</ul>
+<hr>
+</section>
+<section id="variance-variansi" class="level2">
+<h2 class="anchored" data-anchor-id="variance-variansi">Variance (Variansi)</h2>
+<ul>
+<li><p><strong>Pengertian</strong>: Rata-rata kuadrat deviasi (penyimpangan) dari mean.</p></li>
+<li><p><strong>Rumus</strong>:</p>
+<p><span class="math inline">\(\text{Variance} = \frac{\sum (X_i - \text{Mean})^2}{n}\)</span></p></li>
+<li><p><strong>Contoh</strong>: Data ([10, 20, 30]), Variance = (66.67).</p></li>
+</ul>
+<hr>
+</section>
+<section id="standard-deviation-deviasi-standar" class="level2">
+<h2 class="anchored" data-anchor-id="standard-deviation-deviasi-standar">Standard Deviation (Deviasi Standar)</h2>
+<ul>
+<li><p><strong>Pengertian</strong>: Akar kuadrat dari variansi.</p></li>
+<li><p><strong>Rumus</strong>:</p>
+<p><span class="math inline">\(\text{SD} = \sqrt{\text{Variance}}\)</span></p></li>
+<li><p><strong>Contoh</strong>: Data ([10, 20, 30]), SD = (8.16).</p></li>
+</ul>
+<hr>
+</section>
+<section id="interquartile-range-iqr" class="level2">
+<h2 class="anchored" data-anchor-id="interquartile-range-iqr">Interquartile Range (IQR)</h2>
+<ul>
+<li><p><strong>Pengertian</strong>: Rentang antara kuartil ke-3 ((Q3)) dan kuartil ke-1 ((Q1)).</p></li>
+<li><p><strong>Rumus</strong>:</p>
+<p><span class="math inline">\(\text{IQR} = Q3 - Q1\)</span></p></li>
+<li><p><strong>Contoh</strong>: Data ([10, 20, 30, 40, 50]), (Q1 = 20), (Q3 = 40), IQR = (40 - 20 = 20).</p></li>
+</ul>
+<hr>
+</section>
+<section id="skewness" class="level2">
+<h2 class="anchored" data-anchor-id="skewness">Skewness</h2>
+<ul>
+<li><strong>Pengertian</strong>: Mengukur kemiringan distribusi data.
+<ul>
+<li>Skewness (&gt; 0): Distribusi condong ke kanan.</li>
+<li>Skewness (&lt; 0): Distribusi condong ke kiri.</li>
 </ul></li>
-<li><span class="math inline">\((\sigma_{\text{demand}})\)</span>: Deviasi standar permintaan harian (variabilitas).</li>
-<li><strong>Lead Time</strong>: Waktu tunggu dari pemesanan hingga barang tiba (hari).</li>
+<li><strong>Contoh</strong>: Data ([1, 2, 2, 3, 10]), Skewness positif.</li>
 </ul>
 <hr>
 </section>
-</section>
-<section id="langkah-perhitungan-safety-stock" class="level2">
-<h2 class="anchored" data-anchor-id="langkah-perhitungan-safety-stock">3. Langkah Perhitungan Safety Stock</h2>
-<section id="langkah-1-kumpulkan-data" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-1-kumpulkan-data"><strong>Langkah 1: Kumpulkan Data</strong></h3>
+<section id="kurtosis" class="level2">
+<h2 class="anchored" data-anchor-id="kurtosis">Kurtosis</h2>
 <ul>
-<li>Rata-rata permintaan harian: Contoh, 20 unit per hari.</li>
-<li>Deviasi standar permintaan harian ((<span class="math inline">\(\sigma_{\text{demand}}\)\)</span>): Contoh, 5 unit.</li>
-<li><strong>Lead Time</strong>: Contoh, 3 hari.</li>
-<li><strong>Tingkat layanan (Z)</strong>: Contoh, 95% (Z = 1.65).</li>
+<li><strong>Pengertian</strong>: Mengukur kepuncakan distribusi data.
+<ul>
+<li>Kurtosis (&gt; 3): Distribusi lebih runcing.</li>
+<li>Kurtosis (&lt; 3): Distribusi lebih datar.</li>
+</ul></li>
 </ul>
-</section>
-<section id="langkah-2-hitung-safety-stock" class="level3">
-<h3 class="anchored" data-anchor-id="langkah-2-hitung-safety-stock"><strong>Langkah 2: Hitung Safety Stock</strong></h3>
-<p>Gunakan rumus:</p>
-<p><span class="math inline">\(\text{Safety Stock} = Z \times \sigma_{\text{demand}} \times \sqrt{\text{Lead Time}}\)</span> Contoh perhitungan:</p>
-<p><span class="math inline">\(\text{Safety Stock} = 1.65 \times 5 \times \sqrt{3}\)</span></p>
-<p><span class="math inline">\(\text{Safety Stock} = 1.65 \times 5 \times 1.732\)</span></p>
-<p><span class="math inline">\(\text{Safety Stock} \approx 14.3 \, \text{unit}\)</span></p>
-<p><strong>Kesimpulan</strong>: Antum perlu menyimpan <strong>14 unit tambahan</strong> sebagai <em>safety stock</em>.</p>
 <hr>
 </section>
-</section>
-<section id="hitung-reorder-point-titik-pemesanan-ulang" class="level2">
-<h2 class="anchored" data-anchor-id="hitung-reorder-point-titik-pemesanan-ulang">4. Hitung Reorder Point (Titik Pemesanan Ulang)</h2>
-<p><span class="math inline">\(\text{Reorder Point} = (\text{Rata-rata Permintaan Harian} \times \text{Lead Time}) + \text{Safety Stock}\)</span></p>
-<p>Contoh perhitungan:</p>
-<p><span class="math inline">\(\text{Reorder Point} = (20 \times 3) + 14\)</span></p>
-<p><span class="math inline">\(\text{Reorder Point} = 60 + 14 = 74 \, \text{unit}\)</span></p>
-<p><strong>Kesimpulan</strong>: Ketika stok ATK mencapai <strong>74 unit</strong>, Antum harus segera memesan ulang untuk mencegah kehabisan stok.</p>
+<section id="z-score" class="level2">
+<h2 class="anchored" data-anchor-id="z-score">Z-Score</h2>
+<ul>
+<li><p><strong>Pengertian</strong>: Mengukur seberapa jauh nilai data dari mean dalam satuan standar deviasi.</p></li>
+<li><p><strong>Rumus</strong>:</p>
+<p><span class="math inline">\(Z = \frac{X - \text{Mean}}{\text{SD}}\)</span></p></li>
+<li><p><strong>Contoh</strong>: Jika (X = 25), Mean = (20), SD = (5), Z = (1).</p></li>
+</ul>
 <hr>
 </section>
-<section id="strategi-menghindari-overstock" class="level2">
-<h2 class="anchored" data-anchor-id="strategi-menghindari-overstock">5. Strategi Menghindari Overstock</h2>
-<ol type="1">
-<li><strong>Analisis Data Historis</strong>: Gunakan data permintaan yang relevan dan terkini.</li>
-<li><strong>Monitor Days of Inventory (DOI)</strong>: Pastikan stok cukup untuk beberapa hari berdasarkan kecepatan konsumsi.</li>
-<li><strong>Gunakan Sistem Perencanaan</strong>: Manfaatkan aplikasi atau perangkat lunak stok untuk memantau inventaris.</li>
-<li><strong>Evaluasi Secara Berkala</strong>: Audit bulanan untuk menyesuaikan <em>safety stock</em> sesuai perubahan pola permintaan.</li>
-<li><strong>Tetapkan Batas Maksimum Stok</strong>: Jangan melebihi jumlah maksimum barang yang bisa digunakan dalam periode tertentu (misalnya satu bulan).</li>
-</ol>
+<section id="coefficient-of-variation-cv" class="level2">
+<h2 class="anchored" data-anchor-id="coefficient-of-variation-cv">Coefficient of Variation (CV)</h2>
+<ul>
+<li><p><strong>Pengertian</strong>: Rasio standar deviasi terhadap mean.</p></li>
+<li><p><strong>Rumus</strong>:</p>
+<p><span class="math inline">\(\text{CV} = \frac{\text{SD}}{\text{Mean}} \times 100\%\)</span></p></li>
+<li><p><strong>Contoh</strong>: Jika SD = (10), Mean = (50), CV = (20%).</p></li>
+</ul>
 <hr>
 </section>
-<section id="kesimpulan" class="level2">
-<h2 class="anchored" data-anchor-id="kesimpulan">6. Kesimpulan</h2>
-<p>Menghitung <em>safety stock</em> dengan benar membantu menghindari kekurangan maupun kelebihan stok. Dengan data yang akurat dan perhitungan yang sistematis, pengelolaan ATK kantor dapat menjadi lebih efisien dan ekonomis.</p>
-<p>Saya juga sendag mengerjakan contoh kasus dalam excel atas safety stock ini. Semoga bisa segera saya selesaikan. Kerjaan di kantor buanyakkkk ahahhaha.. ada <a href="https://docs.google.com/spreadsheets/d/1zKHRJm7v0WTaw2wJ6azI5jDn-toDIEXM8yVbxn4MwYQ/edit?usp=drive_link">di sini</a></p>
+<section id="variabel-independen-dan-dependen" class="level2">
+<h2 class="anchored" data-anchor-id="variabel-independen-dan-dependen">Variabel Independen dan Dependen</h2>
+<ul>
+<li><p><strong>Variabel Independen (X)</strong>: Variabel yang digunakan untuk memprediksi atau menjelaskan variabel lain. Disebut juga <strong>variabel bebas</strong>.</p>
+<ul>
+<li><strong>Contoh</strong>: Dalam analisis penjualan, <strong>iklan (X)</strong> adalah variabel independen.</li>
+</ul></li>
+<li><p><strong>Variabel Dependen (Y)</strong>: Variabel yang dipengaruhi oleh variabel independen. Disebut juga <strong>variabel terikat</strong>.</p>
+<ul>
+<li><strong>Contoh</strong>: Dalam analisis penjualan, <strong>penjualan (Y)</strong> adalah variabel dependen.</li>
+</ul></li>
+<li><p><strong>Hubungan</strong>:</p>
+<p><span class="math inline">\(Y = f(X) \quad \text{(Y dipengaruhi oleh X)}\)</span></p>
+<p>Contoh model regresi sederhana:</p>
+<p><span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span></p></li>
+<li><p><strong>Contoh di R</strong>: ```r # Contoh hubungan variabel independen dan dependen data &lt;- data.frame(iklan = c(1, 2, 3, 4, 5), penjualan = c(10, 20, 30, 40, 50)) lm_model &lt;- lm(penjualan ~ iklan, data = data) summary(lm_model)</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

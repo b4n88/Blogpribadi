@@ -1,0 +1,11 @@
+---
+title: "Outlier sungguh menyebalkan, tapi berguna juga gak sih??"
+author: "Albani"
+date: "2025-01-14"
+categories: [Data Analyst, Market Research]
+---
+> *Bagaimana menghitung rata-rata pada data yang ada outliernya?*
+
+-------
+
+Masih ngantukkkkkkk beosk kita bahas
