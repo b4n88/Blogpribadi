@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../ratakanan.css">
 <link rel="stylesheet" href="../Bloog/blogstyle.css">
@@ -123,7 +186,19 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cara-melihat-oulier" id="toc-cara-melihat-oulier" class="nav-link active" data-scroll-target="#cara-melihat-oulier">Cara melihat oulier</a></li>
+  <li><a href="#apa-yang-biasa-menyebabkan-terjadinya-outlier" id="toc-apa-yang-biasa-menyebabkan-terjadinya-outlier" class="nav-link" data-scroll-target="#apa-yang-biasa-menyebabkan-terjadinya-outlier">Apa yang biasa menyebabkan terjadinya outlier?</a></li>
+  <li><a href="#cara-mengatasi-mbah-outlier" id="toc-cara-mengatasi-mbah-outlier" class="nav-link" data-scroll-target="#cara-mengatasi-mbah-outlier">Cara mengatasi Mbah outlier</a></li>
+  <li><a href="#study-case" id="toc-study-case" class="nav-link" data-scroll-target="#study-case">Study case</a>
+  <ul class="collapse">
+  <li><a href="#penting" id="toc-penting" class="nav-link" data-scroll-target="#penting">Penting</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -167,9 +242,179 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Bagaimana menghitung rata-rata pada data yang ada outliernya?</em></p>
 </blockquote>
 <hr>
-<p>Masih ngantukkkkkkk beosk kita bahas</p>
+<p>Masih ingat tulisan saya tentang <a href="https://b4n88.github.io/Blogpribadi/Bloog/17%20DOI%20.html#dio">DIO</a>? Kalau belum baca dulu..</p>
+<p>Dalam menghitung <code>DIO</code> diperlukan mengetahui rata-rata terlebih dahulu, Apa sih rata-rata itu, ini adalah pelajaran dasar yang harus diketahui anak-anak Stats smester awal. Saya pernah menulisnya <a href="https://b4n88.github.io/Blogpribadi/Bloog/01%20Stats%20dasar.html">di sini</a> Rata-rata adalah bilangan yang mewakili sekumpulan data.</p>
+<p>Sepertinya tidak hanya saat menghitung metrik <code>DIO</code> namun dengan mengetahui Rata-rata kita bisa membaca data lebih gampang. Namun, pernahkah kita berfikir bagaimana jika data kita terdapat outlier?</p>
+<blockquote class="blockquote">
+<p>In statistics, an outlier is a data point that differs significantly from other observations. {Wikipedia}</p>
+</blockquote>
+<p>Jadi outlier itu data yang super duper beda sendiri dan ini sangat menggangu. Contoh outlier adalah :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">9</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">100</span>,<span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]   5  10   7   8   6   4  11   9   8   5   6 100   5</code></pre>
+</div>
+</div>
+<p>Lihat pada vector di atas apakah ada data yang membuat antum emosi? Benar sekali itu angka 100 kok beda sendiri dah ? Ini kalau kita hitung rata-ratanya akan menjadi :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.15385</code></pre>
+</div>
+</div>
+<p>Nah menjadi <code>14</code>, Ini outlier bisa menjadi sangat berbahaya jika dibiarkan, karena bisa mengganggu pengambilan keputusan kita.</p>
+<section id="cara-melihat-oulier" class="level2">
+<h2 class="anchored" data-anchor-id="cara-melihat-oulier">Cara melihat oulier</h2>
+<p>Melihat outlier bisa dengan menggunakan <code>Boxplot</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="19-outlier_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Lihat ada data yang tidak jelas, titik kecil sndiri paling atas, inilah yang bikin menyebalkan</p>
+</section>
+<section id="apa-yang-biasa-menyebabkan-terjadinya-outlier" class="level2">
+<h2 class="anchored" data-anchor-id="apa-yang-biasa-menyebabkan-terjadinya-outlier">Apa yang biasa menyebabkan terjadinya outlier?</h2>
+<p>Outlier terjadi biasanya buanyak seklai faktor <code>x</code> yang menyebapkannya salah satunya human eror. Atau ketika wawancara narasumber malu untuk menjawab pertanyaanya.</p>
+<p>“Bapak punya tabungan 1juta” “Tidak pak, sy hanya punya 1Milyae”</p>
+<p>Duarrr,, skak,,, apa itu 1 juta.. nah 1 Milyar ini lah yang dinamakan Outlier.</p>
+</section>
+<section id="cara-mengatasi-mbah-outlier" class="level2">
+<h2 class="anchored" data-anchor-id="cara-mengatasi-mbah-outlier">Cara mengatasi Mbah outlier</h2>
+<p>Banyak sekali cara mengatasi outlier ini namun kapan-kapan akan saya bahas. ditulisan ini akan saya sampaikan cara yang paling umum dilakukan kantor kantor pada umumnya.</p>
+<ol type="1">
+<li>Menghapus outiler</li>
+<li>Mengganti dengan median</li>
+<li>Mengganti dengan mean</li>
+</ol>
+<p>Inilah 3 cara yang sering kita gunakan, terutama pada tempat saya bekerja, jika ada transaksi bernominal <code>0</code> ini akan saya cut pada laporan <code>KPI</code> yang akan saya buat.</p>
+</section>
+<section id="study-case" class="level2">
+<h2 class="anchored" data-anchor-id="study-case">Study case</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Library</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(esquisse)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Library diatas adalah senjata yang saya butuhkan untuk membersihkan dan merapihkan data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Data1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/Administrator/Documents/atk1.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   925 obs. of  4 variables:
+ $ DATE      : chr  "8/2/2023" "5/26/2023" "1/24/2023" "11/20/2023" ...
+ $ nama_item : chr  "BALLPOINT HITAM" "KERTAS F4 80GR PAPERONE" "Materai 10000" "Materai 10000" ...
+ $ jml_keluar: int  3 1 100 100 5 100 100 2 200 100 ...
+ $ HARGA     : chr  "2,100" "39,091" "10,000" "10,000" ...</code></pre>
+</div>
+</div>
+<p>Mengganti type data yang sesuai, <code>Date</code> dan <code>Harga</code> berbentuk char, sehingga harus dirubah.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Data1 <span class="ot">&lt;-</span> Data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">DATE =</span> <span class="fu">as.Date</span>(DATE, <span class="at">format =</span> <span class="st">"%m/%d/%Y"</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>Data1 <span class="ot">&lt;-</span> Data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">HARGA=</span><span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>,<span class="st">""</span>, HARGA)))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   925 obs. of  4 variables:
+ $ DATE      : Date, format: "2023-08-02" "2023-05-26" ...
+ $ nama_item : chr  "BALLPOINT HITAM" "KERTAS F4 80GR PAPERONE" "Materai 10000" "Materai 10000" ...
+ $ jml_keluar: int  3 1 100 100 5 100 100 2 200 100 ...
+ $ HARGA     : num  2100 39091 10000 10000 33864 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Data1,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        DATE               nama_item jml_keluar HARGA
+1 2023-08-02         BALLPOINT HITAM          3  2100
+2 2023-05-26 KERTAS F4 80GR PAPERONE          1 39091
+3 2023-01-24           Materai 10000        100 10000</code></pre>
+</div>
+</div>
+<p>Mengelompokan data berdasarkan nama item</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Data_grouping <span class="ot">&lt;-</span> Data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(nama_item) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_jumlah_keluar =</span>  <span class="fu">mean</span>(jml_keluar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_harga =</span> <span class="fu">sum</span>(HARGA, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_jumlah_keluar))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Data_grouping,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  nama_item                       Total_jumlah_keluar Total_harga
+  &lt;chr&gt;                                         &lt;dbl&gt;       &lt;dbl&gt;
+1 Materai 10000                                  65        500000
+2 CELLOTAPE 1X72 YDS PANFIX                      19.5       48300
+3 KERTAS A4 80GR                                 14.0     2539800
+4 CELLOTAPE 1/2X72 YDS PANFIX                    12.3       36225
+5 MAP PLASTIK BUSINESS FILE FOLIO                10.5        7350</code></pre>
+</div>
+</div>
+<p>Data diatas masih original, menghitung rata-rata tanpa menghilangakn outlier, lalu bagaimana jika mau menghilangkan outlier ?</p>
+<section id="penting" class="level3">
+<h3 class="anchored" data-anchor-id="penting">Penting</h3>
+<p>Data dikatakan outlier jika berada diluar IQR, masih kenal dengan IQR kan? <span class="math inline">\(\text{data} &gt;= \text{Q1}-1.5\times \text{IQR}\)</span> dan <span class="math inline">\(\text{data} &lt;= \text{Q3}-1.5\times \text{IQR}\)</span></p>
+<p>Sehingga jika sudah melewati nilai IQR dapat dikatakan Outlier dan dapat kita eksekusi. dalam contoh ini akan kita hapuskan saja.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Data_grouping2 <span class="ot">&lt;-</span> Data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(nama_item)<span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    jml_keluar <span class="sc">&gt;=</span> <span class="fu">quantile</span>(jml_keluar, <span class="fl">0.25</span>) <span class="sc">-</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(jml_keluar),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    jml_keluar <span class="sc">&lt;=</span> <span class="fu">quantile</span>(jml_keluar, <span class="fl">0.75</span>) <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(jml_keluar)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_keluar =</span> <span class="fu">mean</span>(jml_keluar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_harga =</span> <span class="fu">sum</span>(jml_keluar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_keluar))</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Data_grouping2, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  nama_item                       Total_keluar Total_harga
+  &lt;chr&gt;                                  &lt;dbl&gt;       &lt;int&gt;
+1 Materai 10000                           65          3250
+2 CELLOTAPE 1X72 YDS PANFIX               19.5          39
+3 KERTAS A4 80GR                          14.0        1049
+4 CELLOTAPE 1/2X72 YDS PANFIX             12.3          37
+5 MAP PLASTIK BUSINESS FILE FOLIO         10.5          21</code></pre>
+</div>
+</div>
+<p>Nahhh selesai juga cara menghilangkan outlier.. semoga kita tetap waras jika ada outlier lagi gaess..</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <footer style="text-align: center; margin-top: 20px; font-size: 14px; color: #777;">

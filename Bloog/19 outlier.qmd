@@ -8,4 +8,134 @@ categories: [Data Analyst, Market Research]
 
 -------
 
-Masih ngantukkkkkkk beosk kita bahas
+Masih ingat tulisan saya tentang [DIO](https://b4n88.github.io/Blogpribadi/Bloog/17%20DOI%20.html#dio)? Kalau belum baca dulu.. 
+
+Dalam menghitung `DIO` diperlukan mengetahui rata-rata terlebih dahulu, Apa sih rata-rata itu, ini adalah pelajaran dasar yang harus diketahui anak-anak Stats smester awal. Saya pernah menulisnya [di sini](https://b4n88.github.io/Blogpribadi/Bloog/01%20Stats%20dasar.html) Rata-rata adalah bilangan yang mewakili sekumpulan data.
+
+Sepertinya tidak hanya saat menghitung metrik `DIO` namun dengan mengetahui Rata-rata kita bisa membaca data lebih gampang. Namun, pernahkah kita berfikir bagaimana jika data kita terdapat outlier?
+
+> In statistics, an outlier is a data point that differs significantly from other observations. {Wikipedia}
+
+Jadi outlier itu data yang super duper beda sendiri dan ini sangat menggangu. Contoh outlier adalah :
+```{r}
+x <- c(5,10,7,8,6,4,11,9,8,5,6,100,5)
+x
+```
+
+Lihat pada vector di atas apakah ada data yang membuat antum emosi? Benar sekali itu angka 100 kok beda sendiri dah ? Ini kalau kita hitung rata-ratanya akan menjadi :
+
+```{r}
+mean(x)
+```
+
+Nah menjadi `14`, Ini outlier bisa menjadi sangat berbahaya jika dibiarkan, karena bisa mengganggu pengambilan keputusan kita.
+
+## Cara melihat oulier
+
+Melihat outlier bisa dengan menggunakan `Boxplot` :
+
+```{r}
+boxplot(x)
+```
+
+Lihat ada data yang tidak jelas,  titik kecil sndiri paling atas, inilah yang bikin menyebalkan
+
+## Apa yang biasa menyebabkan terjadinya outlier?
+
+Outlier terjadi biasanya buanyak seklai faktor `x` yang menyebapkannya salah satunya human eror. Atau ketika wawancara narasumber malu untuk menjawab pertanyaanya.
+
+"Bapak punya tabungan 1juta"
+"Tidak pak, sy hanya punya 1Milyae"
+
+Duarrr,, skak,,, apa itu 1 juta.. nah 1 Milyar ini lah yang dinamakan Outlier.
+
+## Cara mengatasi Mbah outlier
+
+Banyak sekali cara mengatasi outlier ini namun kapan-kapan akan saya bahas. ditulisan ini akan saya sampaikan cara yang paling umum dilakukan kantor kantor pada umumnya.
+
+1. Menghapus outiler
+2. Mengganti dengan median
+3. Mengganti dengan mean
+
+Inilah 3 cara yang sering kita gunakan, terutama pada tempat saya bekerja, jika ada transaksi bernominal `0` ini akan saya cut pada laporan `KPI` yang akan saya buat.
+
+## Study case
+
+```{r, echo=TRUE, warning=FALSE, results='hide'}
+# Library
+library(esquisse)
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(readr)
+library(lubridate)
+```
+
+Library diatas adalah senjata yang saya butuhkan untuk membersihkan dan merapihkan data.
+
+```{r}
+Data1 <- read.csv("C:/Users/Administrator/Documents/atk1.csv", sep = ",")
+str(Data1)
+```
+
+Mengganti type data yang sesuai, `Date` dan `Harga` berbentuk char, sehingga harus dirubah.
+
+```{r}
+Data1 <- Data1 %>% 
+  mutate(DATE = as.Date(DATE, format = "%m/%d/%Y"))
+
+Data1 <- Data1 %>% 
+  mutate(HARGA=as.numeric(gsub(",","", HARGA)))
+
+str(Data1)
+```
+```{r}
+head(Data1,3)
+```
+
+Mengelompokan data berdasarkan nama item
+
+```{r}
+Data_grouping <- Data1 %>% 
+  group_by(nama_item) %>% 
+  summarise(
+    Total_jumlah_keluar =  mean(jml_keluar, na.rm = TRUE),
+    Total_harga = sum(HARGA, na.rm = TRUE)
+  ) %>% 
+  arrange(desc(Total_jumlah_keluar))
+
+head(Data_grouping,5)
+```
+
+Data diatas masih original, menghitung rata-rata tanpa menghilangakn outlier, lalu bagaimana jika mau menghilangkan outlier ?
+
+### Penting
+
+Data dikatakan outlier jika berada diluar IQR, masih kenal dengan IQR kan?
+$\text{data} >= \text{Q1}-1.5\times \text{IQR}$ dan
+$\text{data} <= \text{Q3}-1.5\times \text{IQR}$
+
+Sehingga jika sudah melewati nilai IQR dapat dikatakan Outlier dan dapat kita eksekusi. dalam contoh ini akan kita hapuskan saja.
+
+```{r}
+Data_grouping2 <- Data1 %>% 
+  group_by(nama_item)%>% 
+  filter(
+    jml_keluar >= quantile(jml_keluar, 0.25) - 1.5*IQR(jml_keluar),
+    jml_keluar <= quantile(jml_keluar, 0.75) + 1.5*IQR(jml_keluar)
+  ) %>% 
+  summarise(
+    Total_keluar = mean(jml_keluar, na.rm = TRUE),
+    Total_harga = sum(jml_keluar, na.rm = TRUE)
+  ) %>% 
+  arrange(desc(Total_keluar))
+
+
+head(Data_grouping2, 5)
+```
+
+Nahhh selesai juga cara menghilangkan outlier.. semoga kita tetap waras jika ada outlier lagi gaess..
+
+
+

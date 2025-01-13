@@ -8,4 +8,74 @@ categories: [Data Analyst, Market Research]
 
 -------
 
-Sebuah setudy case,tulisan segera di upload....
+Pada suatu hari rekan saya menanyakan pada saya : 
+
+>berapa banyak cup yang harus saya buat agar tidak terlalu overstock. 
+
+Tanpa menunggu lama saya langsung meminta data last.3 Month dari data penjualan. Karena saya tidak mau membeberkan data penjualan sehingga saya meminta chat GPT untuk membuatkan data yang sesuai dengan konteks. saya juga meminta dibuatkan Outlier agar menganilasnya dengan penuh keringat. Saya menulis sperti ini pada Chat GPT 
+
+> tolong buatkan saya puzle berupa penjulan cup buah potong pepaya, semangka merah, semangka kuning, mangga dan melon, berupa data penjualan yang beragam dan tolong simpoankan outlier agar bisa di cek, sehingga saya bisa melakukan anlisa, data dibuatkan dalam bentuk 3 bulan. puzlenya adalah bagaimana cara agar kita bisa menghitung berapa cup perhari interval yang kita buat agar tidak over cup dan tidk terlalu sedikit
+
+Meskipun banyak typo tapi mbah Chat GPT ini supper duper kere, hampir saja saya mengajaknya taaruf.
+
+dengan teknik ninjutsunya membuatkan saya code seperti di bawah ini, Mari kita jalankan sript ini di R langsung..
+
+```{r}
+# Load required libraries
+library(dplyr)
+library(lubridate)
+
+# Set seed for reproducibility
+set.seed(42)
+
+# Generate dates for 3 months
+dates <- seq(as.Date("2023-01-01"), as.Date("2023-03-31"), by = "day")
+
+# Fruit types
+fruits <- c("Pepaya", "Semangka Merah", "Semangka Kuning", "Mangga", "Melon")
+
+# Generate sales data
+sales_data <- expand.grid(Date = dates, Fruit = fruits) %>%
+  mutate(
+    Cups_Sold = case_when(
+      Fruit == "Pepaya" ~ rpois(n(), lambda = 10),           # Normal sales for Pepaya
+      Fruit == "Semangka Merah" ~ rpois(n(), lambda = 15),   # Normal sales for Semangka Merah
+      Fruit == "Semangka Kuning" ~ rpois(n(), lambda = 12),  # Normal sales for Semangka Kuning
+      Fruit == "Mangga" ~ rpois(n(), lambda = 20),           # Normal sales for Mangga
+      Fruit == "Melon" ~ rpois(n(), lambda = 8)              # Normal sales for Melon
+    )
+  )
+
+# Add outliers manually
+outliers <- data.frame(
+  Date = as.Date(c("2023-01-15", "2023-02-10", "2023-03-05")),
+  Fruit = c("Pepaya", "Mangga", "Semangka Merah"),
+  Cups_Sold = c(50, 70, 60)
+)
+
+# Combine the data
+sales_data <- bind_rows(sales_data, outliers)
+
+# View a sample of the data
+head(sales_data, 5)
+```
+
+Biar gacor kita ubah type data fruit..
+
+```{r}
+sales_data$Fruit <- as.factor(sales_data$Fruit)
+```
+
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+ggplot(sales_data) +
+ aes(x = Fruit, y = Cups_Sold, fill = Fruit) +
+ geom_col() +
+ scale_fill_hue(direction = 1) +
+ theme_linedraw()
+```
+
+Lanjut besok saya sudah mulai mengantuk..
+

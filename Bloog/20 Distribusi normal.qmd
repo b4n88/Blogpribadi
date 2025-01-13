@@ -1,0 +1,11 @@
+---
+title: "Distribusi normal"
+author: "Albani"
+date: "2025-01-15"
+categories: [Stats dasar, Data Analyst, Market Research]
+---
+> *Menggunakan data berdistribusi normal dalam kehidupan sehari hari..*
+
+-------
+
+Masih ngantukkkkkkk beosk kita bahas
