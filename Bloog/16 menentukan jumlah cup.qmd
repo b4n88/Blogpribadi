@@ -20,6 +20,15 @@ Meskipun banyak typo tapi mbah Chat GPT ini supper duper kere, hampir saja saya 
 
 dengan teknik ninjutsunya membuatkan saya code seperti di bawah ini, Mari kita jalankan sript ini di R langsung..
 
+Sebelum itu kita harus menjalankan library biar kerja serasa lewat dijalan tol, mulussss..
+
+```{r}
+library(skimr)
+library(DataExplorer)
+library(dlookr)
+```
+
+
 ```{r}
 # Load required libraries
 library(dplyr)
@@ -66,6 +75,7 @@ Biar gacor kita ubah type data fruit..
 sales_data$Fruit <- as.factor(sales_data$Fruit)
 ```
 
+Data-data diatas akan terlihat seperti dibawah ini.
 
 ```{r}
 library(ggplot2)
@@ -77,5 +87,61 @@ ggplot(sales_data) +
  theme_linedraw()
 ```
 
-Lanjut besok saya sudah mulai mengantuk..
+## Analisis Deskriptif
+
+Dengan data diatas apa yang akan kita perbuat, sebagai pemula statsitik saya terbiasa dengan melihat data deskripsi sehingga saya akan mencoba menganalisa deksriptif terlebih dahulu.
+
+Dengan menggunakan `skimr` dan `DataExplorer` kita bisa menambah wawasan tentang data.
+
+### Missing value
+
+```{r}
+skim(sales_data)
+```
+```{r}
+summary(sales_data)
+```
+```{r}
+introduce(sales_data)
+plot_intro(sales_data)
+```
+
+### Duplicated checking
+
+```{r}
+sales_data_duplicated <- sales_data %>% 
+  filter(duplicated(.))
+
+print(sales_data_duplicated)
+```
+
+```{r}
+duplicate_buah <- sales_data[duplicated(sales_data)]
+duplicate_buah
+```
+
+```{r}
+data_no_duplicate <- sales_data %>% 
+  distinct()
+data_no_duplicate
+```
+
+
+```{r}
+diagnose(sales_data)
+```
+
+```{r}
+plot_normality(sales_data)
+```
+
+### Insight from analysis from descriptive
+
+- Missing value hilang
+- Data tidak balance (Jumlah pada buah ada yang 91 dan 90)
+- Data sudah lumayan untuk di analisa.
+- Terdapat beberapa outlier sehingga perlu perlakuan khususagar dataperkiraan bisa sesuai.
+
+## Berapa cup yang harus dibuat ?
+
 
