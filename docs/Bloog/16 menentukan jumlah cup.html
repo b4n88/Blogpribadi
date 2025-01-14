@@ -167,7 +167,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#duplicated-checking" id="toc-duplicated-checking" class="nav-link" data-scroll-target="#duplicated-checking">Duplicated checking</a></li>
   <li><a href="#insight-from-analysis-from-descriptive" id="toc-insight-from-analysis-from-descriptive" class="nav-link" data-scroll-target="#insight-from-analysis-from-descriptive">Insight from analysis from descriptive</a></li>
   </ul></li>
-  <li><a href="#berapa-cup-yang-harus-dibuat" id="toc-berapa-cup-yang-harus-dibuat" class="nav-link" data-scroll-target="#berapa-cup-yang-harus-dibuat">Berapa cup yang harus dibuat ?</a></li>
+  <li><a href="#berapa-cup-yang-harus-dibuat" id="toc-berapa-cup-yang-harus-dibuat" class="nav-link" data-scroll-target="#berapa-cup-yang-harus-dibuat">Berapa cup yang harus dibuat ?</a>
+  <ul class="collapse">
+  <li><a href="#dengan-interval-kepercayaan" id="toc-dengan-interval-kepercayaan" class="nav-link" data-scroll-target="#dengan-interval-kepercayaan">Dengan Interval kepercayaan</a></li>
+  <li><a href="#dengan-simulasi-monte-carlo" id="toc-dengan-simulasi-monte-carlo" class="nav-link" data-scroll-target="#dengan-simulasi-monte-carlo">Dengan Simulasi Monte Carlo</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -225,94 +229,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>dengan teknik ninjutsunya membuatkan saya code seperti di bawah ini, Mari kita jalankan sript ini di R langsung..</p>
 <p>Sebelum itu kita harus menjalankan library biar kerja serasa lewat dijalan tol, mulussss..</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'skimr' was built under R version 4.4.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'DataExplorer' was built under R version 4.4.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dlookr' was built under R version 4.4.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Registered S3 methods overwritten by 'dlookr':
-  method          from  
-  plot.transform  scales
-  print.transform scales</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dlookr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:base':
-
-    transform</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'lubridate'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    date, intersect, setdiff, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate dates for 3 months</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2023-03-31"</span>), <span class="at">by =</span> <span class="st">"day"</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fruit types</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Pepaya"</span>, <span class="st">"Semangka Merah"</span>, <span class="st">"Semangka Kuning"</span>, <span class="st">"Mangga"</span>, <span class="st">"Melon"</span>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate sales data</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>sales_data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Date =</span> dates, <span class="at">Fruit =</span> fruits) <span class="sc">%&gt;%</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cups_Sold =</span> <span class="fu">case_when</span>(</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Pepaya"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">10</span>),           <span class="co"># Normal sales for Pepaya</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Semangka Merah"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">15</span>),   <span class="co"># Normal sales for Semangka Merah</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Semangka Kuning"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">12</span>),  <span class="co"># Normal sales for Semangka Kuning</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Mangga"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">20</span>),           <span class="co"># Normal sales for Mangga</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Melon"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">8</span>)              <span class="co"># Normal sales for Melon</span></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Add outliers manually</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">Date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2023-01-15"</span>, <span class="st">"2023-02-10"</span>, <span class="st">"2023-03-05"</span>)),</span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">Fruit =</span> <span class="fu">c</span>(<span class="st">"Pepaya"</span>, <span class="st">"Mangga"</span>, <span class="st">"Semangka Merah"</span>),</span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cups_Sold =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">60</span>)</span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the data</span></span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>sales_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(sales_data, outliers)</span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a><span class="co"># View a sample of the data</span></span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sales_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate dates for 3 months</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2023-03-31"</span>), <span class="at">by =</span> <span class="st">"day"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fruit types</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Pepaya"</span>, <span class="st">"Semangka Merah"</span>, <span class="st">"Semangka Kuning"</span>, <span class="st">"Mangga"</span>, <span class="st">"Melon"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate sales data</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>sales_data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Date =</span> dates, <span class="at">Fruit =</span> fruits) <span class="sc">%&gt;%</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cups_Sold =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Pepaya"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">10</span>),           <span class="co"># Normal sales for Pepaya</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Semangka Merah"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">15</span>),   <span class="co"># Normal sales for Semangka Merah</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Semangka Kuning"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">12</span>),  <span class="co"># Normal sales for Semangka Kuning</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Mangga"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">20</span>),           <span class="co"># Normal sales for Mangga</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      Fruit <span class="sc">==</span> <span class="st">"Melon"</span> <span class="sc">~</span> <span class="fu">rpois</span>(<span class="fu">n</span>(), <span class="at">lambda =</span> <span class="dv">8</span>)              <span class="co"># Normal sales for Melon</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Add outliers manually</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">Date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2023-01-15"</span>, <span class="st">"2023-02-10"</span>, <span class="st">"2023-03-05"</span>)),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">Fruit =</span> <span class="fu">c</span>(<span class="st">"Pepaya"</span>, <span class="st">"Mangga"</span>, <span class="st">"Semangka Merah"</span>),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cups_Sold =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">60</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the data</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>sales_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(sales_data, outliers)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># View a sample of the data</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sales_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Date  Fruit Cups_Sold
 1 2023-01-01 Pepaya        14
@@ -324,12 +284,12 @@ Attaching package: 'lubridate'</code></pre>
 </div>
 <p>Biar gacor kita ubah type data fruit..</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sales_data<span class="sc">$</span>Fruit <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(sales_data<span class="sc">$</span>Fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sales_data<span class="sc">$</span>Fruit <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(sales_data<span class="sc">$</span>Fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Data-data diatas akan terlihat seperti dibawah ini.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ forcats 1.0.0     ✔ stringr 1.5.1
@@ -341,11 +301,11 @@ Attaching package: 'lubridate'</code></pre>
 ✖ dplyr::lag()     masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sales_data) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">aes</span>(<span class="at">x =</span> Fruit, <span class="at">y =</span> Cups_Sold, <span class="at">fill =</span> Fruit) <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_fill_hue</span>(<span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sales_data) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">aes</span>(<span class="at">x =</span> Fruit, <span class="at">y =</span> Cups_Sold, <span class="at">fill =</span> Fruit) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_fill_hue</span>(<span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -361,7 +321,7 @@ Attaching package: 'lubridate'</code></pre>
 <section id="missing-value" class="level3">
 <h3 class="anchored" data-anchor-id="missing-value">Missing value</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -522,7 +482,7 @@ Attaching package: 'lubridate'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Date                        Fruit      Cups_Sold    
  Min.   :2023-01-01   Mangga         :91   Min.   : 3.00  
@@ -534,14 +494,14 @@ Attaching package: 'lubridate'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">introduce</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">introduce</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  rows columns discrete_columns continuous_columns all_missing_columns
 1  453       3                2                  1                   0
   total_missing_values complete_rows total_observations memory_usage
 1                    0           453               1359        11576</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -554,485 +514,37 @@ Attaching package: 'lubridate'</code></pre>
 <section id="duplicated-checking" class="level3">
 <h3 class="anchored" data-anchor-id="duplicated-checking">Duplicated checking</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sales_data_duplicated <span class="ot">&lt;-</span> sales_data <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">duplicated</span>(.))</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sales_data_duplicated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sales_data_duplicated <span class="ot">&lt;-</span> sales_data <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">duplicated</span>(.))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sales_data_duplicated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Date      Fruit     Cups_Sold
 &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>duplicate_buah <span class="ot">&lt;-</span> sales_data[<span class="fu">duplicated</span>(sales_data)]</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>duplicate_buah</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>duplicate_buah <span class="ot">&lt;-</span> sales_data[<span class="fu">duplicated</span>(sales_data)]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>duplicate_buah</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>data frame with 0 columns and 453 rows</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data_no_duplicate <span class="ot">&lt;-</span> sales_data <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>data_no_duplicate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data_no_duplicate <span class="ot">&lt;-</span> sales_data <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_no_duplicate,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          Date           Fruit Cups_Sold
-1   2023-01-01          Pepaya        14
-2   2023-01-02          Pepaya         8
-3   2023-01-03          Pepaya        11
-4   2023-01-04          Pepaya        12
-5   2023-01-05          Pepaya        11
-6   2023-01-06          Pepaya         9
-7   2023-01-07          Pepaya        14
-8   2023-01-08          Pepaya         9
-9   2023-01-09          Pepaya        16
-10  2023-01-10          Pepaya         9
-11  2023-01-11          Pepaya        14
-12  2023-01-12          Pepaya        17
-13  2023-01-13          Pepaya         5
-14  2023-01-14          Pepaya        14
-15  2023-01-15          Pepaya        13
-16  2023-01-16          Pepaya        12
-17  2023-01-17          Pepaya        11
-18  2023-01-18          Pepaya        13
-19  2023-01-19          Pepaya         7
-20  2023-01-20          Pepaya         9
-21  2023-01-21          Pepaya         4
-22  2023-01-22          Pepaya        15
-23  2023-01-23          Pepaya        11
-24  2023-01-24          Pepaya        10
-25  2023-01-25          Pepaya         8
-26  2023-01-26          Pepaya        12
-27  2023-01-27          Pepaya        12
-28  2023-01-28          Pepaya         6
-29  2023-01-29          Pepaya        11
-30  2023-01-30          Pepaya        12
-31  2023-01-31          Pepaya        13
-32  2023-02-01          Pepaya         8
-33  2023-02-02          Pepaya        11
-34  2023-02-03          Pepaya        19
-35  2023-02-04          Pepaya        19
-36  2023-02-05          Pepaya        12
-37  2023-02-06          Pepaya         7
-38  2023-02-07          Pepaya         8
-39  2023-02-08          Pepaya        14
-40  2023-02-09          Pepaya        10
-41  2023-02-10          Pepaya        10
-42  2023-02-11          Pepaya         7
-43  2023-02-12          Pepaya        14
-44  2023-02-13          Pepaya        12
-45  2023-02-14          Pepaya        10
-46  2023-02-15          Pepaya        10
-47  2023-02-16          Pepaya        12
-48  2023-02-17          Pepaya        10
-49  2023-02-18          Pepaya        13
-50  2023-02-19          Pepaya         9
-51  2023-02-20          Pepaya        10
-52  2023-02-21          Pepaya         9
-53  2023-02-22          Pepaya        15
-54  2023-02-23          Pepaya        11
-55  2023-02-24          Pepaya        10
-56  2023-02-25          Pepaya        14
-57  2023-02-26          Pepaya        10
-58  2023-02-27          Pepaya         6
-59  2023-02-28          Pepaya         6
-60  2023-03-01          Pepaya        12
-61  2023-03-02          Pepaya        12
-62  2023-03-03          Pepaya        15
-63  2023-03-04          Pepaya         6
-64  2023-03-05          Pepaya        12
-65  2023-03-06          Pepaya        11
-66  2023-03-07          Pepaya         7
-67  2023-03-08          Pepaya        11
-68  2023-03-09          Pepaya        10
-69  2023-03-10          Pepaya         7
-70  2023-03-11          Pepaya         9
-71  2023-03-12          Pepaya         6
-72  2023-03-13          Pepaya         9
-73  2023-03-14          Pepaya         9
-74  2023-03-15          Pepaya         6
-75  2023-03-16          Pepaya        12
-76  2023-03-17          Pepaya        14
-77  2023-03-18          Pepaya         8
-78  2023-03-19          Pepaya        12
-79  2023-03-20          Pepaya        14
-80  2023-03-21          Pepaya         6
-81  2023-03-22          Pepaya        12
-82  2023-03-23          Pepaya        17
-83  2023-03-24          Pepaya        13
-84  2023-03-25          Pepaya        13
-85  2023-03-26          Pepaya         6
-86  2023-03-27          Pepaya         9
-87  2023-03-28          Pepaya         7
-88  2023-03-29          Pepaya         8
-89  2023-03-30          Pepaya         9
-90  2023-03-31          Pepaya        10
-91  2023-01-01  Semangka Merah        17
-92  2023-01-02  Semangka Merah        13
-93  2023-01-03  Semangka Merah        13
-94  2023-01-04  Semangka Merah        15
-95  2023-01-05  Semangka Merah        15
-96  2023-01-06  Semangka Merah        14
-97  2023-01-07  Semangka Merah        20
-98  2023-01-08  Semangka Merah        17
-99  2023-01-09  Semangka Merah        18
-100 2023-01-10  Semangka Merah        14
-101 2023-01-11  Semangka Merah        12
-102 2023-01-12  Semangka Merah        15
-103 2023-01-13  Semangka Merah         9
-104 2023-01-14  Semangka Merah        15
-105 2023-01-15  Semangka Merah        12
-106 2023-01-16  Semangka Merah        14
-107 2023-01-17  Semangka Merah        10
-108 2023-01-18  Semangka Merah        15
-109 2023-01-19  Semangka Merah        16
-110 2023-01-20  Semangka Merah        12
-111 2023-01-21  Semangka Merah        10
-112 2023-01-22  Semangka Merah        11
-113 2023-01-23  Semangka Merah         9
-114 2023-01-24  Semangka Merah        14
-115 2023-01-25  Semangka Merah        25
-116 2023-01-26  Semangka Merah        12
-117 2023-01-27  Semangka Merah        12
-118 2023-01-28  Semangka Merah        13
-119 2023-01-29  Semangka Merah        11
-120 2023-01-30  Semangka Merah        11
-121 2023-01-31  Semangka Merah        11
-122 2023-02-01  Semangka Merah        14
-123 2023-02-02  Semangka Merah        19
-124 2023-02-03  Semangka Merah        15
-125 2023-02-04  Semangka Merah        15
-126 2023-02-05  Semangka Merah        20
-127 2023-02-06  Semangka Merah        11
-128 2023-02-07  Semangka Merah        16
-129 2023-02-08  Semangka Merah        14
-130 2023-02-09  Semangka Merah        13
-131 2023-02-10  Semangka Merah        12
-132 2023-02-11  Semangka Merah        17
-133 2023-02-12  Semangka Merah        13
-134 2023-02-13  Semangka Merah        13
-135 2023-02-14  Semangka Merah        21
-136 2023-02-15  Semangka Merah        14
-137 2023-02-16  Semangka Merah        12
-138 2023-02-17  Semangka Merah        19
-139 2023-02-18  Semangka Merah        20
-140 2023-02-19  Semangka Merah        18
-141 2023-02-20  Semangka Merah        16
-142 2023-02-21  Semangka Merah        21
-143 2023-02-22  Semangka Merah        13
-144 2023-02-23  Semangka Merah        12
-145 2023-02-24  Semangka Merah        13
-146 2023-02-25  Semangka Merah        16
-147 2023-02-26  Semangka Merah        16
-148 2023-02-27  Semangka Merah        20
-149 2023-02-28  Semangka Merah        17
-150 2023-03-01  Semangka Merah        10
-151 2023-03-02  Semangka Merah        22
-152 2023-03-03  Semangka Merah        14
-153 2023-03-04  Semangka Merah        16
-154 2023-03-05  Semangka Merah        12
-155 2023-03-06  Semangka Merah        13
-156 2023-03-07  Semangka Merah        12
-157 2023-03-08  Semangka Merah        12
-158 2023-03-09  Semangka Merah        13
-159 2023-03-10  Semangka Merah        17
-160 2023-03-11  Semangka Merah        24
-161 2023-03-12  Semangka Merah        15
-162 2023-03-13  Semangka Merah        15
-163 2023-03-14  Semangka Merah        21
-164 2023-03-15  Semangka Merah        15
-165 2023-03-16  Semangka Merah        11
-166 2023-03-17  Semangka Merah        13
-167 2023-03-18  Semangka Merah        16
-168 2023-03-19  Semangka Merah        13
-169 2023-03-20  Semangka Merah        22
-170 2023-03-21  Semangka Merah        12
-171 2023-03-22  Semangka Merah        16
-172 2023-03-23  Semangka Merah        16
-173 2023-03-24  Semangka Merah        20
-174 2023-03-25  Semangka Merah        15
-175 2023-03-26  Semangka Merah        15
-176 2023-03-27  Semangka Merah        17
-177 2023-03-28  Semangka Merah        14
-178 2023-03-29  Semangka Merah        14
-179 2023-03-30  Semangka Merah        15
-180 2023-03-31  Semangka Merah        17
-181 2023-01-01 Semangka Kuning        12
-182 2023-01-02 Semangka Kuning        18
-183 2023-01-03 Semangka Kuning         8
-184 2023-01-04 Semangka Kuning         8
-185 2023-01-05 Semangka Kuning         6
-186 2023-01-06 Semangka Kuning         9
-187 2023-01-07 Semangka Kuning         8
-188 2023-01-08 Semangka Kuning        14
-189 2023-01-09 Semangka Kuning         9
-190 2023-01-10 Semangka Kuning        15
-191 2023-01-11 Semangka Kuning        13
-192 2023-01-12 Semangka Kuning        14
-193 2023-01-13 Semangka Kuning         7
-194 2023-01-14 Semangka Kuning        10
-195 2023-01-15 Semangka Kuning        17
-196 2023-01-16 Semangka Kuning        14
-197 2023-01-17 Semangka Kuning        10
-198 2023-01-18 Semangka Kuning        13
-199 2023-01-19 Semangka Kuning        13
-200 2023-01-20 Semangka Kuning         8
-201 2023-01-21 Semangka Kuning        17
-202 2023-01-22 Semangka Kuning        11
-203 2023-01-23 Semangka Kuning        11
-204 2023-01-24 Semangka Kuning         7
-205 2023-01-25 Semangka Kuning        16
-206 2023-01-26 Semangka Kuning         9
-207 2023-01-27 Semangka Kuning        15
-208 2023-01-28 Semangka Kuning        17
-209 2023-01-29 Semangka Kuning        15
-210 2023-01-30 Semangka Kuning        16
-211 2023-01-31 Semangka Kuning        13
-212 2023-02-01 Semangka Kuning        11
-213 2023-02-02 Semangka Kuning         8
-214 2023-02-03 Semangka Kuning         6
-215 2023-02-04 Semangka Kuning         8
-216 2023-02-05 Semangka Kuning        11
-217 2023-02-06 Semangka Kuning        11
-218 2023-02-07 Semangka Kuning        13
-219 2023-02-08 Semangka Kuning        13
-220 2023-02-09 Semangka Kuning        10
-221 2023-02-10 Semangka Kuning        15
-222 2023-02-11 Semangka Kuning        11
-223 2023-02-12 Semangka Kuning        11
-224 2023-02-13 Semangka Kuning        15
-225 2023-02-14 Semangka Kuning        15
-226 2023-02-15 Semangka Kuning         9
-227 2023-02-16 Semangka Kuning        10
-228 2023-02-17 Semangka Kuning        12
-229 2023-02-18 Semangka Kuning        13
-230 2023-02-19 Semangka Kuning        13
-231 2023-02-20 Semangka Kuning        11
-232 2023-02-21 Semangka Kuning         8
-233 2023-02-22 Semangka Kuning        11
-234 2023-02-23 Semangka Kuning        13
-235 2023-02-24 Semangka Kuning        10
-236 2023-02-25 Semangka Kuning         8
-237 2023-02-26 Semangka Kuning        10
-238 2023-02-27 Semangka Kuning         7
-239 2023-02-28 Semangka Kuning        15
-240 2023-03-01 Semangka Kuning         5
-241 2023-03-02 Semangka Kuning         9
-242 2023-03-03 Semangka Kuning        11
-243 2023-03-04 Semangka Kuning        15
-244 2023-03-05 Semangka Kuning         7
-245 2023-03-06 Semangka Kuning         8
-246 2023-03-07 Semangka Kuning         6
-247 2023-03-08 Semangka Kuning        13
-248 2023-03-09 Semangka Kuning        12
-249 2023-03-10 Semangka Kuning        15
-250 2023-03-11 Semangka Kuning        10
-251 2023-03-12 Semangka Kuning        10
-252 2023-03-13 Semangka Kuning        11
-253 2023-03-14 Semangka Kuning        11
-254 2023-03-15 Semangka Kuning        12
-255 2023-03-16 Semangka Kuning        15
-256 2023-03-17 Semangka Kuning        12
-257 2023-03-18 Semangka Kuning         6
-258 2023-03-19 Semangka Kuning         9
-259 2023-03-20 Semangka Kuning         3
-260 2023-03-21 Semangka Kuning        12
-261 2023-03-22 Semangka Kuning        10
-262 2023-03-23 Semangka Kuning        11
-263 2023-03-24 Semangka Kuning         8
-264 2023-03-25 Semangka Kuning        14
-265 2023-03-26 Semangka Kuning        12
-266 2023-03-27 Semangka Kuning        15
-267 2023-03-28 Semangka Kuning        14
-268 2023-03-29 Semangka Kuning        11
-269 2023-03-30 Semangka Kuning        16
-270 2023-03-31 Semangka Kuning        13
-271 2023-01-01          Mangga        16
-272 2023-01-02          Mangga        20
-273 2023-01-03          Mangga        21
-274 2023-01-04          Mangga        18
-275 2023-01-05          Mangga        27
-276 2023-01-06          Mangga        18
-277 2023-01-07          Mangga        22
-278 2023-01-08          Mangga        24
-279 2023-01-09          Mangga        20
-280 2023-01-10          Mangga        21
-281 2023-01-11          Mangga        18
-282 2023-01-12          Mangga        11
-283 2023-01-13          Mangga        19
-284 2023-01-14          Mangga        23
-285 2023-01-15          Mangga        26
-286 2023-01-16          Mangga        26
-287 2023-01-17          Mangga        21
-288 2023-01-18          Mangga        19
-289 2023-01-19          Mangga        22
-290 2023-01-20          Mangga        18
-291 2023-01-21          Mangga        15
-292 2023-01-22          Mangga        19
-293 2023-01-23          Mangga        21
-294 2023-01-24          Mangga        18
-295 2023-01-25          Mangga        22
-296 2023-01-26          Mangga        18
-297 2023-01-27          Mangga        16
-298 2023-01-28          Mangga        19
-299 2023-01-29          Mangga        18
-300 2023-01-30          Mangga        16
-301 2023-01-31          Mangga        14
-302 2023-02-01          Mangga        21
-303 2023-02-02          Mangga        14
-304 2023-02-03          Mangga        28
-305 2023-02-04          Mangga        22
-306 2023-02-05          Mangga        22
-307 2023-02-06          Mangga        20
-308 2023-02-07          Mangga        22
-309 2023-02-08          Mangga        23
-310 2023-02-09          Mangga        17
-311 2023-02-10          Mangga        17
-312 2023-02-11          Mangga        15
-313 2023-02-12          Mangga        18
-314 2023-02-13          Mangga        20
-315 2023-02-14          Mangga        22
-316 2023-02-15          Mangga        24
-317 2023-02-16          Mangga        16
-318 2023-02-17          Mangga        25
-319 2023-02-18          Mangga        17
-320 2023-02-19          Mangga        23
-321 2023-02-20          Mangga        16
-322 2023-02-21          Mangga        14
-323 2023-02-22          Mangga        15
-324 2023-02-23          Mangga        22
-325 2023-02-24          Mangga        21
-326 2023-02-25          Mangga        26
-327 2023-02-26          Mangga        19
-328 2023-02-27          Mangga        16
-329 2023-02-28          Mangga        19
-330 2023-03-01          Mangga        17
-331 2023-03-02          Mangga        16
-332 2023-03-03          Mangga        14
-333 2023-03-04          Mangga        16
-334 2023-03-05          Mangga        20
-335 2023-03-06          Mangga        22
-336 2023-03-07          Mangga        15
-337 2023-03-08          Mangga        18
-338 2023-03-09          Mangga        22
-339 2023-03-10          Mangga        17
-340 2023-03-11          Mangga        23
-341 2023-03-12          Mangga        17
-342 2023-03-13          Mangga        15
-343 2023-03-14          Mangga        20
-344 2023-03-15          Mangga        28
-345 2023-03-16          Mangga        19
-346 2023-03-17          Mangga        22
-347 2023-03-18          Mangga        21
-348 2023-03-19          Mangga        25
-349 2023-03-20          Mangga        29
-350 2023-03-21          Mangga        20
-351 2023-03-22          Mangga        26
-352 2023-03-23          Mangga        22
-353 2023-03-24          Mangga        23
-354 2023-03-25          Mangga        22
-355 2023-03-26          Mangga        16
-356 2023-03-27          Mangga        17
-357 2023-03-28          Mangga        23
-358 2023-03-29          Mangga        15
-359 2023-03-30          Mangga        17
-360 2023-03-31          Mangga        25
-361 2023-01-01           Melon         8
-362 2023-01-02           Melon        12
-363 2023-01-03           Melon         3
-364 2023-01-04           Melon         6
-365 2023-01-05           Melon         8
-366 2023-01-06           Melon         8
-367 2023-01-07           Melon         8
-368 2023-01-08           Melon         6
-369 2023-01-09           Melon         5
-370 2023-01-10           Melon         8
-371 2023-01-11           Melon         9
-372 2023-01-12           Melon         8
-373 2023-01-13           Melon         9
-374 2023-01-14           Melon         8
-375 2023-01-15           Melon         6
-376 2023-01-16           Melon         7
-377 2023-01-17           Melon         8
-378 2023-01-18           Melon         7
-379 2023-01-19           Melon         9
-380 2023-01-20           Melon         8
-381 2023-01-21           Melon        10
-382 2023-01-22           Melon         7
-383 2023-01-23           Melon         5
-384 2023-01-24           Melon         6
-385 2023-01-25           Melon         9
-386 2023-01-26           Melon         9
-387 2023-01-27           Melon         8
-388 2023-01-28           Melon         9
-389 2023-01-29           Melon         6
-390 2023-01-30           Melon         8
-391 2023-01-31           Melon        14
-392 2023-02-01           Melon         5
-393 2023-02-02           Melon        10
-394 2023-02-03           Melon         9
-395 2023-02-04           Melon        11
-396 2023-02-05           Melon         9
-397 2023-02-06           Melon         7
-398 2023-02-07           Melon         7
-399 2023-02-08           Melon         4
-400 2023-02-09           Melon         9
-401 2023-02-10           Melon         6
-402 2023-02-11           Melon        12
-403 2023-02-12           Melon        11
-404 2023-02-13           Melon         9
-405 2023-02-14           Melon        10
-406 2023-02-15           Melon        10
-407 2023-02-16           Melon        14
-408 2023-02-17           Melon        12
-409 2023-02-18           Melon         5
-410 2023-02-19           Melon        13
-411 2023-02-20           Melon         7
-412 2023-02-21           Melon         7
-413 2023-02-22           Melon         8
-414 2023-02-23           Melon         7
-415 2023-02-24           Melon         9
-416 2023-02-25           Melon         7
-417 2023-02-26           Melon         7
-418 2023-02-27           Melon        11
-419 2023-02-28           Melon        12
-420 2023-03-01           Melon        10
-421 2023-03-02           Melon        10
-422 2023-03-03           Melon        11
-423 2023-03-04           Melon        10
-424 2023-03-05           Melon         9
-425 2023-03-06           Melon         7
-426 2023-03-07           Melon         7
-427 2023-03-08           Melon        11
-428 2023-03-09           Melon         4
-429 2023-03-10           Melon         9
-430 2023-03-11           Melon         4
-431 2023-03-12           Melon         6
-432 2023-03-13           Melon        14
-433 2023-03-14           Melon         8
-434 2023-03-15           Melon         8
-435 2023-03-16           Melon         8
-436 2023-03-17           Melon         9
-437 2023-03-18           Melon         4
-438 2023-03-19           Melon        10
-439 2023-03-20           Melon         8
-440 2023-03-21           Melon        12
-441 2023-03-22           Melon         8
-442 2023-03-23           Melon        10
-443 2023-03-24           Melon        10
-444 2023-03-25           Melon         8
-445 2023-03-26           Melon         7
-446 2023-03-27           Melon        10
-447 2023-03-28           Melon         5
-448 2023-03-29           Melon         9
-449 2023-03-30           Melon         8
-450 2023-03-31           Melon         6
-451 2023-01-15          Pepaya        50
-452 2023-02-10          Mangga        70
-453 2023-03-05  Semangka Merah        60</code></pre>
+<pre><code>        Date  Fruit Cups_Sold
+1 2023-01-01 Pepaya        14
+2 2023-01-02 Pepaya         8
+3 2023-01-03 Pepaya        11
+4 2023-01-04 Pepaya        12
+5 2023-01-05 Pepaya        11</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 6
   variables types   missing_count missing_percent unique_count unique_rate
@@ -1043,7 +555,7 @@ Attaching package: 'lubridate'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_normality</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_normality</span>(sales_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1065,8 +577,163 @@ Attaching package: 'lubridate'</code></pre>
 </section>
 <section id="berapa-cup-yang-harus-dibuat" class="level2">
 <h2 class="anchored" data-anchor-id="berapa-cup-yang-harus-dibuat">Berapa cup yang harus dibuat ?</h2>
+<p>Berikut adalah insight yang bisa kita dapatkan dalam pengambilan sample berapa banyak cup yang kita butuhkan.</p>
+<section id="dengan-interval-kepercayaan" class="level3">
+<h3 class="anchored" data-anchor-id="dengan-interval-kepercayaan">Dengan Interval kepercayaan</h3>
+<blockquote class="blockquote">
+<p>Dengan interval kepercayaan, kita membutuhkan data berupa Rata-rata, standar Deviasi &amp; Jumlah observasi perhari. Karena datanya belum ada maka kita buat terlebih dahulu.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sales_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Date  Fruit Cups_Sold
+1 2023-01-01 Pepaya        14
+2 2023-01-02 Pepaya         8
+3 2023-01-03 Pepaya        11
+4 2023-01-04 Pepaya        12
+5 2023-01-05 Pepaya        11</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menambahkan kolom  hari</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sales_data<span class="sc">$</span>Hari <span class="ot">&lt;-</span> <span class="fu">weekdays</span>(sales_data<span class="sc">$</span>Date)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sales_data,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Date  Fruit Cups_Sold      Hari
+1 2023-01-01 Pepaya        14    Sunday
+2 2023-01-02 Pepaya         8    Monday
+3 2023-01-03 Pepaya        11   Tuesday
+4 2023-01-04 Pepaya        12 Wednesday
+5 2023-01-05 Pepaya        11  Thursday</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat rata-rata</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>rata_rata_perhari <span class="ot">&lt;-</span> sales_data <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Hari) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">rata_rata =</span> <span class="fu">mean</span>(Cups_Sold))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>rata_rata_perhari <span class="ot">&lt;-</span> <span class="fu">arrange</span>(rata_rata_perhari, Hari)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>rata_rata_perhari</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 2
+  Hari      rata_rata
+  &lt;chr&gt;         &lt;dbl&gt;
+1 Friday         13.9
+2 Monday         13.0
+3 Saturday       13.3
+4 Sunday         14.4
+5 Thursday       13  
+6 Tuesday        12.6
+7 Wednesday      13  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat data standar deviasi</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>sd_perhari <span class="ot">&lt;-</span> sales_data <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Hari) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Sd =</span> <span class="fu">sd</span>(Cups_Sold))</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>sd_perhari <span class="ot">&lt;-</span> <span class="fu">arrange</span>(sd_perhari, Hari)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>sd_perhari</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 2
+  Hari         Sd
+  &lt;chr&gt;     &lt;dbl&gt;
+1 Friday     8.66
+2 Monday     5.28
+3 Saturday   5.64
+4 Sunday     8.73
+5 Thursday   4.58
+6 Tuesday    5.12
+7 Wednesday  5.20</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MEnggabungkan data</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fiks_data <span class="ot">=</span> <span class="fu">merge</span>(rata_rata_perhari, sd_perhari,  <span class="at">by =</span> <span class="st">"Hari"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>fiks_data <span class="ot">&lt;-</span> fiks_data <span class="sc">%&gt;%</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Jumlah_hari =</span> <span class="dv">90</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>fiks_data<span class="sc">$</span>Jumlah_hari <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(fiks_data<span class="sc">$</span>Jumlah_hari)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fiks_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Hari rata_rata       Sd Jumlah_hari
+1   Friday  13.90909 8.662434          90
+2   Monday  13.01538 5.278175          90
+3 Saturday  13.30000 5.639750          90
+4   Sunday  14.37313 8.734876          90
+5 Thursday  13.00000 4.582576          90
+6  Tuesday  12.55385 5.123569          90</code></pre>
+</div>
+</div>
+<section id="interval-kepercayaan" class="level4">
+<h4 class="anchored" data-anchor-id="interval-kepercayaan">Interval kepercayaan</h4>
+<pre><code>Cup_interval &lt;- fiks_data %&gt;% 
+  mutate(
+    error = 1.96 * (sd / (sqrt(Jumlah_hari))), # Margin Of Eror 90 = jumlah hari
+    lower_ci = rata_rata - error,
+    upper_ci = rata_rata + error
+  )</code></pre>
+<pre><code>   Hari   rata_rata       sd Jumlah_hari    error lower_ci upper_ci</code></pre>
+<p>1 Friday 13.90909 8.662434 30 3.1008 10.8083 17.0098 2 Monday 13.01538 5.278175 30 1.8907 11.1247 14.9061 3 Saturday 13.30000 5.639750 30 2.0160 11.2840 15.3160 4 Sunday 14.37313 8.734876 30 3.1270 11.2461 17.5002 5 Thursday 13.00000 4.582576 30 1.6407 11.3593 14.6407</p>
+<p>Dengan data di atas kita bisa membuat interval berapa banyak cup yang akan kita buat perhainya.</p>
+</section>
+</section>
+<section id="dengan-simulasi-monte-carlo" class="level3">
+<h3 class="anchored" data-anchor-id="dengan-simulasi-monte-carlo">Dengan Simulasi Monte Carlo</h3>
+<blockquote class="blockquote">
+<p>Jika overstock kita mengalami kerugian sebanyak <code>-10.000</code> jika lost sales kita rugi sebanyak <code>5.000</code>. Sehingga berapa banyak yang harus kita packing? Jika rata-rata = <code>100</code>, dan sd = <code>10</code> ? Jika kita melakukan estimasi 80-120 pack berapa besar peluangnya ?</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameter simulasi</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Untuk hasil yang dapat direproduksi</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>mean_demand <span class="ot">&lt;-</span> <span class="dv">100</span>      <span class="co"># Rata-rata permintaan harian</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>sd_demand <span class="ot">&lt;-</span> <span class="dv">10</span>         <span class="co"># Standar deviasi permintaan</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>cost_overstock <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10000</span> <span class="co"># Biaya overstock per cup</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>cost_lost_sales <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5000</span> <span class="co"># Biaya kehilangan per cup</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">&lt;-</span> <span class="dv">10000</span>  <span class="co"># Jumlah simulasi</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>production_levels <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">80</span>, <span class="dv">120</span>, <span class="at">by =</span> <span class="dv">1</span>) <span class="co"># Level produksi yang diuji</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Fungsi untuk menghitung biaya total</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>calculate_total_cost <span class="ot">&lt;-</span> <span class="cf">function</span>(production, demand) {</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  overstock_cost <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(production <span class="sc">&gt;</span> demand, (production <span class="sc">-</span> demand) <span class="sc">*</span> cost_overstock, <span class="dv">0</span>)</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  lost_sales_cost <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(production <span class="sc">&lt;</span> demand, (demand <span class="sc">-</span> production) <span class="sc">*</span> cost_lost_sales, <span class="dv">0</span>)</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(overstock_cost <span class="sc">+</span> lost_sales_cost)</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Hasil simulasi</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Production =</span> <span class="fu">numeric</span>(), <span class="at">AverageCost =</span> <span class="fu">numeric</span>())</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (production <span class="cf">in</span> production_levels) {</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>  simulated_demand <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(num_simulations, <span class="at">mean =</span> mean_demand, <span class="at">sd =</span> sd_demand)</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>  total_cost <span class="ot">&lt;-</span> <span class="fu">sapply</span>(simulated_demand, <span class="cf">function</span>(d) <span class="fu">calculate_total_cost</span>(production, d))</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  avg_cost <span class="ot">&lt;-</span> <span class="fu">mean</span>(total_cost)</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">rbind</span>(results, <span class="fu">data.frame</span>(<span class="at">Production =</span> production, <span class="at">AverageCost =</span> avg_cost))</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan hasil simulasi</span></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(results, <span class="fu">aes</span>(<span class="at">x =</span> Production, <span class="at">y =</span> AverageCost)) <span class="sc">+</span></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Monte Carlo Simulation: Biaya Total"</span>,</span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Level Produksi"</span>,</span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Biaya Rata-rata (Rp)"</span>) <span class="sc">+</span></span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-menentukan-jumlah-cup_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Dengan plot diatas kita bisa memperkirakan bahwasanya dengan membuat 90-100 cup maka kita memeliki kerugian paling minimal.</p>
+<p>Ini masih belum sempurna, namun kita bisa menyempurnakan jika ada project.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

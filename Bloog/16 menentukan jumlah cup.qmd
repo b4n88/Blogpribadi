@@ -22,10 +22,12 @@ dengan teknik ninjutsunya membuatkan saya code seperti di bawah ini, Mari kita j
 
 Sebelum itu kita harus menjalankan library biar kerja serasa lewat dijalan tol, mulussss..
 
-```{r}
+```{r, echo= TRUE, results='hide', warning=FALSE, message=FALSE}
 library(skimr)
 library(DataExplorer)
 library(dlookr)
+library(dplyr)
+library(lubridate)
 ```
 
 
@@ -123,7 +125,7 @@ duplicate_buah
 ```{r}
 data_no_duplicate <- sales_data %>% 
   distinct()
-data_no_duplicate
+head(data_no_duplicate,5)
 ```
 
 
@@ -144,4 +146,115 @@ plot_normality(sales_data)
 
 ## Berapa cup yang harus dibuat ?
 
+Berikut adalah insight yang bisa kita dapatkan dalam pengambilan sample berapa banyak cup yang kita butuhkan.
 
+### Dengan Interval kepercayaan
+
+> Dengan interval kepercayaan, kita membutuhkan data berupa Rata-rata, standar Deviasi & Jumlah observasi perhari. Karena datanya belum ada maka kita buat terlebih dahulu.
+
+```{r}
+head(sales_data, 5)
+```
+
+```{r}
+# Menambahkan kolom  hari
+sales_data$Hari <- weekdays(sales_data$Date)
+head(sales_data,5)
+```
+
+```{r}
+# Membuat rata-rata
+rata_rata_perhari <- sales_data %>% 
+  group_by(Hari) %>% 
+  summarise(rata_rata = mean(Cups_Sold))
+
+rata_rata_perhari <- arrange(rata_rata_perhari, Hari)
+rata_rata_perhari
+```
+
+```{r}
+# Membuat data standar deviasi
+
+sd_perhari <- sales_data %>% 
+  group_by(Hari) %>% 
+  summarise(Sd = sd(Cups_Sold))
+
+sd_perhari <- arrange(sd_perhari, Hari)
+sd_perhari
+```
+
+```{r}
+# MEnggabungkan data
+fiks_data = merge(rata_rata_perhari, sd_perhari,  by = "Hari")
+fiks_data <- fiks_data %>% 
+  mutate(Jumlah_hari = 90)
+
+fiks_data$Jumlah_hari <- as.numeric(fiks_data$Jumlah_hari)
+head(fiks_data)
+```
+
+#### Interval kepercayaan
+
+```
+Cup_interval <- fiks_data %>% 
+  mutate(
+    error = 1.96 * (sd / (sqrt(Jumlah_hari))), # Margin Of Eror 90 = jumlah hari
+    lower_ci = rata_rata - error,
+    upper_ci = rata_rata + error
+  )
+```
+
+       Hari   rata_rata       sd Jumlah_hari    error lower_ci upper_ci
+1    Friday   13.90909 8.662434          30  3.1008  10.8083  17.0098
+2    Monday   13.01538 5.278175          30  1.8907  11.1247  14.9061
+3  Saturday   13.30000 5.639750          30  2.0160  11.2840  15.3160
+4    Sunday   14.37313 8.734876          30  3.1270  11.2461  17.5002
+5  Thursday   13.00000 4.582576          30  1.6407  11.3593  14.6407
+
+Dengan data di atas kita bisa membuat interval berapa banyak cup yang akan kita buat perhainya.
+
+### Dengan Simulasi Monte Carlo
+
+> Jika overstock kita mengalami kerugian sebanyak `-10.000` jika lost sales kita rugi sebanyak `5.000`. Sehingga berapa banyak yang harus kita packing? Jika rata-rata = `100`, dan sd = `10` ? Jika kita melakukan estimasi  80-120 pack berapa besar peluangnya ?
+
+```{r}
+# Parameter simulasi
+set.seed(123)  # Untuk hasil yang dapat direproduksi
+mean_demand <- 100      # Rata-rata permintaan harian
+sd_demand <- 10         # Standar deviasi permintaan
+cost_overstock <- -10000 # Biaya overstock per cup
+cost_lost_sales <- -5000 # Biaya kehilangan per cup
+num_simulations <- 10000  # Jumlah simulasi
+production_levels <- seq(80, 120, by = 1) # Level produksi yang diuji
+
+# Fungsi untuk menghitung biaya total
+calculate_total_cost <- function(production, demand) {
+  overstock_cost <- ifelse(production > demand, (production - demand) * cost_overstock, 0)
+  lost_sales_cost <- ifelse(production < demand, (demand - production) * cost_lost_sales, 0)
+  return(overstock_cost + lost_sales_cost)
+}
+
+# Hasil simulasi
+results <- data.frame(Production = numeric(), AverageCost = numeric())
+
+for (production in production_levels) {
+  simulated_demand <- rnorm(num_simulations, mean = mean_demand, sd = sd_demand)
+  total_cost <- sapply(simulated_demand, function(d) calculate_total_cost(production, d))
+  avg_cost <- mean(total_cost)
+  results <- rbind(results, data.frame(Production = production, AverageCost = avg_cost))
+}
+
+# Menampilkan hasil simulasi
+library(ggplot2)
+ggplot(results, aes(x = Production, y = AverageCost)) +
+  geom_line() +
+  labs(title = "Monte Carlo Simulation: Biaya Total",
+       x = "Level Produksi",
+       y = "Biaya Rata-rata (Rp)") +
+  theme_minimal()
+
+```
+
+Dengan plot diatas kita bisa memperkirakan bahwasanya dengan membuat 90-100 cup maka kita memeliki kerugian paling minimal.
+
+Ini masih belum sempurna, namun kita bisa menyempurnakan jika ada project.
