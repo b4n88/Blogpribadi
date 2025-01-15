@@ -1,0 +1,306 @@
+---
+title: "R Basic"
+author: "Albani"
+date: "2024-06-14"
+categories: [Coding]
+---
+> *Ini mungkin sintaks yang saya butuhkan setiap  hari saat menganalisa data sehingga saya harus buat summary yang bisa dijadikan sebagai panduan..*
+
+-------
+
+# Library
+
+Pustaka yang saya butuhkan adalah: 
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+library(tidyverse) #For data structure
+library(readr) # For reading file
+library(readxl) # for reading xl
+library(dplyr) # for data manipulation
+library(esquisse) # For plot easyer
+library(lubridate) # For date editor
+library(skimr) # Data exploration easyly
+library(DataExplorer) # Data ecploration
+library(ggplot2) # For plot
+library(dlookr) # For EDA
+library(stats) 
+library(designer) # untuk membuat dashboard 
+#library()
+#library()
+#library()
+#library()
+```
+
+-----
+
+# Coding basic
+
+## FOR
+
+```{r}
+for(i in sample(100:200, 5, replace = T)){
+  print(paste("Nomor ", i))
+}
+```
+
+```{r}
+vektor <- c("Ardi", "Gilang", "Ita")
+
+for (nama in vektor) {
+  print(paste("Nama anggota adalah", nama))
+}
+```
+
+> Buatlah program R yang menggunakan for loop untuk mencetak semua angka dari 1 hingga 50 yang merupakan kelipatan 3
+
+```{r}
+i <- 1
+
+for (i in 1:50) {
+  if (i %% 3 == 0){
+    print(paste("Angka kelipatan 3 adalah ", i))
+  }
+  i <- i+1
+}
+```
+
+-----
+
+## WHILE
+
+```{r}
+i <- 1
+
+while (i<=4) {
+  print(paste("iterasi ke", i))
+  i <- i+1
+}
+```
+
+```{r}
+Total <- 0
+i <- 1
+
+while (i >= 50) {
+  Total <- Total + i
+  print(paste("Iterasi ke ", i, "Totalnya adalah", Total))
+  i <- i+1
+}
+```
+
+```{r}
+nilai <- 20
+
+while (nilai > 0) {
+  print(paste("Nilai akhirnya adlaah ", nilai))
+  nilai <- nilai - 5
+}
+```
+
+```{r}
+i <- 1
+
+while (TRUE) {
+  print(paste("iterasi ke ", i))
+  if (i == 5) {
+    break
+  }
+  i <- i+1
+}
+```
+
+> Pertanyaan: Buatlah program R yang menggunakan while loop untuk menghitung jumlah (total) dari semua bilangan genap mulai dari 2 hingga 100. 
+
+```{r}
+total <- 0
+i <- 2
+
+while (i <= 100) {
+  total <- total + i
+  i <- i + 2
+}
+print(paste("Jumlah total bilangan genap dari 2 hingga 100 adalah", total))
+```
+
+-----
+
+## if, else, else if
+
+```{r}
+Nilai <- 25
+
+if(Nilai >= 90){
+  print("Anda mendapatkan Grade A")
+} else if (Nilai >= 80){
+  print("Anda mendapatkan Grade B")
+} else if(Nilai >=70){
+  print("Anda mendapatkan Grade C")
+} else  if(Nilai >=50){
+  print("Anda mendapatkan Grade D")
+} else{
+  print("Gak lulus !! Bodoh bat orangdah..")
+}
+```
+
+## function
+
+```{r}
+luas_persegi_panjang <- function(panjang, lebar){
+  luas <- panjang*lebar
+  print("luasnya adalah :")
+  return(luas)
+}
+
+luas_persegi_panjang(5, 10)
+```
+
+```{r}
+luas_lingkaran <- function(r, phi = 3.14){
+  l_ling = phi * r^2
+  return(paste("luasnya adalah", l_ling))
+}
+
+luas_lingkaran(5)
+```
+
+```{r}
+halo_dunia <- function(nama){
+  print(paste("Welcom back ", nama, "Didunia maya"))
+}
+
+halo_dunia("Andi")
+```
+
+```{r}
+Cekgenapganjil <- function(Angka){
+  if(Angka %% 2 == 0){
+    return(paste(Angka, "Angkanya bertype :Genap"))
+  }else{
+    return(paste(Angka,"Angkanya bertype : Ganjil"))
+  }
+}
+
+Cekgenapganjil(5)
+```
+
+-----
+
+# Read data
+
+```{r}
+#Data_telegram <- read.csv("D:/STATS/TELEGRAM.CSV", sep = ",")
+#View(Data_telegram)
+```
+
+------
+
+# Build data
+
+```{r}
+set.seed(20)
+
+Data_set1 <- data.frame(
+  ID = 101:200,
+  Nama = paste("Nama",101:200),
+  Usia = sample(19:60, 100, replace = TRUE),
+  Gender = factor(sample(c("Laki-laki", "Perempuan"), 100, replace = TRUE)),
+  Pendapatan = round(runif(100, 3, 10) * 1000000, 0),
+  Pekerjaan = factor(sample(c("Karyawan", "Mahasiswa", "Wiraswasta"), 100, replace = TRUE)),
+  Status_menikah = sample(c(TRUE, FALSE), 100, replace = TRUE),
+  Rating = sample(1:5, 100, replace = TRUE),
+  Tanggal = sample(seq(as.Date('2023-01-01'), as.Date('2023-12-31'), by = "day"), 100, replace = TRUE),
+  Waktu = format(sample(seq(as.POSIXct("2023-01-01 00:00:00"), as.POSIXct("2023-12-31 23:59:59"), by = "min"), 100, replace = TRUE), "%H:%M:%S")
+)
+```
+Kumpulan sintaks
+```
+a = paste("Nama saya", 101)     >> Digunakan untuk menggabungkan string + angka lain
+
+sample(x, size, replace = TRUE, prob = NULL)    >> Membuat sample baris
+  x = Sumber data (Misalnya, Vektor (yg mnggunakan huruf c), atau angka (60:100))
+  size = ukuran sample
+  replace untuk pengmbalian angka? default FALSE
+
+factor(x, levels = NULL, labels = NULL, Ordered = FALSE)    >> membuat data bertype factor
+  x = sumber data (c("Menikah","Mahasiswa", "Wiraswasta"))
+
+round(x, digits = 0) >> Pembulatan desimal
+  x = adalah angka yang akan dibulatkan
+  digits = jumlah angka desimal
+
+runif(n, min = 0, max = 1)        >> menghasilkan angka acak dari distribusi uniform
+  n = jumlah angka acak
+  min = batas bawah angka acak
+  max = batas atas angka acak
+runif(100, min = 18, max = 60) > membuat data umur
+
+seq(from, to, by)     >> membuat urutan angka dalam interval waktu
+  from = angka awal
+  to = angka akhir
+  by = kelipatan
+seq(1, 20, by 5)
+```
+
+- sample(): Mengambil sampel acak.
+- factor(): Mengubah data menjadi tipe kategorikal.
+- round(): Membulatkan angka.
+- runif(): Menghasilkan angka acak seragam.
+- seq(): Membuat urutan angka dengan pola tertentu.
+
+------
+
+# View data
+
+### Head and tail
+
+```{r}
+head(Data_set1,5)
+```
+```{r}
+tail(Data_set1, 5)
+```
+
+### Data type view
+
+```{r}
+str(Data_set1)
+```
+
+```{r}
+skim(Data_set1)
+```
+
+### Melihat nama colom
+
+```{r}
+names(Data_set1)
+```
+
+```{r}
+colnames(Data_set1)
+```
+
+-----
+
+# Data Cleaning
+
+
+-----
+
+# Visualization
+
+
+-----
+
+# Stats dasar
+
+
+-----
+
+# Method of ststs
+
+
+-----
+
+
+
