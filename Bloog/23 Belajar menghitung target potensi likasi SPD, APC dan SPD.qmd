@@ -1,0 +1,11 @@
+---
+title: "Menghitung target peluang sales (STD, APC & SPD)"
+author: "Albani"
+date: "2025-01-18"
+categories: [Data Analyst, Market Research, Survey]
+---
+> *Mempredikisi suatu lokasi berpotensi terhadap keuntungan usaha baru *
+
+-------
+
+Belajar dari tim loct. Departmen kantor saya untuk menghitung berapa banyak keuntungan yang dapat kita hasilkan dalam survey suatu lokasi. Hal ini menjadi ide tulisan saya karena melihat email dari `Bu Candra Dian Siska P` beliau adalah tim spesialist analyst Departmen Development. Email itu berisi SPD, APC dan SPD, saya berfikir, kok bisa belum ada toko atau data historis penjualan tapi mereka bisa  memprediksi berapa banyak yang kemungkinan akan kita dapatkan? Sangat menarik untuk dipahami. Ini akan menjadi Ilmu yang mahal.. 

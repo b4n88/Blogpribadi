@@ -1,0 +1,180 @@
+---
+title: "Menentukan lokasi untuk toko atau tempat usaha"
+author: "Albani"
+date: "2025-01-19"
+categories: [Data Analyst, Market Research, Survey]
+---
+> *Apa saja metrik yang kita gunakan untuk menentukan suatu lokasi bisa dijdikan tempat usaha ?*
+
+-------
+
+Membaca jurnal dari [Universitas Pendidikan Ganesha Singaraja](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://ejournal.undiksha.ac.id/index.php/JJPE/article/view/20051/12022&ved=2ahUKEwi90b-ju_qKAxWn2TgGHTZqFzI4ChAWegQIFxAB&usg=AOvVaw0y2afkJFCoB5W9IrET2esQ) Setidaknya ada 7 metrik yang kita butuhkan untuk melakukan survey apakah suatu titik lokasi untuk usaha kita, Antara lain; `aksesibilitas, visibilitas, tempat parkir, ekspansi, lingkungan, persaingan, peraturan pemerintah`.
+
+
+# Aksesibilitas, 
+
+> Adalah metrik dalam Kemudahan pelanggan untuk mencapai lokasi bisnis.
+
+- Indikator yang dinilai:
+    - Kondisi jalan (lebar, kualitas aspal, keberadaan lampu lalu lintas).
+    - Keberadaan transportasi umum (bus, angkot, stasiun, halte).
+    - Jarak dari area permukiman atau pusat kota.
+
+- Cara Menganalisis:
+    - Survei langsung: Apakah pelanggan bisa mencapai lokasi dengan mudah?
+    - Gunakan data GPS atau aplikasi peta untuk mengevaluasi waktu tempuh dari lokasi utama (rumah/kantor pelanggan).
+
+
+# Visibilitas
+
+> Visibilitas adalah metrik Seberapa mudah lokasi bisnis terlihat oleh pelanggan potensial.
+
+- Indikator yang dinilai:
+    - Apakah lokasi berada di jalan utama atau di area yang mudah terlihat.
+    - Adanya papan reklame, plang, atau tanda yang menarik perhatian.
+    - Pencahayaan di malam hari.
+
+- Cara Menganalisis:
+    - Amati lokasi dari berbagai sudut dan jarak.
+    - Tinjau area pada waktu yang berbeda (pagi, siang, malam).
+
+# Tempat parkir 
+
+> Adalah metrik Kapasitas dan kenyamanan tempat parkir untuk pelanggan.
+
+- Indikator yang dinilai:
+    - Kapasitas parkir (berapa kendaraan bisa muat, termasuk motor/mobil).
+    - Keamanan tempat parkir (petugas jaga, CCTV).
+    - Aksesibilitas parkir (mudah masuk/keluar).
+
+- Cara Menganalisis:
+    - Hitung jumlah slot parkir.
+    - Perhatikan tingkat kepadatan parkir pada jam sibuk.
+
+
+# Ekspansi
+
+> Potensi untuk memperluas lokasi atau menambah layanan di masa depan.
+
+- Indikator yang dinilai:
+    - Tersedianya lahan kosong di sekitar lokasi.
+    - Kemungkinan penambahan bangunan atau fasilitas (misalnya gudang, kantor tambahan).
+    - Biaya sewa atau beli tanah untuk ekspansi.
+
+- Cara Menganalisis:
+    - Tinjau peta lokasi untuk lahan kosong.
+    - Periksa aturan zonasi atau regulasi terkait penggunaan lahan.
+
+
+# Lingkungan 
+
+> Kondisi sekitar lokasi yang dapat memengaruhi daya tarik pelanggan.
+
+- Indikator yang dinilai:
+    - Kebersihan dan keamanan lingkungan (tidak ada sampah, minim kriminalitas).
+    - Keberadaan tempat pendukung (ATM, restoran, minimarket).
+    - Suasana umum (ramai, sepi, nyaman).
+
+- Cara Menganalisis:
+    - Lakukan observasi langsung di lokasi.
+    - Wawancara penduduk sekitar atau pelanggan potensial
+
+# Persaingan
+
+> Keberadaan bisnis lain di sekitar yang menawarkan produk/jasa serupa.
+
+- Indikator yang dinilai:
+    - Jumlah kompetitor dalam radius tertentu.
+    - Kelebihan dan kelemahan kompetitor.
+    - Unik atau tidaknya bisnis Anda dibandingkan kompetitor.
+
+- Cara Menganalisis:
+    - Gunakan tools seperti Google Maps untuk mencari kompetitor terdekat.
+    - Kunjungi kompetitor untuk mempelajari strategi mereka.
+
+
+# Peraturan pemerintah
+
+> Aturan atau regulasi pemerintah yang memengaruhi operasional bisnis.
+
+- Indikator yang dinilai:
+    - Izin operasional (IMB, SIUP, TDP).
+    - Pajak lokal (pajak reklame, pajak parkir).
+    - Kebijakan khusus (contoh: larangan buka 24 jam).
+- Cara Menganalisis:
+    - Konsultasi dengan dinas terkait atau pengacara lokal.
+    - Periksa dokumen peraturan di area tersebut.
+
+# Pendukung lainnya
+
+1. Profil Demografi Pelanggan
+    - Gunakan data BPS atau survei lokal untuk memahami demografi.
+    - Tinjau area untuk melihat apakah pelanggan target sering melewati lokasi.
+    - **Indikator**:
+      - Usia rata-rata penduduk sekitar.
+      - Tingkat pendapatan masyarakat.
+      - Kebiasaan dan gaya hidup.
+      - Tingkat pendidikan atau pekerjaan dominan.
+
+2. Kepadatan dan Arus Lalu Lintas
+    - Lakukan pengamatan pada jam sibuk.
+    - Gunakan data lalu lintas jika tersedia.
+    - **Indikator**:
+      - Volume kendaraan atau pejalan kaki di area tersebut.
+      - Waktu puncak lalu lintas (pagi, siang, malam).
+      - Keberadaan lampu merah atau tempat pemberhentian yang memperlambat arus (meningkatkan visibilitas).
+
+3. Kebiasaan dan Perilaku Lokal
+    - Observasi perilaku masyarakat sekitar.
+    - Survei kecil kepada calon pelanggan.
+    - **Indikator**:
+      - Apakah masyarakat cenderung belanja pada waktu tertentu (contoh: pagi untuk pasar tradisional, - malam untuk restoran).
+      - Kebutuhan utama masyarakat sekitar (contoh: area padat pekerja membutuhkan layanan cepat saji).
+      - Apakah area tersebut ramai di akhir pekan atau hari kerja.
+4. Infrastruktur Pendukung
+    - Periksa kondisi infrastruktur di area sekitar.
+    - Diskusikan dengan pengelola area jika ada rencana pengembangan infrastruktur.
+    - **Indikator**:
+      - Keberadaan fasilitas umum (toilet umum, area istirahat).
+      - Ketersediaan listrik dan jaringan internet yang stabil.
+      - Dekat dengan fasilitas kesehatan (penting untuk lokasi tertentu).
+
+5. Biaya Operasional di Lokasi
+    - Bandingkan biaya dengan lokasi lain.
+    - Konsultasikan dengan pihak properti atau pengelola area.
+    - **Indikator**:
+      - Harga sewa lokasi.
+      - Biaya utilitas seperti listrik, air, atau keamanan.
+      - Biaya pajak atau retribusi daerah.
+
+6. Potensi Risiko
+    - Cek peta rawan bencana daerah setempat.
+    - Tanyakan pada masyarakat atau pihak keamanan setempat.
+    - **Indikator**:
+      - Risiko bencana alam (banjir, gempa).
+      - Risiko kriminalitas di area tersebut.
+      - Tingkat keramaian yang terlalu tinggi sehingga menyebabkan gangguan operasional.
+
+7. Reputasi Lokasi
+    - Diskusikan dengan masyarakat sekitar.
+    - Cari ulasan atau opini di media sosial atau forum lokal.
+    - **Indikator**:
+      - Persepsi masyarakat tentang area tersebut (contoh: aman, strategis, nyaman).
+      - Sejarah area (contoh: area dengan reputasi buruk sulit menarik pelanggan).
+
+8. Potensi Perubahan di Masa Depan
+    - Tinjau rencana tata kota atau proyek pemerintah.
+    - Tanyakan kepada dinas terkait atau pengembang properti.
+    - **Indikator** :
+      - Adanya proyek pembangunan besar di area (contoh: jalan tol, mall).
+      - Rencana pemerintah untuk pengembangan area.
+
+9. Keunikan Lokasi
+    - Perhatikan potensi daya tarik visual lokasi.
+    - Analisis apakah keunikan ini dapat digunakan sebagai strategi pemasaran.
+    - **Indikator**:
+      - Pemandangan menarik (contoh: dekat pantai, gunung, taman).
+      - Dekat dengan tempat wisata atau landmark populer.
+      - Karakteristik khusus (contoh: area dengan tema tertentu).
+
+
