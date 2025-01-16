@@ -1,0 +1,133 @@
+---
+title: "T-test dalam dunia yang fana ini.."
+author: "Albani"
+date: "2025-01-17"
+categories: [Data Analyst, Market Research, ]
+---
+> *mengerti T-test dalam 10 menit ??*
+
+-------
+
+# Pendahoeloean
+
+`T test` Ini dalah test yang digunakan untuk membandingkan rata-rata suatu data.Lah kok? ngapain ? trs untuk apa Tuhan menciptakan `mean(x)` ???
+
+Ini juga masuk dalam pemikiran saya, untuk apa sih? Capek bat hidup dah. Mari kita lihat contoh case berikut :
+
+```{r}
+case1 <- c(30, 30, 30, 30, 30)
+case2 <- c(30, 10, 50, 20, 40)
+```
+
+```{r}
+mean(case1)
+```
+```{r}
+mean(case2)
+```
+
+Lihat datanya berbeda namun rata-ratanya sama, sekilas dengan mean kita tidak bisa melihat apakahada perbedaan atau tidak, karena rata-ratanya sama. Tapi belum tentu itu tidak ada perbedaan, karena variansinya berbeda. Apakah sudah paham? berikut alesan why we should use T-test :
+
+1. Menggunakan `Mean` saja tidak cukup memberitahukan apakah ada perbedaan secara signifikan.
+2. T-Test membantu memastikan apakah perbedaan tersebut konsisten dan bukan karena kebetulan.
+3. Menggunakan Mean Tidak Bisa Mengukur Kebermaknaan.
+    - Apakah perbedaan rata-rata ini cukup besar untuk dianggap signifikan?
+    - Apakah perbedaan ini relevan untuk seluruh populasi atau hanya kebetulan muncul di sampel kecil?
+
+Bagaimana sudah cukup tercerahkan? Itulah kenapa harus menggnakan `T-test` kita sebagai praktisi as a Statistician, kita harus memberikan bukti apakah kesimpulan kita sudah valid ? Nah disini kita menggunakan T Test.
+
+# Penggunaan `T-test`
+
+Mari kita membuat contoh `T-test` dalam kehidupan sehari-hari. Untuk menentukan penggunaanya kita harus tau dulu jenis-jenisnya. Karena beda data beda juga type `T-test` yang kita pakai. Dalam statsitika itu ada 3 jenis `T-test` antara lain :
+
+1. One-sample t-test
+2. Two-sample t-test
+3. Paired t-test
+
+Dari tiga type berikut digunakan ketika :
+
+## One-sample t-test
+
+Jenis yang pertama ini digunakan untuk Membandingkan rata-rata satu kelompok dengan nilai tertentu. Katalainya menebak, apakah sesuai dengan hipotesis kita? Nah loh apa itu hipotesis? Nanti kita bahas di lain kesempatan.
+
+> Kayaknya dikantor gw gaji karyawan ada di kisaran `5.000.000`.
+
+Apakah benar gajinya segitu? Kalau dengan mean saja itu tidak merepresentasikan data, contoh pada kasus `case 1` dan `case2` di atas.
+
+> Kita ingin tahu apakah rata-rata skor siswa (𝑥) berbeda dari 75:
+  x <- c(78, 82, 85, 74, 69, 77, 81, 76, 80)
+  
+kita bisa menentukan hipotesis :
+H0 = Rata-rata skor siswa = 75.
+H1 = Rata-rata skor siswa ≠ 75.
+
+Note : **kita menolak H0 jika `P Value` < 0.05,**
+
+```{r}
+x <- c(78, 82, 85, 74, 69, 77, 81, 76, 80, 85)
+```
+```{r}
+mean(x)
+```
+
+Nah loh, rata-rata = 78, artinya tidak terlalu bebedalah ya. Apakah ini sudah benar secara T test? 
+
+```{r}
+t.test(x, mu = 75)
+```
+
+Dari hasil di atas menunjukan bahwa P < 0.05 artinya kita menolak H0, karena menolak maka kesimpulanya adalah H1. apa H1 ? `Rata-rata skor siswa ≠ 75`. Sehingga melihat rata-rata data saja tidak cukup untuk membuktikan apakah sama dengan hipotesis kita...
+
+Bagaimana, bergunakan ? Oke kita lanjutkan lagi..
+
+-----
+
+## Two-sample t-test
+
+Jenis ini digunakan Membandingkan rata-rata dua kelompok independen. Taukan Independen itu apa? Betul data yang berdiri sendiri, atau tanpa adaanya pengaruh data tersebut itu ada, itulah  `Independen`. Contoh 2 data independen apa ?
+
+1. Efek Obat a dan b terhadap tekanan darah.
+2. Rata-rata skor kelas A dan B.
+3. Banyak gula pada gelas kopi dan teh.
+
+> Kita ingin tahu apakah rata-rata skor siswa kelas A dan kelas B berbeda:
+
+```{r}
+kelas_A <- c(78, 82, 85, 74, 69, 77, 81, 76, 80)
+kelas_B <- c(88, 92, 95, 84, 79, 87, 91, 86, 90)
+```
+
+H0 : Rata-rata nilai kelas A = B
+H1 : Rata-rata nilai kelas A ≠ B
+
+```{r}
+t.test(kelas_A, kelas_B)
+```
+
+t = -4.4721 Artinya data A lebih kecil dari B.
+p-valu < 0.05 maka H0 di tolak, H1 : A tidak sama dengan B, maka ada perbedaan signifikan.
+
+## Paired t-test
+
+Selanjutnya yang terakhir adalah digunakan untuk embandingkan rata-rata dua kelompok yang saling berhubungan (misalnya, sebelum dan sesudah intervensi). Contoh lainya adalah :
+
+1. Nilai Post test dan pretest
+2. Sesudah meminum obat dan belum
+
+> Kita ingin tahu apakah ada perbedaan skor siswa sebelum (before) dan sesudah (after) intervensi
+
+```{r}
+before <- c(78, 82, 85, 74, 69, 77, 81, 76, 80)
+after <- c(88, 87, 85, 79, 72, 80, 85, 82, 85)
+```
+
+H0 : Before = After
+H1 : Before ≠ After
+
+```{r}
+t.test(before, after, paired = T)
+```
+
+t=−4.4721 > Nilai 𝑡 menunjukkan sejauh mana perbedaan rata-rata dua kelompok dibandingkan dengan variasi dalam data. Nilai negatif berarti rata-rata kelompok pertama (kelas_A) lebih kecil daripada rata-rata kelompok kedua (kelas_B).
+
+Karena 𝑝< 0.05, kita menolak hipotesis nol (𝐻0). H1 : A tidak sama dengan B Artinya tidak ada perbedaan signifikan.
