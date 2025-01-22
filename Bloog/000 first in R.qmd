@@ -37,10 +37,21 @@ library(designer) # untuk membuat dashboard
 
 ## FOR
 
+Sintaks umumnya adalah :
+
+```
+for (variable in vector) {
+  kondisi
+}
+```
+
 ```{r}
 for(i in sample(100:200, 5, replace = T)){
   print(paste("Nomor ", i))
 }
+
+# fungsi `sample` adalah sintaks untuk mencari nilai random
+# sample(100:200,5) buatkan angka dari 100-200 sebanyak 5 ,  T = boleh berulang
 ```
 
 ```{r}
