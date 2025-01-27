@@ -4,13 +4,14 @@ author: "Albani"
 date: "2024-06-14"
 categories: [Coding]
 ---
-> *Ini mungkin sintaks yang saya butuhkan setiap  hari saat menganalisa data sehingga saya harus buat summary yang bisa dijadikan sebagai panduan..*
 
--------
+> *Ini mungkin sintaks yang saya butuhkan setiap hari saat menganalisa data sehingga saya harus buat summary yang bisa dijadikan sebagai panduan..*
+
+------------------------------------------------------------------------
 
 # Library
 
-Pustaka yang saya butuhkan adalah: 
+Pustaka yang saya butuhkan adalah:
 
 ```{r, results='hide', warning=FALSE, message=FALSE}
 library(tidyverse) #For data structure
@@ -25,13 +26,13 @@ library(ggplot2) # For plot
 library(dlookr) # For EDA
 library(stats) 
 library(designer) # untuk membuat dashboard 
-#library()
-#library()
+library(flextable)
+library(DT)
 #library()
 #library()
 ```
 
------
+------------------------------------------------------------------------
 
 # Coding basic
 
@@ -39,7 +40,7 @@ library(designer) # untuk membuat dashboard
 
 Sintaks umumnya adalah :
 
-```
+```         
 for (variable in vector) {
   kondisi
 }
@@ -75,7 +76,7 @@ for (i in 1:50) {
 }
 ```
 
------
+------------------------------------------------------------------------
 
 ## WHILE
 
@@ -120,7 +121,7 @@ while (TRUE) {
 }
 ```
 
-> Pertanyaan: Buatlah program R yang menggunakan while loop untuk menghitung jumlah (total) dari semua bilangan genap mulai dari 2 hingga 100. 
+> Pertanyaan: Buatlah program R yang menggunakan while loop untuk menghitung jumlah (total) dari semua bilangan genap mulai dari 2 hingga 100.
 
 ```{r}
 total <- 0
@@ -133,7 +134,7 @@ while (i <= 100) {
 print(paste("Jumlah total bilangan genap dari 2 hingga 100 adalah", total))
 ```
 
------
+------------------------------------------------------------------------
 
 ## if, else, else if
 
@@ -194,7 +195,7 @@ Cekgenapganjil <- function(Angka){
 Cekgenapganjil(5)
 ```
 
------
+------------------------------------------------------------------------
 
 # Read data
 
@@ -203,7 +204,7 @@ Cekgenapganjil(5)
 #View(Data_telegram)
 ```
 
-------
+------------------------------------------------------------------------
 
 # Build data
 
@@ -223,8 +224,10 @@ Data_set1 <- data.frame(
   Waktu = format(sample(seq(as.POSIXct("2023-01-01 00:00:00"), as.POSIXct("2023-12-31 23:59:59"), by = "min"), 100, replace = TRUE), "%H:%M:%S")
 )
 ```
+
 Kumpulan sintaks
-```
+
+```         
 a = paste("Nama saya", 101)     >> Digunakan untuk menggabungkan string + angka lain
 
 sample(x, size, replace = TRUE, prob = NULL)    >> Membuat sample baris
@@ -252,13 +255,13 @@ seq(from, to, by)     >> membuat urutan angka dalam interval waktu
 seq(1, 20, by 5)
 ```
 
-- sample(): Mengambil sampel acak.
-- factor(): Mengubah data menjadi tipe kategorikal.
-- round(): Membulatkan angka.
-- runif(): Menghasilkan angka acak seragam.
-- seq(): Membuat urutan angka dengan pola tertentu.
+-   sample(): Mengambil sampel acak.
+-   factor(): Mengubah data menjadi tipe kategorikal.
+-   round(): Membulatkan angka.
+-   runif(): Menghasilkan angka acak seragam.
+-   seq(): Membuat urutan angka dengan pola tertentu.
 
-------
+------------------------------------------------------------------------
 
 # View data
 
@@ -267,6 +270,7 @@ seq(1, 20, by 5)
 ```{r}
 head(Data_set1,5)
 ```
+
 ```{r}
 tail(Data_set1, 5)
 ```
@@ -291,27 +295,427 @@ names(Data_set1)
 colnames(Data_set1)
 ```
 
------
+------------------------------------------------------------------------
 
 # Data Cleaning
 
+## Editing data
 
------
+```{r}
+str(Data_set1)
+```
+
+### Mengubah type data
+
+```{r}
+Data_set1$Rating <- as.factor(Data_set1$Rating)
+str(Data_set1)
+```
+
+### Mengubah posisi colom
+
+Dengan menggunakan index saja..
+
+```
+df[, c(1,3,2,4,5,6,7)] > ini adalah cara mudah mengambil baris
+```
+```{r}
+df <- Data_set1[, c(1, 3,2,4,5,6,7,8,9,10)]
+head(df,5)
+```
+
+## Selecting data
+
+### Mengambil Colom tertentu
+
+```{r}
+head(Data_set1[, 2],5) #menambil colom ke 2
+head(Data_set1[, c(1,2,5,6)],5) # Mengambil beberapa kolom dengan index
+head(Data_set1[, c("Nama", "Usia", "Tanggal", "Waktu")], 5) # Dengan nama header
+```
+
+### Mengambil baris tertentu
+
+#### Tanpa kondisi
+
+```{r}
+Data_set1[1,] # Mengambil baris 1
+Data_set1[c(1,3,5),] # Mengambil beberapa baris
+Data_set1[1:10,] # MEngambil beberapa baris
+```
+
+#### Dengan kondisi
+
+```{r}
+head(Data_set1, 5)
+```
+
+```{r}
+# Reguler
+head(Data_set1[Data_set1$Usia > 30, ],5)
+# Dengan atau "|"
+head(Data_set1[Data_set1$Usia <=29 | Data_set1$Pekerjaan=="Karyawan", ], 2)
+# Dengan Dan "&"
+head(Data_set1[Data_set1$Usia >45 & Data_set1$Pekerjaan=="Karyawan", ], 2)
+```
+
+### Menambahkan colom
+
+```{r}
+# Mengambil 4 digit terakhir dari data
+KD_toko = substr(Data_set1$Nama, 1, 4)
+head(KD_toko,5)
+# Mengambil 4 digit dalam data set
+KD_toko1 = substr(Data_set1$Nama, 3, 6) # ini menambil dari data k2 3 sampai 6 sisa kita mau ambil berapa digit
+head(KD_toko1, 5)
+
+# Mengambil data terakhir
+KD_toko2 <- substr(Data_set1$Nama, nchar(Data_set1$Nama)-3, nchar(Data_set1$Nama))
+head(KD_toko2,5)
+```
+
+Jika sudah dibuat maka sisa menggabungkan saja..
+
+```{r}
+Data_full <- cbind(Data_set1, KD_toko)
+head(Data_full, 5)
+```
+
+```{r}
+Data_full <- Data_full[, c(1,11,2,3,4,5,6,7,8,9,10,11)]
+head(Data_full, 5)
+```
+
+### Memilih nama colom tertentu
+
+```{r}
+Categorical_colm <- names(Data_set1)[sapply(Data_set1, is.integer)]
+Categorical_colm
+```
+
+```
+sapply > digunakan u ntuk menghasilkan data vektor atau sederhana.
+```
+
+## Checking
+
+Apa yang harus dicheck?
+
+### Duplicat
+
+Melihat semua data duplicated :
+
+```{r}
+Data_set1[duplicated(Data_set1)|duplicated(Data_set1), ]
+```
+
+Menghapus dengan cara :
+
+```{r}
+data_uniq <- Data_set1[!duplicated(Data_set1), ]
+```
+
+mengahapus data duplicate berdasarkan column tertentu :
+
+```{r}
+data_uniq <- Data_set1[!duplicated(Data_set1$Nama), ]
+```
+
+### Missing Value
+
+Cek seluruh data set
+
+```{r}
+sum(is.na(Data_set1))
+```
+
+Menghitung jumalh missing value per kolom
+
+```{r}
+colSums(is.na(Data_set1))
+```
+
+Menghitung jumalh missing value per baris
+
+```{r}
+Data_set1[!complete.cases(Data_set1), ]
+```
+
+Menghapus missing value
+
+```{r}
+data_clean <- Data_set1 %>% 
+  drop_na()
+```
+
+Mengisi Missing value
+
+Mengganti dengan median
+```{r}
+data_clean$Usia[is.na(data_clean$Usia)] <- median(data_clean$Usia, na.rm = T)
+```
+mengganti dengan rata-rata
+```{r}
+data_clean$Usia[is.na(data_clean$Usia)] <- mean(data_clean$Usia, na.rm = T)
+```
+
+### Outlier
+
+```{r}
+#install.packages("outliers")
+library(outliers)
+```
+```{r}
+grubbs.test(data_clean$ID)
+```
+> Cara membaca data diatas nilai > 200 adalah outlier
+
+Selain dengan library outliers kita bisa menggunakan boxplot untuk melihat data outilier..
+
+------------------------------------------------------------------------
+
+# Exploratory Data Analyst
+
+Mengerti tentang data secara menyeluruh
+
+```{r}
+str(data_clean)
+```
+
+## Lubridate
+
+sintaks umum lubridate :
+```
+ymd(), mdy(), dmy() > perubahan tanggal
+hm(), ms(), dan hms() > perubahan jam
+year(), month(), day() > Mengestrak tahun bulan tanggal
+hour(), minute(), second() > Mengestrak jam menit detik
+month(data, label = TRUE) > Singakatan bulan
+months(data) = Nama Bulan full
+```
+
+### Merubah type tanggal
+
+```{r}
+lubridate1 = Data_set1
+lubridate1$Tanggal <- as.Date(lubridate1$Tanggal)
+head(lubridate1, 5)
+```
+
+### Merubah type waktu
+
+```{r}
+lubridate1 %>% 
+  mutate(Waktu = hms(Waktu)) %>% 
+  mutate(Waktu = format(Waktu, "%H:%M:S%")) %>% 
+  head(n = 5)
+```
+
+```{r}
+str(lubridate1)
+```
+
+
+### Mengambil data tgl bln thn
+
+```{r}
+lubridate1 %>%
+  mutate(tgl = day(Tanggal)) %>% 
+  mutate(hari = wday(Tanggal, label = TRUE)) %>% 
+  mutate(bulan = month(Tanggal, label = TRUE)) %>% 
+  mutate(thn = year(Tanggal)) %>% 
+  head(n =5)
+```
+
+## dplyr
+
+Sintaks dasar pada dplyr yang bisa diguanakn adalah :
+
+### Select
+
+```{r}
+# Memilih dengan nama colom
+df2 <- select(data_clean, ID, Nama, Usia, Gender, Pendapatan) 
+head(df2, 5)
+
+# Memilih semua dengan kategori
+df1 <- data_clean %>% 
+    select_if(is.numeric)
+df3 <- data_clean %>% 
+  select_if(is.character)
+head(df1, 5)
+head(df3, 5)
+```
+
+```{r, results='hide'}
+head(data_clean)
+```
+
+
+### Filter
+
+```{r, results='hide'}
+Data_set_karyawan <- data_clean %>% 
+  filter(Pekerjaan == "Karyawan" & Usia >= 40)
+Data_set_karyawan
+
+#Note : bisa dikondisikan dengan | or dalam komputasi filter
+```
+
+
+### Mutate
+
+Digunakan untuk menambahhkan atau memodifikasi variable data..
+
+```{r, results='hide'}
+df_mutated <- data_clean %>% 
+  mutate(Kdtoko = substr(data_clean$Nama, 1, 4))
+df_mutated
+```
+
+```{r, results='hide'}
+newdf <- data_clean %>% 
+mutate(storecode  = substr(data_clean$Nama, nchar(data_clean$Nama)-3, nchar(data_clean$Nama)))
+newdf
+```
+
+```{r, results='hide'}
+data_clean %>% 
+  mutate(Gender = if_else(Gender == "Laki-laki", "LK", "PR"))
+```
+
+```{r, results='hide'}
+data_clean %>% 
+  mutate(Status_menikah = if_else(Status_menikah, "Menikah", "Jomblo"))
+```
+
+```{r, results='hide'}
+data_clean %>% 
+  mutate(Pekerjaan = case_when(
+    Pekerjaan == "Wiraswasta" ~ "WR",
+    Pekerjaan == "Mahasiswa" ~ "MH",
+    TRUE ~ Pekerjaan # Jika tidak ada maka gunakan niai asli
+  ))
+```
+
+### Groupby
+
+Teknik menggabungkan data..
+
+```{r}
+data_clean %>% 
+  group_by(Pekerjaan, Gender) %>% 
+  summarise(sum(Pendapatan))
+```
+
+### Sumarize
+
+Dalam sum yang dapat digunakan adalah :
+
+```
+sum() > Menghitung jumlah
+count() > Menghitung qty
+median() > Menghitung median
+min() | max()> Menghitung data terendah | tertinggi
+sd() > Menghitung Standar deviasi
+var() > Menghitung Variansi data
+sum(condition) > Menjumlahkan berdasarkan kondisi 
+  sum(Jumlah > 10)
+```
+
+Sehingg dapat diimplementasikan seperti berikut :
+
+```{r}
+data_clean %>% 
+  mutate(rata_rata = mean(data_clean$Pendapatan)) %>% 
+  select(Gender,  Pekerjaan, Pendapatan) %>% 
+  group_by(Pekerjaan, Gender) %>% 
+  summarise(sum(Pendapatan))
+```
+
+### Arrange
+
+Menurutkan data default dari arange adalah dari kecil ke besar, jika dengan menggunakan dari besar ke kecil maka menggunakan desc(), Contoh :
+
+```
+arange(desc(Penghasilan))
+```
+
+```{r}
+data_clean %>% 
+  select(Gender, Pekerjaan, Pendapatan) %>% 
+  group_by(Gender) %>% 
+  summarise(
+    Total = sum(Pendapatan),
+    qty = n(),
+    rata_rata_pendaptan = mean(Pendapatan)
+    ) %>% 
+  arrange(desc(Total))
+```
+
+## tidyr
+
+```{r}
+str(data_clean)
+```
+
+
+### Pivote dengan tidyr
+
+Melakukan pivot pertanggal :
+
+```{r}
+# Data set
+pivote <- data_clean %>% 
+  select(Usia, Gender, Pendapatan, Pekerjaan, Status_menikah, Tanggal) %>% 
+  mutate(Tgl = day(Tanggal)) %>%
+  mutate(Hari = wday(Tanggal, label = TRUE)) %>%
+  mutate(Bulan = month(Tanggal, label = TRUE)) %>%
+  mutate(thn = year(Tanggal))
+
+pivote <- pivote %>% 
+  mutate(Status_menikah = if_else(Status_menikah, "Menikah", "Jomblo"))
+
+
+datatable(pivote, options = list(pageLength = 5, scrollx = TRUE, scrollv = TRUE))
+```
+
+Data di atas enaknya kita pivote untuk keperluan analisa..
+
+```{r}
+Summary1 <- pivote %>% 
+  group_by(Status_menikah, Bulan) %>% 
+  summarise(
+    Total_pendapatan = sum(Pendapatan)
+    ) %>%
+  arrange(Total_pendapatan) %>% 
+  pivot_wider(names_from = Bulan, values_from = Total_pendapatan)
+
+Summary1
+```
+
+```{r}
+pivot_longer(Summary1, cols = Status_menikah, names_to = "kategori", values_to = "Pendapatan")
+```
+
+## reshape2
+
+
+
+## tidytext
+
+
+------------------------------------------------------------------------
 
 # Visualization
 
-
------
+------------------------------------------------------------------------
 
 # Stats dasar
 
-
------
+------------------------------------------------------------------------
 
 # Method of ststs
 
 
------
-
-
-
+------------------------------------------------------------------------
