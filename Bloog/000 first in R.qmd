@@ -28,8 +28,10 @@ library(stats)
 library(designer) # untuk membuat dashboard 
 library(flextable)
 library(DT)
-#library()
-#library()
+library(tidytext)
+library(ggiraph)
+library(gapminder)
+library(modeldata)
 ```
 
 ------------------------------------------------------------------------
@@ -700,14 +702,148 @@ pivot_longer(Summary1, cols = Status_menikah, names_to = "kategori", values_to =
 
 ## reshape2
 
-
+Tidak saya gunakan karena saya sudah punya `tidyr` lebih sederhana sintaksnya.
 
 ## tidytext
 
+Alur kerja tidytext :
+
+1. Siapkan data teks Anda dalam format tidy (biasanya data frame).
+2. Tokenisasi teks menjadi unit kecil (kata, frasa, n-grams).
+3. Bersihkan teks dengan menghapus stop words, simbol, atau karakter tidak penting.
+4. Lakukan analisis sesuai kebutuhan, seperti analisis sentimen atau n-grams.
+5. Visualisasikan hasil analisis menggunakan ggplot2.
+
+```{r}
+teks <- data.frame(
+  id = 1:3,
+  teks = c("I love data analysis and R programming",
+           "Text mining is fun with tidytext",
+           "Learning R is exciting and useful"
+  )
+)
+teks
+```
+
+```{r}
+# Tokenisasi
+token <- teks %>% 
+  unnest_tokens(word, teks)
+
+# Menghitung token
+freq <- token %>% 
+  count(word, sort = T)
+
+freq
+```
+```{r}
+data("stop_words")
+
+token_bersih <- token %>% 
+  anti_join(stop_words, by = "word")
+token_bersih
+```
+
+```{r}
+# Analisis sentimen dengan Bing
+sentimen <- token_bersih %>%
+  inner_join(get_sentiments("bing"), by = "word") %>%
+  count(word, sentiment, sort = TRUE)
+
+print(sentimen)
+```
+```{r}
+library(ggiraph)
+# Membuat plot sederhana frekuensi kata
+freq %>%
+  filter(n > 1) %>%
+  ggplot(aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(title = "Frekuensi Kata",
+       x = "Kata",
+       y = "Frekuensi")
+```
 
 ------------------------------------------------------------------------
 
 # Visualization
+
+```{r}
+library(ggplot2)
+library(plotly)
+```
+
+
+Visualiasi tidak perlu khawatir karena R menyediakan package yang enak :
+```{r}
+#dengan esqiuisse
+library(ggplot2)
+
+ggplot(pivote) +
+ aes(x = Pekerjaan, y = Pendapatan, fill = Pekerjaan) +
+ geom_col(position = "dodge") +
+ scale_fill_viridis_d(option = "magma", direction = 1) +
+ theme_minimal() +
+ facet_wrap(vars(Status_menikah))
+```
+
+```{r}
+library(modeldata)
+head(crickets, 5)
+```
+
+## Scatter plot Geompoint
+
+```{r}
+p <- ggplot(crickets, aes(x = temp, 
+                     y = rate,
+                     color = species))+
+  geom_point(fill = "lightblue")+
+  labs(
+    x = "Temperaature",
+    y = "Chirp rate",
+    title = "Tessss",
+    caption = "Sumber : Mcd 2009"
+  )
+ggplotly(p)
+```
+
+## Geom bar
+
+Data set yang digunakan dengan nama test
+```{r}
+plot1 <- mtcars  
+head(plot1)
+```
+
+```{r}
+p2 <- ggplot(data = plot1, aes(x = mpg))+
+  geom_histogram(bindwidth = 2, fill = "Lightblue", color = "black")+
+  labs(
+    title = "Tes bikin barplot",
+    x = "MPG",
+    y = "freq",
+    caption = "source : MPG 2025"
+  )+
+  theme_minimal()
+ggplotly(p2)
+```
+
+## Geom boxplot
+
+```{r}
+ggplot(data = plot1, aes(x = factor(cyl)))+
+  geom_bar(fill = "orange", color = "black")+
+  labs(
+    title = "Tess bikin histogram",
+    x = "Cyl",
+    y = "Freq",
+    caption = "Source : MPG(2025)"
+  )+
+  theme_minimal()
+```
+
 
 ------------------------------------------------------------------------
 

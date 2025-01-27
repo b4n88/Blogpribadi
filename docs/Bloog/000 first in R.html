@@ -122,6 +122,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
+<script src="../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
 
 
 <link rel="stylesheet" href="../ratakanan.css">
@@ -242,7 +250,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reshape2" id="toc-reshape2" class="nav-link" data-scroll-target="#reshape2">reshape2</a></li>
   <li><a href="#tidytext" id="toc-tidytext" class="nav-link" data-scroll-target="#tidytext">tidytext</a></li>
   </ul></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a>
+  <ul class="collapse">
+  <li><a href="#scatter-plot-geompoint" id="toc-scatter-plot-geompoint" class="nav-link" data-scroll-target="#scatter-plot-geompoint">Scatter plot Geompoint</a></li>
+  <li><a href="#geom-bar" id="toc-geom-bar" class="nav-link" data-scroll-target="#geom-bar">Geom bar</a></li>
+  <li><a href="#geom-boxplot" id="toc-geom-boxplot" class="nav-link" data-scroll-target="#geom-boxplot">Geom boxplot</a></li>
+  </ul></li>
   <li><a href="#stats-dasar" id="toc-stats-dasar" class="nav-link" data-scroll-target="#stats-dasar">Stats dasar</a></li>
   <li><a href="#method-of-ststs" id="toc-method-of-ststs" class="nav-link" data-scroll-target="#method-of-ststs">Method of ststs</a></li>
   </ul>
@@ -307,8 +320,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(designer) <span class="co"># untuk membuat dashboard </span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#library()</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#library()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraph)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modeldata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
@@ -325,11 +340,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Nomor "</span>, i))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Nomor  174"
-[1] "Nomor  101"
-[1] "Nomor  164"
-[1] "Nomor  171"
-[1] "Nomor  130"</code></pre>
+<pre><code>[1] "Nomor  119"
+[1] "Nomor  104"
+[1] "Nomor  169"
+[1] "Nomor  152"
+[1] "Nomor  113"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fungsi `sample` adalah sintaks untuk mencari nilai random</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sample(100:200,5) buatkan angka dari 100-200 sebanyak 5 ,  T = boleh berulang</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1684,15 +1699,268 @@ the `.groups` argument.</code></pre>
 </section>
 <section id="reshape2" class="level2">
 <h2 class="anchored" data-anchor-id="reshape2">reshape2</h2>
+<p>Tidak saya gunakan karena saya sudah punya <code>tidyr</code> lebih sederhana sintaksnya.</p>
 </section>
 <section id="tidytext" class="level2">
 <h2 class="anchored" data-anchor-id="tidytext">tidytext</h2>
+<p>Alur kerja tidytext :</p>
+<ol type="1">
+<li>Siapkan data teks Anda dalam format tidy (biasanya data frame).</li>
+<li>Tokenisasi teks menjadi unit kecil (kata, frasa, n-grams).</li>
+<li>Bersihkan teks dengan menghapus stop words, simbol, atau karakter tidak penting.</li>
+<li>Lakukan analisis sesuai kebutuhan, seperti analisis sentimen atau n-grams.</li>
+<li>Visualisasikan hasil analisis menggunakan ggplot2.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>teks <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">teks =</span> <span class="fu">c</span>(<span class="st">"I love data analysis and R programming"</span>,</span>
+<span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Text mining is fun with tidytext"</span>,</span>
+<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Learning R is exciting and useful"</span></span>
+<span id="cb143-6"><a href="#cb143-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb143-7"><a href="#cb143-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb143-8"><a href="#cb143-8" aria-hidden="true" tabindex="-1"></a>teks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id                                   teks
+1  1 I love data analysis and R programming
+2  2       Text mining is fun with tidytext
+3  3      Learning R is exciting and useful</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenisasi</span></span>
+<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a>token <span class="ot">&lt;-</span> teks <span class="sc">%&gt;%</span> </span>
+<span id="cb145-3"><a href="#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, teks)</span>
+<span id="cb145-4"><a href="#cb145-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-5"><a href="#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Menghitung token</span></span>
+<span id="cb145-6"><a href="#cb145-6" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> token <span class="sc">%&gt;%</span> </span>
+<span id="cb145-7"><a href="#cb145-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> T)</span>
+<span id="cb145-8"><a href="#cb145-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-9"><a href="#cb145-9" aria-hidden="true" tabindex="-1"></a>freq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          word n
+1          and 2
+2           is 2
+3            r 2
+4     analysis 1
+5         data 1
+6     exciting 1
+7          fun 1
+8            i 1
+9     learning 1
+10        love 1
+11      mining 1
+12 programming 1
+13        text 1
+14    tidytext 1
+15      useful 1
+16        with 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"stop_words"</span>)</span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a>token_bersih <span class="ot">&lt;-</span> token <span class="sc">%&gt;%</span> </span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words, <span class="at">by =</span> <span class="st">"word"</span>)</span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a>token_bersih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   id        word
+1   1        love
+2   1        data
+3   1    analysis
+4   1 programming
+5   2        text
+6   2      mining
+7   2         fun
+8   2    tidytext
+9   3    learning
+10  3    exciting</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analisis sentimen dengan Bing</span></span>
+<span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a>sentimen <span class="ot">&lt;-</span> token_bersih <span class="sc">%&gt;%</span></span>
+<span id="cb149-3"><a href="#cb149-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">get_sentiments</span>(<span class="st">"bing"</span>), <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb149-4"><a href="#cb149-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, sentiment, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb149-5"><a href="#cb149-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-6"><a href="#cb149-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sentimen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      word sentiment n
+1 exciting  positive 1
+2      fun  positive 1
+3     love  positive 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraph)</span>
+<span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot sederhana frekuensi kata</span></span>
+<span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a>freq <span class="sc">%&gt;%</span></span>
+<span id="cb151-4"><a href="#cb151-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb151-5"><a href="#cb151-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(word, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb151-6"><a href="#cb151-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb151-7"><a href="#cb151-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb151-8"><a href="#cb151-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frekuensi Kata"</span>,</span>
+<span id="cb151-9"><a href="#cb151-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Kata"</span>,</span>
+<span id="cb151-10"><a href="#cb151-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frekuensi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="000-first-in-R_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 </section>
 </section>
 <section id="visualization" class="level1">
 <h1>Visualization</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb152-2"><a href="#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'plotly' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'plotly'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:flextable':
+
+    highlight, style</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    last_plot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    layout</code></pre>
+</div>
+</div>
+<p>Visualiasi tidak perlu khawatir karena R menyediakan package yang enak :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dengan esqiuisse</span></span>
+<span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb159-3"><a href="#cb159-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-4"><a href="#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pivote) <span class="sc">+</span></span>
+<span id="cb159-5"><a href="#cb159-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">aes</span>(<span class="at">x =</span> Pekerjaan, <span class="at">y =</span> Pendapatan, <span class="at">fill =</span> Pekerjaan) <span class="sc">+</span></span>
+<span id="cb159-6"><a href="#cb159-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb159-7"><a href="#cb159-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb159-8"><a href="#cb159-8" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb159-9"><a href="#cb159-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Status_menikah))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="000-first-in-R_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modeldata)</span>
+<span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crickets, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  species           temp  rate
+  &lt;fct&gt;            &lt;dbl&gt; &lt;dbl&gt;
+1 O. exclamationis  20.8  67.9
+2 O. exclamationis  20.8  65.1
+3 O. exclamationis  24    77.3
+4 O. exclamationis  24    78.7
+5 O. exclamationis  24    79.4</code></pre>
+</div>
+</div>
+<section id="scatter-plot-geompoint" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot-geompoint">Scatter plot Geompoint</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crickets, <span class="fu">aes</span>(<span class="at">x =</span> temp, </span>
+<span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> rate,</span>
+<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> species))<span class="sc">+</span></span>
+<span id="cb162-4"><a href="#cb162-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>)<span class="sc">+</span></span>
+<span id="cb162-5"><a href="#cb162-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb162-6"><a href="#cb162-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Temperaature"</span>,</span>
+<span id="cb162-7"><a href="#cb162-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Chirp rate"</span>,</span>
+<span id="cb162-8"><a href="#cb162-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tessss"</span>,</span>
+<span id="cb162-9"><a href="#cb162-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Sumber : Mcd 2009"</span></span>
+<span id="cb162-10"><a href="#cb162-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb162-11"><a href="#cb162-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-0fe2fb8ada9251f576f1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-0fe2fb8ada9251f576f1">{"x":{"data":[{"x":[20.800000000000001,20.800000000000001,24,24,24,24,26.199999999999999,26.199999999999999,26.199999999999999,26.199999999999999,28.399999999999999,29,30.399999999999999,30.399999999999999],"y":[67.900000000000006,65.099999999999994,77.299999999999997,78.700000000000003,79.400000000000006,80.400000000000006,85.799999999999997,86.599999999999994,87.5,89.099999999999994,98.599999999999994,100.8,99.299999999999997,101.7],"text":["temp: 20.8<br />rate:  67.9<br />species: O. exclamationis","temp: 20.8<br />rate:  65.1<br />species: O. exclamationis","temp: 24.0<br />rate:  77.3<br />species: O. exclamationis","temp: 24.0<br />rate:  78.7<br />species: O. exclamationis","temp: 24.0<br />rate:  79.4<br />species: O. exclamationis","temp: 24.0<br />rate:  80.4<br />species: O. exclamationis","temp: 26.2<br />rate:  85.8<br />species: O. exclamationis","temp: 26.2<br />rate:  86.6<br />species: O. exclamationis","temp: 26.2<br />rate:  87.5<br />species: O. exclamationis","temp: 26.2<br />rate:  89.1<br />species: O. exclamationis","temp: 28.4<br />rate:  98.6<br />species: O. exclamationis","temp: 29.0<br />rate: 100.8<br />species: O. exclamationis","temp: 30.4<br />rate:  99.3<br />species: O. exclamationis","temp: 30.4<br />rate: 101.7<br />species: O. exclamationis"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"O. exclamationis","legendgroup":"O. exclamationis","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[17.199999999999999,18.300000000000001,18.300000000000001,18.300000000000001,18.899999999999999,18.899999999999999,20.399999999999999,21,21,22.100000000000001,23.5,24.199999999999999,25.899999999999999,26.5,26.5,26.5,28.600000000000001],"y":[44.299999999999997,47.200000000000003,47.600000000000001,49.600000000000001,50.299999999999997,51.799999999999997,60,58.5,58.899999999999999,60.700000000000003,69.799999999999997,70.900000000000006,76.200000000000003,76.099999999999994,77,77.700000000000003,84.700000000000003],"text":["temp: 17.2<br />rate:  44.3<br />species: O. niveus","temp: 18.3<br />rate:  47.2<br />species: O. niveus","temp: 18.3<br />rate:  47.6<br />species: O. niveus","temp: 18.3<br />rate:  49.6<br />species: O. niveus","temp: 18.9<br />rate:  50.3<br />species: O. niveus","temp: 18.9<br />rate:  51.8<br />species: O. niveus","temp: 20.4<br />rate:  60.0<br />species: O. niveus","temp: 21.0<br />rate:  58.5<br />species: O. niveus","temp: 21.0<br />rate:  58.9<br />species: O. niveus","temp: 22.1<br />rate:  60.7<br />species: O. niveus","temp: 23.5<br />rate:  69.8<br />species: O. niveus","temp: 24.2<br />rate:  70.9<br />species: O. niveus","temp: 25.9<br />rate:  76.2<br />species: O. niveus","temp: 26.5<br />rate:  76.1<br />species: O. niveus","temp: 26.5<br />rate:  77.0<br />species: O. niveus","temp: 26.5<br />rate:  77.7<br />species: O. niveus","temp: 28.6<br />rate:  84.7<br />species: O. niveus"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"O. niveus","legendgroup":"O. niveus","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":43.105022831050235},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Tessss","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[16.539999999999999,31.059999999999999],"tickmode":"array","ticktext":["20","24","28"],"tickvals":[20,24,28],"categoryorder":"array","categoryarray":["20","24","28"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Temperaature","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[41.43,104.57000000000001],"tickmode":"array","ticktext":["60","80","100"],"tickvals":[60,80,100],"categoryorder":"array","categoryarray":["60","80","100"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Chirp rate","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"species","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"4542ec6c3e":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"4542ec6c3e","visdat":{"4542ec6c3e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="geom-bar" class="level2">
+<h2 class="anchored" data-anchor-id="geom-bar">Geom bar</h2>
+<p>Data set yang digunakan dengan nama test</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars  </span>
+<span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(plot1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> plot1, <span class="fu">aes</span>(<span class="at">x =</span> mpg))<span class="sc">+</span></span>
+<span id="cb165-2"><a href="#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bindwidth =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">"Lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb165-3"><a href="#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb165-4"><a href="#cb165-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tes bikin barplot"</span>,</span>
+<span id="cb165-5"><a href="#cb165-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"MPG"</span>,</span>
+<span id="cb165-6"><a href="#cb165-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"freq"</span>,</span>
+<span id="cb165-7"><a href="#cb165-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"source : MPG 2025"</span></span>
+<span id="cb165-8"><a href="#cb165-8" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb165-9"><a href="#cb165-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_histogram(bindwidth = 2, fill = "Lightblue", color = "black"):
+Ignoring unknown parameters: `bindwidth`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-574a02ad43b354130f32" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-574a02ad43b354130f32">{"x":{"data":[{"orientation":"v","width":[0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758620641,0.81034482758622062,0.81034482758620641,0.81034482758620641],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[10.534482758620689,11.344827586206897,12.155172413793103,12.96551724137931,13.775862068965516,14.586206896551722,15.396551724137929,16.206896551724135,17.017241379310342,17.827586206896548,18.637931034482754,19.448275862068964,20.258620689655171,21.068965517241381,21.879310344827587,22.689655172413794,23.5,24.310344827586206,25.120689655172413,25.931034482758619,26.741379310344826,27.551724137931032,28.362068965517238,29.172413793103445,29.982758620689651,30.793103448275858,31.603448275862064,32.41379310344827,33.224137931034484,34.03448275862069],"y":[2,0,0,1,0,2,5,1,1,2,1,3,0,4,1,2,0,1,0,1,0,1,0,0,0,2,0,1,0,1],"text":["count: 2<br />mpg: 10.53448","count: 0<br />mpg: 11.34483","count: 0<br />mpg: 12.15517","count: 1<br />mpg: 12.96552","count: 0<br />mpg: 13.77586","count: 2<br />mpg: 14.58621","count: 5<br />mpg: 15.39655","count: 1<br />mpg: 16.20690","count: 1<br />mpg: 17.01724","count: 2<br />mpg: 17.82759","count: 1<br />mpg: 18.63793","count: 3<br />mpg: 19.44828","count: 0<br />mpg: 20.25862","count: 4<br />mpg: 21.06897","count: 1<br />mpg: 21.87931","count: 2<br />mpg: 22.68966","count: 0<br />mpg: 23.50000","count: 1<br />mpg: 24.31034","count: 0<br />mpg: 25.12069","count: 1<br />mpg: 25.93103","count: 0<br />mpg: 26.74138","count: 1<br />mpg: 27.55172","count: 0<br />mpg: 28.36207","count: 0<br />mpg: 29.17241","count: 0<br />mpg: 29.98276","count: 2<br />mpg: 30.79310","count: 0<br />mpg: 31.60345","count: 1<br />mpg: 32.41379","count: 0<br />mpg: 33.22414","count: 1<br />mpg: 34.03448"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(173,216,230,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":31.415525114155255},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Tes bikin barplot","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[8.913793103448274,35.655172413793103],"tickmode":"array","ticktext":["10","15","20","25","30","35"],"tickvals":[10,15,20,25,30,35],"categoryorder":"array","categoryarray":["10","15","20","25","30","35"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"MPG","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.25,5.25],"tickmode":"array","ticktext":["0","1","2","3","4","5"],"tickvals":[0,1,2,3,4,5],"categoryorder":"array","categoryarray":["0","1","2","3","4","5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"freq","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"45434e43335":{"x":{},"type":"bar"}},"cur_data":"45434e43335","visdat":{"45434e43335":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="geom-boxplot" class="level2">
+<h2 class="anchored" data-anchor-id="geom-boxplot">Geom boxplot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plot1, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl)))<span class="sc">+</span></span>
+<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tess bikin histogram"</span>,</span>
+<span id="cb169-5"><a href="#cb169-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cyl"</span>,</span>
+<span id="cb169-6"><a href="#cb169-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Freq"</span>,</span>
+<span id="cb169-7"><a href="#cb169-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source : MPG(2025)"</span></span>
+<span id="cb169-8"><a href="#cb169-8" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb169-9"><a href="#cb169-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="000-first-in-R_files/figure-html/unnamed-chunk-76-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
+</section>
 </section>
 <section id="stats-dasar" class="level1">
 <h1>Stats dasar</h1>
